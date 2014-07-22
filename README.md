@@ -10,6 +10,15 @@
 
     open http://localhost:3000
 
+## Generate Access to Admin
+
+    rails c
+
+copy 
+
+    User.new({:name => "YOUR NAME", :email => "YOUR MAIL", :password => "YOUR PASSWORD", password_confirmation => "CONFIRME YOUR PASSWORD"}).save
+
+
 ## Dependencies
 
 - Ruby 2.1.0+
