@@ -16,9 +16,11 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails-i18n'
 gem 'devise'
+gem 'omniauth-facebook'
 gem 'kaminari'
 gem 'simple_form'
 gem 'responders'
+gem 'cancan'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
