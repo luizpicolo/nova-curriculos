@@ -1,0 +1,35 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/picolo/ruby/nova-curriculos/app/controllers/home_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/picolo/ruby/nova-curriculos/app/controllers/application_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/home/picolo/ruby/nova-curriculos/lib/application_responder.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1405994807
+  }
+}
