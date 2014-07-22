@@ -16,7 +16,7 @@
 
 copy 
 
-    User.new({:name => "YOUR NAME", :email => "YOUR MAIL", :password => "YOUR PASSWORD", password_confirmation => "CONFIRME YOUR PASSWORD"}).save
+    User.new({:name => "YOUR NAME", :email => "YOUR MAIL", :password => "YOUR PASSWORD", password_confirmation => "CONFIRME YOUR PASSWORD", :admin => true}).save
 
 
 ## Dependencies
