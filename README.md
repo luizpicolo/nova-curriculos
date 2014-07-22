@@ -23,9 +23,9 @@
 
 ## Contributors
 
-Gabriel Medina - Front-end Developer
-Vivi Vresk - Designer
-Luiz Picolo - Back-end Developer
+- Gabriel Medina - Front-end Developer
+- Vivi Vresk - Designer
+- Luiz Picolo - Back-end Developer
 
 ---
 
