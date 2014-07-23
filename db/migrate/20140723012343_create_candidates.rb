@@ -13,7 +13,6 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :mobile_phone
       t.text :courses_and_events
 
-      t.references :professional_areas, index: true, null: false
       t.references :city, index:true, null: false
 
       t.timestamps
