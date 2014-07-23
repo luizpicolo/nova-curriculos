@@ -1,4 +1,5 @@
 class Candidate < ActiveRecord::Base
+  
   validates :is_male, :inclusion => { :in => [true, false] }, presence: true
   validates :bith_date, :mobile_phone, presence: true
 
