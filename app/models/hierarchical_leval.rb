@@ -1,5 +1,5 @@
-class HierarchicalLeval < ActiveRecord::Base
+class HierarchicalLevel < ActiveRecord::Base
   validate :name, presence: true
 
-  has_many :candidates, dependent: :destroy
+  has_many :candidates
 end
