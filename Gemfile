@@ -21,6 +21,7 @@ gem 'kaminari'
 gem 'simple_form'
 gem 'responders'
 gem 'cancan'
+gem 'sanitize-rails', require: 'sanitize/rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
