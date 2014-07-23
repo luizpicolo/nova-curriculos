@@ -3,8 +3,8 @@ class CreateProfessionalExperiences < ActiveRecord::Migration
     create_table :professional_experiences do |t|
       t.string :name_company
       t.string :last_post
-      t.date :date_entrance
-      t.date :date_exit
+      t.date :start_date
+      t.date :finish_date
       t.boolean :jobs_current
       t.text :attributions
 
