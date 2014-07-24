@@ -2,6 +2,7 @@ RailsAdmin.config do |config|
 
   ################  Global configuration  ################
   config.main_app_name = ['Nova Currículos', 'Admin']
+  config.default_items_per_page = 20
   
   ### Popular gems integration
 
@@ -77,6 +78,7 @@ RailsAdmin.config do |config|
       configure :courses_and_events
       configure :city
       configure :is_male
+      configure :image, :carrierwave
       configure :professional_areas
       configure :hierarchical_levels
       configure :professional_experiences

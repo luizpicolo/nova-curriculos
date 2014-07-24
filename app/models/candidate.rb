@@ -1,4 +1,10 @@
+require 'carrierwave/orm/activerecord'
+
 class Candidate < ActiveRecord::Base
+
+  mount_uploader :image, ImageUploader
+
+  #process_in_background :image
   
   validates :is_male, :inclusion => { :in => [true, false] }, presence: true
   validates :bith_date, :mobile_phone, presence: true
