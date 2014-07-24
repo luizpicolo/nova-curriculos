@@ -5,7 +5,7 @@ class CreateCandidates < ActiveRecord::Migration
       t.boolean :is_male, null: false
       t.date :bith_date, null: false
       
-      t.integer :zip_code, limit: 10
+      t.integer :zip_code
       t.string :street
       t.integer :number
       t.string :complement

@@ -1,4 +1,4 @@
 class ProfessionalExperience < ActiveRecord::Base
-	validate :name_company, :las_post, :date_entrance, presence: true
+	validates :name_company, :last_post, :start_date, presence: true
 	belongs_to :candidate
 end
