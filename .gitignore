@@ -14,3 +14,13 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Configurations
+/config/database.yml
+
+# Coverage
+/coverage.data
+/coverage/
+
+# Uploads
+/public/uploads/
