@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724044751) do
+ActiveRecord::Schema.define(version: 20140725034242) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling",      null: false
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20140724044751) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "candidate_id"
+  end
+
+  create_table "branch_operations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "candidates", force: true do |t|
@@ -59,6 +65,37 @@ ActiveRecord::Schema.define(version: 20140724044751) do
 
   create_table "cities", force: true do |t|
     t.string   "name",       null: false
+    t.integer  "state_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
+
+  create_table "companies", force: true do |t|
+    t.string   "fancy_name"
+    t.string   "corporate_name"
+    t.string   "phone"
+    t.string   "street"
+    t.integer  "number"
+    t.string   "facebook"
+    t.string   "website"
+    t.integer  "type_company_id",     null: false
+    t.string   "cnpj"
+    t.integer  "city_id",             null: false
+    t.integer  "branch_operation_id", null: false
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "companies", ["branch_operation_id"], name: "index_companies_on_branch_operation_id", using: :btree
+  add_index "companies", ["city_id"], name: "index_companies_on_city_id", using: :btree
+  add_index "companies", ["type_company_id"], name: "index_companies_on_type_company_id", using: :btree
+
+  create_table "countries", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,6 +105,42 @@ ActiveRecord::Schema.define(version: 20140724044751) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "job_categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "job_plus", force: true do |t|
+    t.integer  "job_id",      null: false
+    t.date     "start_date"
+    t.date     "finish_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "job_plus", ["job_id"], name: "index_job_plus_on_job_id", using: :btree
+
+  create_table "jobs", force: true do |t|
+    t.string   "job_title"
+    t.integer  "company_id",        null: false
+    t.string   "salary_range"
+    t.integer  "type_contract_id",  null: false
+    t.integer  "job_category_id",   null: false
+    t.integer  "amount_vacancies"
+    t.string   "time_contract"
+    t.text     "description"
+    t.text     "requirements"
+    t.string   "period_of_work"
+    t.text     "other_information"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
+  add_index "jobs", ["job_category_id"], name: "index_jobs_on_job_category_id", using: :btree
+  add_index "jobs", ["type_contract_id"], name: "index_jobs_on_type_contract_id", using: :btree
 
   create_table "professional_areas", force: true do |t|
     t.string   "name",       null: false
@@ -85,6 +158,27 @@ ActiveRecord::Schema.define(version: 20140724044751) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "candidate_id"
+  end
+
+  create_table "states", force: true do |t|
+    t.string   "name"
+    t.integer  "country_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "states", ["country_id"], name: "index_states_on_country_id", using: :btree
+
+  create_table "type_companies", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "type_contracts", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

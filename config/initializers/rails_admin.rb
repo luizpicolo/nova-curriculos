@@ -3,6 +3,8 @@ RailsAdmin.config do |config|
   ################  Global configuration  ################
   config.main_app_name = ['Nova Currículos', 'Admin']
   config.default_items_per_page = 20
+  #config.included_models = ["Company", "TypeCompany", "BranchOperation"]
+  config.compact_show_view = false
   
   ### Popular gems integration
 
@@ -37,6 +39,7 @@ RailsAdmin.config do |config|
 
   ###  Academic Training  ###
   config.model 'AcademicTraining' do
+    navigation_label 'Candidatos'
     list do
       field :id
       field :candidate
@@ -58,31 +61,32 @@ RailsAdmin.config do |config|
 
   ###  Candidate  ###
   config.model 'Candidate' do
+    navigation_label 'Candidatos'
     list do
       field :id
       field :user
       field :mobile_phone
     end
     edit do
-      configure :user, :belongs_to_association do
+      field :user, :belongs_to_association do
         inline_add false
         inline_edit false
       end
-      configure :bith_date
-      configure :zip_code
-      configure :street
-      configure :number
-      configure :complement
-      configure :home_fone
-      configure :mobile_phone
-      configure :courses_and_events
-      configure :city
-      configure :is_male
-      configure :image, :carrierwave
-      configure :professional_areas
-      configure :hierarchical_levels
-      configure :professional_experiences
-      configure :academic_trainings
+      field :bith_date
+      field :is_male
+      field :zip_code
+      field :street
+      field :number
+      field :complement
+      field :home_fone
+      field :mobile_phone
+      field :courses_and_events
+      field :city
+      field :image, :carrierwave
+      field :professional_areas
+      field :hierarchical_levels
+      field :professional_experiences
+      field :academic_trainings
     end
     # show do
     #   field :id
@@ -94,6 +98,7 @@ RailsAdmin.config do |config|
 
   ###  Hierarchical Level  ###
   config.model 'HierarchicalLevel' do
+    navigation_label 'Candidatos'
     list do
       field :id
       field :name
@@ -110,6 +115,7 @@ RailsAdmin.config do |config|
 
   ###  Professional area ###
   config.model 'ProfessionalArea' do
+    navigation_label 'Candidatos'
     list do
       field :id
       field :name
@@ -126,6 +132,7 @@ RailsAdmin.config do |config|
 
   ###  Professional Experience  ###
   config.model 'ProfessionalExperience' do
+    navigation_label 'Candidatos'
     list do
       field :id
       field :candidate
@@ -147,8 +154,189 @@ RailsAdmin.config do |config|
     # end
   end
 
+  ###  Company  ###
+  config.model 'Company' do
+    navigation_label 'Empresas'
+    list do
+      field :id
+      field :corporate_name
+      field :cnpj
+      field :city
+      field :user
+    end
+    edit do
+      field :user, :belongs_to_association do
+        inline_add false
+        inline_edit false
+      end
+      field :fancy_name
+      field :corporate_name
+      field :phone
+      field :type_company
+      field :cnpj
+      field :city
+      field :branch_operation
+      field :description
+      field :logo, :carrierwave
+    end
+    # show do
+    #   field :id
+    #   field :user
+    #   field :link
+    #   field :image
+    # end
+  end
+
+  ###  Branch Operation  ###
+  config.model 'BranchOperation' do
+    navigation_label 'Empresas'
+    #navigation_icon 'icon-user'
+    list do
+      field :id
+      field :name
+    end
+    edit do
+      field :name
+    end
+    # show do
+    #   field :name
+    #   field :email
+    #   field :admin
+    # end
+  end
+
+  ###  Type Company  ###
+  config.model 'TypeCompany' do
+    navigation_label 'Empresas'
+    #navigation_icon 'icon-user'
+    list do
+      field :id
+      field :name
+    end
+    edit do
+      field :name
+    end
+    # show do
+    #   field :name
+    #   field :email
+    #   field :admin
+    # end
+  end
+
+  ###  Citys  ###
+  config.model 'City' do
+    navigation_label 'Localidade'
+    #navigation_icon 'icon-user'
+    list do
+      field :id
+      field :name
+    end
+    edit do
+      field :name
+      field :state
+    end
+    # show do
+    #   field :name
+    #   field :email
+    #   field :admin
+    # end
+  end
+
+  ###  State  ###
+  config.model 'State' do
+    navigation_label 'Localidade'
+    #navigation_icon 'icon-user'
+    list do
+      field :id
+      field :name
+    end
+    edit do
+      field :name
+      field :country
+    end
+    # show do
+    #   field :name
+    #   field :email
+    #   field :admin
+    # end
+  end
+
+  ###  Country  ###
+  config.model 'Country' do
+    navigation_label 'Localidade'
+    #navigation_icon 'icon-user'
+    list do
+      field :id
+      field :name
+    end
+    edit do
+      field :name
+    end
+    # show do
+    #   field :name
+    #   field :email
+    #   field :admin
+    # end
+  end
+
+  ###  Jobs  ###
+  config.model 'Job' do
+    navigation_label 'Vagas'
+    list do
+      field :id
+      field :job_title
+      field :company
+      field :jobs_category
+    end
+  end
+
+  ### Jobs Category ###
+  config.model 'JobCategory' do
+    navigation_label 'Vagas'
+    list do
+      field :id
+      field :name
+    end
+    edit do
+      field :name
+    end
+  end
+
+  ### Jobs Category ###
+  config.model 'TypeContract' do
+    navigation_label 'Vagas'
+    list do
+      field :id
+      field :name
+    end
+    edit do
+      field :name
+    end
+  end
+
+  ### Jobs Category ###
+  config.model 'JobPlus' do
+    navigation_label 'Vagas Plus'
+    list do
+      field :id
+      field :job
+      field :start_date
+      field :finish_date
+    end
+    edit do
+      field :job do
+        inline_add false
+        inline_edit false
+      end
+      field :start_date
+      field :finish_date
+    end
+  end
+
   ###  User  ###
   config.model 'User' do
+    navigation_label 'Usuários'
+    #navigation_icon 'icon-user'
     list do
       field :id
       field :name
