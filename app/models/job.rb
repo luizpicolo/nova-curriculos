@@ -8,7 +8,9 @@ class Job < ActiveRecord::Base
 			:description,
 			:requirements,
 			:period_of_work,
-			:other_information, presence: true
+			:other_information, 
+			:start_date, 
+			:finish_date, presence: true
 
   belongs_to :type_contract
   belongs_to :company

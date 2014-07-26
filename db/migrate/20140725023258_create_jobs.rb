@@ -12,6 +12,9 @@ class CreateJobs < ActiveRecord::Migration
       t.text :requirements
       t.string :period_of_work
       t.text :other_information
+      t.date :start_date
+      t.date :finish_date
+      t.boolean :job_premiun
 
       t.timestamps
     end

@@ -112,16 +112,6 @@ ActiveRecord::Schema.define(version: 20140725034242) do
     t.datetime "updated_at"
   end
 
-  create_table "job_plus", force: true do |t|
-    t.integer  "job_id",      null: false
-    t.date     "start_date"
-    t.date     "finish_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "job_plus", ["job_id"], name: "index_job_plus_on_job_id", using: :btree
-
   create_table "jobs", force: true do |t|
     t.string   "job_title"
     t.integer  "company_id",        null: false
@@ -134,6 +124,9 @@ ActiveRecord::Schema.define(version: 20140725034242) do
     t.text     "requirements"
     t.string   "period_of_work"
     t.text     "other_information"
+    t.date     "start_date"
+    t.date     "finish_date"
+    t.boolean  "job_premiun"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
