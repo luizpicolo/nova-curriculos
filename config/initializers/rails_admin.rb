@@ -83,6 +83,7 @@ RailsAdmin.config do |config|
       field :courses_and_events
       field :city
       field :image, :carrierwave
+      field :languages
       field :professional_areas
       field :hierarchical_levels
       field :professional_experiences
@@ -314,22 +315,21 @@ RailsAdmin.config do |config|
     end
   end
 
-  ### Jobs Category ###
-  config.model 'JobPlus' do
-    navigation_label 'Vagas Plus'
+  ### Language ###
+  config.model 'Language' do
+    navigation_label 'Vagas'
     list do
       field :id
-      field :job
-      field :start_date
-      field :finish_date
+      field :speech
+      field :candidate
     end
     edit do
-      field :job do
-        inline_add false
-        inline_edit false
+      field :speech, :enum do
+        enum do
+          ['ingles', 'white']
+        end
       end
-      field :start_date
-      field :finish_date
+      field :level
     end
   end
 

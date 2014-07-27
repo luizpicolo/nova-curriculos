@@ -16,6 +16,7 @@ class Candidate < ActiveRecord::Base
   has_and_belongs_to_many :hierarchical_levels
   has_many :professional_experiences, dependent: :destroy
   has_many :academic_trainings, dependent: :destroy
+  has_many :languages, dependent: :destroy
 
   belongs_to :city
   belongs_to :user
