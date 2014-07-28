@@ -10,6 +10,9 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
+# Rails Enviroment
+# set :rails_env, 'production'
+
 set :domain, '192.168.1.5'
 set :deploy_to, '/home/picolo/ruby/nova-curriculos-production'
 set :repository, 'git@bitbucket.org:luizpicolo_/nova-curriculos.git'
@@ -67,6 +70,21 @@ task :deploy => :environment do
       #queue 'sudo service restart apache'
     end
   end
+end
+
+desc "Rolls back the latest release"
+task :rollback => :environment do
+  queue! %[echo "-----> Rolling back to previous release for instance: #{domain}"]
+
+  # Delete existing sym link and create a new symlink pointing to the previous release
+  queue %[echo -n "-----> Creating new symlink from the previous release: "]
+  queue %[ls "#{deploy_to}/releases" -Art | sort | tail -n 2 | head -n 1]
+  queue! %[ls -Art "#{deploy_to}/releases" | sort | tail -n 2 | head -n 1 | xargs -I active ln -nfs "#{deploy_to}/releases/active" "#{deploy_to}/current"]
+
+  # Remove latest release folder (active release)
+  queue %[echo -n "-----> Deleting active release: "]
+  queue %[ls "#{deploy_to}/releases" -Art | sort | tail -n 1]
+  queue! %[ls "#{deploy_to}/releases" -Art | sort | tail -n 1 | xargs -I active rm -rf "#{deploy_to}/releases/active"]
 end
 
 # task :down do
