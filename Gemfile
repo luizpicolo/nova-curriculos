@@ -35,6 +35,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'spring'
   gem 'faker'
+  gem 'mina' 
 end
 
 group :production do
