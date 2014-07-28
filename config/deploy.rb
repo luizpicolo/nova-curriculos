@@ -66,12 +66,16 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
+      queue %[echo -n "-----> Creating new restart.txt: "]
       queue "touch #{deploy_to}/tmp/restart.txt"
-      #queue 'sudo service restart apache'
+      
+      queue %[echo -n "-----> Restart Apache Service: "]
+      #queue 'sudo service httpd restart'
     end
   end
 end
 
+# Roolback
 desc "Rolls back the latest release"
 task :rollback => :environment do
   queue! %[echo "-----> Rolling back to previous release for instance: #{domain}"]
@@ -85,6 +89,9 @@ task :rollback => :environment do
   queue %[echo -n "-----> Deleting active release: "]
   queue %[ls "#{deploy_to}/releases" -Art | sort | tail -n 1]
   queue! %[ls "#{deploy_to}/releases" -Art | sort | tail -n 1 | xargs -I active rm -rf "#{deploy_to}/releases/active"]
+
+  queue %[echo -n "-----> Restart Apache Service: "]
+  #queue 'sudo service httpd restart'
 end
 
 # task :down do
