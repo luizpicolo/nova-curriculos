@@ -9,9 +9,8 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :street
       t.integer :number
       t.string :complement
-      t.string :home_fone
+      t.string :home_phone
       t.string :mobile_phone
-      t.text :courses_and_events
 
       t.references :city, index:true, null: false
 

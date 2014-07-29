@@ -17,6 +17,7 @@ class Candidate < ActiveRecord::Base
   has_many :professional_experiences, dependent: :destroy
   has_many :academic_trainings, dependent: :destroy
   has_many :languages, dependent: :destroy
+  has_many :extra_courses, dependent: :destroy
 
   belongs_to :city
   belongs_to :user
