@@ -1,6 +1,18 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
-  factory :job, :class => 'Jobs' do
+  factory :job do
+  	job_title { Faker::Name.title }
+  	company factory: :company
+  	salary_range { Faker::Commerce.pric }
+  	type_contract factory: :type_contract
+  	job_category factory: :job_category
+  	amount_vacancies { Faker::Number.number(2) }
+  	time_contract { Faker::Name.title }
+  	description { Faker::Lorem.paragraph(2) }
+  	requirements { Faker::Lorem.paragraph(2) }
+  	period_of_work { Faker::Name.title }
+  	other_information { Faker::Lorem.paragraph(2) }
+  	start_date Time.now
+  	finish_date Time.now
+  	job_premiun false
   end
 end
