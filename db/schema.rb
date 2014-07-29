@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727025351) do
+ActiveRecord::Schema.define(version: 20140729005423) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling",      null: false
@@ -31,16 +31,15 @@ ActiveRecord::Schema.define(version: 20140727025351) do
   end
 
   create_table "candidates", force: true do |t|
-    t.boolean  "is_male",            null: false
-    t.date     "bith_date",          null: false
+    t.boolean  "is_male",      null: false
+    t.date     "bith_date",    null: false
     t.integer  "zip_code"
     t.string   "street"
     t.integer  "number"
     t.string   "complement"
-    t.string   "home_fone"
+    t.string   "home_phone"
     t.string   "mobile_phone"
-    t.text     "courses_and_events"
-    t.integer  "city_id",            null: false
+    t.integer  "city_id",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -99,6 +98,17 @@ ActiveRecord::Schema.define(version: 20140727025351) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "extra_courses", force: true do |t|
+    t.string   "name"
+    t.string   "local"
+    t.text     "description"
+    t.integer  "candidate_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "extra_courses", ["candidate_id"], name: "index_extra_courses_on_candidate_id", using: :btree
 
   create_table "hierarchical_levels", force: true do |t|
     t.string   "name",       null: false
