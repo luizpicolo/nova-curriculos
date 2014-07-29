@@ -1,12 +1,10 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :professional_experience do
-    name_company "MyString"
-    las_post "MyString"
-    date_entrance "2014-07-22"
-    date_exit "2014-07-22"
+    name_company { Faker::Company.name }
+    las_post { Faker::Company.suffix }
+    date_entrance Time.now
+    date_exit Time.now
     jobs_current false
-    attributions "MyText"
+    attributions  { Faker::Lorem.paragraph(2) }
   end
 end

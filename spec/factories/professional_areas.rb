@@ -1,7 +1,5 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :professional_area do
-    name "MyString"
+    name { Faker::Name.name }
   end
 end
