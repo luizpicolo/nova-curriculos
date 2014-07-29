@@ -78,12 +78,12 @@ RailsAdmin.config do |config|
       field :street
       field :number
       field :complement
-      field :home_fone
+      field :home_phone
       field :mobile_phone
-      field :courses_and_events
       field :city
       field :image, :carrierwave
       field :languages
+      field :extra_courses
       field :professional_areas
       field :hierarchical_levels
       field :professional_experiences
