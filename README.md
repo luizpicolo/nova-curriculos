@@ -6,8 +6,13 @@
     bundle install
     rake db:create
     rake db:migrate
-    rails s
+    
+test
 
+    rspec
+    
+execute server
+    rails s
     open http://localhost:3000
 
 ## Generate Access to Admin
