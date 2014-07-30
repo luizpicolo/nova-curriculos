@@ -8,7 +8,6 @@ class Job < ActiveRecord::Base
 			:description,
 			:requirements,
 			:period_of_work,
-			:other_information, 
 			:start_date, 
 			:finish_date, presence: true
 

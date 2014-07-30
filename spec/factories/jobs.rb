@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :job do
   	job_title { Faker::Name.title }
   	company factory: :company
-  	salary_range { Faker::Commerce.pric }
+  	salary_range { Faker::Commerce.price }
   	type_contract factory: :type_contract
   	job_category factory: :job_category
   	amount_vacancies { Faker::Number.number(2) }

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :jobs_category do
+  factory :job_category do
     name { Faker::Name.name }
   end
 end
