@@ -12,6 +12,7 @@ test
     rspec
     
 execute server
+
     rails s
     open http://localhost:3000
 
