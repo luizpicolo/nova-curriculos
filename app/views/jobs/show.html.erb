@@ -1,0 +1,134 @@
+<main id="main">
+    <div class="grid padding-top">
+      <div class="sidebar col-4 col-left">
+        <div class="vacancies vacancies-sidebar scroll nav-active">
+          <ul class="vacancies-list">
+            <% @jobs.each do |job|%>
+            <% job.job_premiun ? premiun = "vacancies-premium" : premiun = "" %>
+            <li class="vacancies-sidebar-item <%= premiun %>">
+              <section>
+                <%= link_to opportunities_path(job.slug), :class => "vacancies-link" do %>
+                  <h2 class="vacancies-category"><%= job.category.name %></h2>
+                  <h1 class="vacancies-title"><%= job.job_title %></h1>                  
+                  <p class="vacancies-enterprise">
+                    <span class="fa fa-briefcase"></span> <%= job.company.corporate_name %>
+                  </p>
+                  <p class="vacancies-location">
+                    <span class="fa fa-map-marker"></span> <%= job.company.city.name %> / <%= job.company.city.state.iso %>
+                  </p>
+                <% end %>
+
+                <a class="vacancies-social" href="#">
+                  <span class="fa fa-facebook-square"></span> Recomende esta Vaga
+                </a>
+              </section>
+            </li>
+            <% end %>
+          </ul>
+
+          <a class="btn btn-bright-green btn-block btn-extra" href="#">Ver mais vagas</a>
+        </div>
+      </div>
+
+      <div class="col-8 col-right padding-left">
+        <article class="vacancy">
+          <div class="vacancy-header margin-bottom">
+            <figure class="vacancy-avatar">
+              <img src="img/avatar.jpg" alt="">
+            </figure>
+            <div class="vacancy-enterprise">
+              <h1 class="vacancy-enterprise-title"><%= @job.company.fancy_name %></h1>
+              <ul class="vacancy-enterprise-list">
+                <li><a href="#"><span class="fa fa-file"></span> <%= @job.company.email %></a></li>
+                <li><a href="#"><span class="fa fa-facebook-square"></span> <%= @job.company.facebook %></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="vacancy-description margin-bottom">
+            <p class="vacancy-category"><%= @job.category.name %></p>
+            <h2 class="vacancy-title"><%= @job.job_title %></h2>
+            <p class="vacancy-location">
+              <span class="fa fa-map-marker"></span> <%= @job.company.street %> <%= @job.company.number %> <%= @job.company.city.name %> / <%= @job.company.city.state.iso %>
+            </p>
+
+            <div class="row">
+              <div class="col-3 col-left">
+                <h3 class="vacancy-caption">Faixa salarial</h3>
+                <div class="vacancy-text">
+                  <p><%= @job.salary_range %></p>
+                </div>
+              </div>
+
+              <div class="col-3 col-left">
+                <h3 class="vacancy-caption">Contratação</h3>
+                <div class="vacancy-text">
+                  <p><%= @job.type_contract.name %></p>
+                </div>
+              </div>
+
+              <div class="col-3 col-left">
+                <h3 class="vacancy-caption">Vagas</h3>
+                <div class="vacancy-text">
+                  <p><%= @job.amount_vacancies %></p>
+                </div>
+              </div>
+
+              <div class="col-3 col-left">
+                <h3 class="vacancy-caption">Tempo de contrato</h3>
+                <div class="vacancy-text">
+                  <p>*somente para vagas temporárivas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-description margin-bottom">
+            <div class="margin-bottom">
+              <h3 class="vacancy-caption">Descrição</h3>
+              <div class="vacancy-text">
+                <p>
+                  <%= @job.description %>
+                </p>
+              </div>
+            </div>
+
+            <div class="margin-bottom">
+              <h3 class="vacancy-caption">Requisitos</h3>
+              <div class="vacancy-text">
+                <%= @job.requirements %>
+              </div>
+            </div>
+
+            <div class="margin-bottom">
+              <h3 class="vacancy-caption">Horário de serviço</h3>
+              <div class="vacancy-text">
+                <p>
+                  Segunda à Sexta das: 07:00 às 18:00h <br>
+                  Almoço: das 11:00 às 13:00
+                </p>
+              </div>
+            </div>
+
+            <% if !@job.other_information.empty? %>
+            <div>
+              <h3 class="vacancy-caption">Outras Informações</h3>
+              <div class="vacancy-text">
+                <p>
+                  <%= @job.other_information %>
+                </p>
+              </div>
+            </div>
+            <% end %>
+          </div>
+
+          <div class="vacancy-options">
+            <a class="btn btn-blue" href="#">Candidatar-se a Vaga</a>
+            <a class="btn btn-facebook" href="#">
+              <span class="fa fa-facebook-square"></span> Recomende esta Vaga
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>

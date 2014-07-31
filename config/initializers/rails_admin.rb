@@ -173,6 +173,11 @@ RailsAdmin.config do |config|
       field :fancy_name
       field :corporate_name
       field :phone
+      field :street
+      field :number
+      field :facebook
+      field :email
+      field :website
       field :type_company
       field :cnpj
       field :city
@@ -234,7 +239,7 @@ RailsAdmin.config do |config|
     end
     edit do
       field :name
-      field :state
+      field :state 
     end
     # show do
     #   field :name
@@ -250,10 +255,12 @@ RailsAdmin.config do |config|
     list do
       field :id
       field :name
+      field :iso
     end
     edit do
       field :name
       field :country
+      field :iso
     end
     # show do
     #   field :name
@@ -288,6 +295,25 @@ RailsAdmin.config do |config|
       field :job_title
       field :company
       field :jobs_category
+    end
+    edit do
+      field :job_title
+      field :company
+      field :salary_range
+      field :type_contract
+      field :job_category
+      field :amount_vacancies
+      field :time_contract
+      field :description
+      field :period_of_work
+      field :other_information
+      field :start_date do
+        date_format :default
+      end
+      field :finish_date do
+        date_format :default
+      end
+      field :job_premiun
     end
   end
 

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # Rails admin
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
+  # Jobs
+  get "/oportunidades/:slug" => "jobs#show", :as => :opportunities
+
   root 'home#index'
 
 end
