@@ -1,0 +1,18 @@
+<div class="logged">
+  <div class="grid-relative">
+    <div class="logged-info">
+      <span class="logged-message">Seja bem vindo (a)</span>
+      <span class="logged-avatar"></span>
+      <span class="logged-name"><%= current_user.name %></span>
+    </div>
+
+    <div class="logged-nav">
+      <ul>
+        <li><a class="btn btn-link" href="#">Meu Perfil</a></li>
+        <li><a class="btn btn-link" href="#">Trocar de Conta</a></li>
+        <li>
+          <%= link_to "Sair", destroy_user_session_path, :method => :delete, :class => "btn btn-link" %></li>
+      </ul>
+    </div>
+  </div>
+</div>

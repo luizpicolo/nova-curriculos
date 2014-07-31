@@ -1,0 +1,136 @@
+/*
+	Header
+*/
+
+#header {
+	padding: 20px 0;
+	background: $header;
+}
+
+#logo {
+	float: left;
+	background: image_url('nova-curriculo.png') no-repeat left;
+
+	a {
+		display: block;
+		text-decoration: none;
+		padding: 10px 0 10px 50px;
+	}
+
+	h1 {
+		color: $text-1;
+		font-size: 1.8em;
+		font-weight: 400;
+		text-transform: lowercase;
+	}
+}
+
+
+#nav-container {
+	float: right;
+}
+
+#nav {
+	cursor: default;
+	float: left;
+	padding: 9px 0;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		position: relative;
+		display: inline-block;
+		margin-left: 10px;
+
+		&:hover {
+			> a,
+			> span {
+				color: $text-3;
+				background: $btn-4;
+			}
+
+			.nav-drop {
+				opacity: 1;
+				z-index: 100;
+			}
+		}
+	}
+
+	a,
+	span {
+		cursor: pointer;
+		@include box-sizing(border-box);
+
+		display: block;
+
+		color: $text-1;
+		font-size: 1.4em;
+		text-decoration: none;
+		text-transform: lowercase;
+		
+		padding: 3px 10px 4px;
+	}
+
+	.active {
+		cursor: default;
+		color: $text-3;
+		background: $btn-4;
+	}
+}
+
+.nav-drop {
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+	background: $btn-5;
+
+	li {
+		display: block;
+		width: 100%;
+		margin: 0 !important;
+	}
+
+	a {
+		width: 100%;
+	}
+}
+
+.no-csstransitions {
+	.nav-drop {
+		display: none;
+	}
+
+	#nav {
+		li {
+			&:hover {
+				.nav-drop {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+.nav-drop-large {
+	min-width: 110px;
+}
+
+.nav-social {
+	float: left;
+	margin-left: 5px;
+	padding: 10px 0;
+	
+	a {
+		display: inline-block;
+
+		color: $text-1;
+		font-size: 1.7em;
+
+		padding: 1px 0;
+		margin-left: 10px;
+	}
+}

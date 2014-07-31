@@ -1,0 +1,149 @@
+/*
+	Vacancies
+*/
+
+.vacancies {
+	
+}
+
+.vacancies-list {
+	list-style: none;
+	margin: 0 -7px;
+	padding: 0;
+}
+
+.vacancies-item {
+	@include box-sizing(border-box);
+
+	position: relative;
+
+	float: left;
+
+	width: 310px;
+
+	margin: 0 7px 12px;
+	padding: 0 0 10px;
+
+	background: $component;
+
+	.fa {
+		width: 18px;
+		text-align: center;
+	}
+}
+
+.vacancies-premium {
+	&:after {
+		content: "";
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		display: block;
+		width: 51px;
+		height: 55px;
+
+		background: image_url('icon-premium.png') no-repeat center;
+	}
+}
+
+.vacancies-category {
+	color: $text-4;
+	font-size: 1.3em;
+	font-weight: 400;
+	text-transform: lowercase;
+	
+	margin: 0 0 5px;
+	padding-bottom: 5px;
+
+	border-bottom: solid 1px #ddd;
+}
+
+.vacancies-title {
+	height: 25px;
+
+	color: $text-3;
+	font-size: 1.8em;
+	font-weight: 600;
+
+	margin: 0 0 10px;
+
+	overflow: hidden;
+}
+
+.vacancies-link {
+	display: block;
+	text-decoration: none;
+	padding: 30px 40px 20px;
+}
+
+.vacancies-enterprise {
+	height: 20px;
+
+	color: $text-3;
+	font-size: 1.4em;
+
+	margin: 0 0 5px;
+
+	overflow: hidden;
+}
+
+.vacancies-location {
+	height: 20px;
+
+	color: $text-3;
+	font-size: 1.4em;
+
+	margin: 0;
+
+	overflow: hidden;
+}
+
+.vacancies-social {
+	display: block;
+
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	
+	color: $text-5;
+	font-size: 1.3em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: lowercase;
+}
+
+
+
+
+.vacancies-sidebar {
+	@include box-sizing(border-box);
+	height: 702px;
+	overflow: hidden;
+
+	margin: 0 0 20px;
+	
+	.btn,
+	.vacancies-list {
+		margin: 0 5px 0 0;
+	}
+}
+
+.vacancies-sidebar-item {
+	@include box-sizing(border-box);
+
+	position: relative;
+
+	width: 100%;
+
+	margin: 0 0 12px;
+	padding: 0 0 10px;
+
+	background: $component;
+
+	.fa {
+		width: 18px;
+		text-align: center;
+	}
+}

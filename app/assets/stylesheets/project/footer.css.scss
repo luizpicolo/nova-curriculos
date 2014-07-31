@@ -1,0 +1,65 @@
+/*
+	Footer
+*/
+
+#footer {
+	margin-top: 30px;
+	padding: 30px 0;
+	background: $footer;
+}
+
+.footer-logo {
+	min-height: 90px;
+	background: image_url('nova-curriculo-footer.png') no-repeat top left;
+}
+
+.footer-title {
+	cursor: default;
+
+	color: $text-2;
+	font-size: 1.4em;
+	font-weight: 400;
+	text-transform: uppercase;
+
+	margin: 0 0 2px;
+}
+
+.footer-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		color: $text-1;
+	}
+
+	a {
+		color: $text-1;
+		font-size: 1.4em;
+		text-decoration: none;
+		text-transform: lowercase;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.footer-list-inline {
+	cursor: default;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+	a {
+		color: $text-1;
+		font-size: 2em;
+		text-decoration: none;
+		text-transform: lowercase;
+	}
+}

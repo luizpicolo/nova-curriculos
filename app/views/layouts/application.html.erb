@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>NovaCurriculos</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+<html class="no-js" lang="pt-br">
+	<head>
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <title>NovaCurriculos</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<%= yield %>
-
+	<%= render "layouts/header" %>
+	<% if current_user.nil? %>
+	<%= render "layouts/login" %>
+	<% else %>
+	<%= render "layouts/logged" %>
+	<% end %>
+	<%= render 'layouts/messages' %>
+	<%= yield %>
+	<%= render "layouts/footer" %>
+  </body>
 </body>
 </html>

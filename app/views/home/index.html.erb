@@ -1,1 +1,81 @@
-<h1>Nova Currículos</h1>
+<div class="featured">
+  <div class="grid">
+    <div class="col-6 col-left">
+      <section class="featured-item">
+        <span class="nc-icon nc-recruiters"></span>
+        <h2 class="featured-title">
+          <strong>Recrutadores</strong>, 
+          <a href="#">cadastre</a> agora sua vaga, é 
+          <strong>gratuito.</strong>
+        </h2>
+      </section>
+    </div>
+
+    <div class="col-6 col-right last">
+      <section class="featured-item">
+        <span class="nc-icon nc-candidate"></span>
+        <h2 class="featured-title">
+          <strong>Candidatos</strong>, 
+          <a href="#">cadastre</a> seu currículo e 
+          <strong>pague com um post</strong> no facebook
+        </h2>
+      </section>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+  <div class="search margin-bottom">
+    <div class="grid">
+      <form class="search-form" action="">
+        <div class="search-input">
+          <label class="hidden" for="busca">Buscar vaga por região, empresa, descrição...</label>
+          <input type="text" id="busca" name="busca" placeholder="buscar vaga por região, empresa, descrição..." required>
+        </div>
+
+        <div class="search-input">
+          <label class="hidden" for="area-atuacao">Área de atuação</label>
+          <select name="area-atuacao" id="area-atuacao">
+            <option value="opcao-1">Opção 1</option>
+            <option value="opcao-1">Opção 2</option>
+          </select>
+        </div>
+
+        <div class="search-submit">
+          <input class="btn btn-green btn-large" type="submit" value="Buscar">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="vacancies margin-bottom">
+    <div class="grid">
+      <div class="clip">
+        <ul class="vacancies-list">
+          <% for i in (1..9) %>
+          <li class="vacancies-item vacancies-premium">
+            <section>
+              <a class="vacancies-link" href="vagas">
+                <h2 class="vacancies-category">Emprego</h2>
+                <h1 class="vacancies-title">Copeiro</h1>                  
+                <p class="vacancies-enterprise">
+                  <span class="fa fa-briefcase"></span> Grupo Concordia
+                </p>
+                <p class="vacancies-location">
+                  <span class="fa fa-map-marker"></span> Nova Andradina/MS
+                </p>
+              </a>
+
+              <a class="vacancies-social" href="#">
+                <span class="fa fa-facebook-square"></span> Recomende esta Vaga
+              </a>
+            </section>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <a class="btn btn-bright-green btn-block btn-extra" href="#">Ver mais vagas</a>
+    </div>
+  </div>
+</main>
