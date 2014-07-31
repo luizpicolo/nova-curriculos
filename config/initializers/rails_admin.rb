@@ -305,6 +305,7 @@ RailsAdmin.config do |config|
       field :amount_vacancies
       field :time_contract
       field :description
+      field :requirements
       field :period_of_work
       field :other_information
       field :start_date do

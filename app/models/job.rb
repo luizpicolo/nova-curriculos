@@ -4,16 +4,16 @@ class Job < ActiveRecord::Base
   friendly_id :job_title, use: :slugged
 
   validates :job_title,
-			:company,
-      		:salary_range,
-			:type_contract,
-			:amount_vacancies,
-			:time_contract,
-			:description,
-			:requirements,
-			:period_of_work,
-			:start_date, 
-			:finish_date, presence: true
+      			:company,
+            :salary_range,
+      			:type_contract,
+      			:amount_vacancies,
+      			:time_contract,
+      			:description,
+      			:requirements,
+      			:period_of_work,
+      			:start_date, 
+      			:finish_date, presence: true
 
   belongs_to :type_contract
   belongs_to :company
