@@ -29,5 +29,8 @@ module NovaCurriculos
 
     # Generate JavaScript
     config.generators.javascripts = false
+
+    # Custom Fail Devise
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end

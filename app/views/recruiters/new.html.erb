@@ -3,29 +3,21 @@
     <section>
       <div class="page-title-container">
         <h1 class="page-title">
-          <span class="nc-min-icon nc-min-candidate"></span> 
-          <span>Cadastro do Candidato</span>
+          <span class="nc-min-icon nc-min-recruiters"></span> 
+          <span>Cadastro do Recrutador</span>
         </h1>
       </div>
 
       <div class="col-5 col-center text-center">
         <div class="page-slogan">
-          <div class="page-slogan-text">
-            <p>
-              Que tal agilizar as coisas? <br>
-              Faça <a href="#">cadastro com facebook</a> e pule <br>
-              essa etapa! =)
-            </p>
-          </div>
-
-          <a class="btn btn-facebook" href="#">
-            <span class="fa fa-facebook"></span> Cadastro com Facebook
-          </a>
+          <p>
+            Encontre muito mais <br>
+            candidatos para suas vagas
+          </p>
         </div>
 
         <div class="margin-bottom">
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
             <div class="form-input form-input-green">
               <%= f.input :name, required: true, autofocus: true, label: false, :placeholder => "Nome*" %>
             </div>
@@ -47,7 +39,7 @@
             </div>
 
             <div class="form-submit">
-              <%= f.input :is_candidate, :as => :hidden, :input_html => { :value => "1" }%>
+              <%= f.input :is_candidate, :as => :hidden, :input_html => { :value => "0" }%>
               <%= f.button :submit, "Cadastrar", :class => "btn btn-blue" %>
             </div>
           <% end %>

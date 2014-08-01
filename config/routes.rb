@@ -6,6 +6,10 @@ Rails.application.routes.draw do
       sign_out: 'logout',
       registration: 'register',
       sign_up: 'signup'
+  }, controllers: {
+      :registrations => 'registrations',
+      #:sessions => 'sessions',
+      #:omniauth_callbacks => 'omniauth_callbacks'
   }
   
   # Rails admin
@@ -13,8 +17,8 @@ Rails.application.routes.draw do
 
   # Routes
   get "/oportunidades/:slug" => "jobs#show", :as => :opportunities
-  get "/cadastro/candidatos" => "registrations#show_form_candidate", :as => :registration_candidates
-  get "/cadastro/recrutadores" => "registrations#show_form_recruiter", :as => :registration_recruiters
+  get "/cadastro/candidatos" => "candidates#new", :as => :registration_candidates
+  get "/cadastro/recrutadores" => "recruiters#new", :as => :registration_recruiters
 
   # Route Root
   root 'home#index'
