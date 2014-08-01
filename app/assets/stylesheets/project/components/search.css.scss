@@ -3,7 +3,9 @@
 */
 
 .search {
+	@include box-sizing(border-box);
 	cursor: default;
+	height: 100px;
 	text-align: center;
 	padding: 30px 0;
 	background: $component;
@@ -12,43 +14,27 @@
 		display: inline-block;
 		padding: 0 5px;
 	}
-
-	.select-text {
-		color: $text-1;
-		background: $input-1;
-	}
 }
 
 .search-form {
 	display: inline-block;
-}
 
-.search-input {
-	display: inline-block;
-	padding: 0 5px;
-	@include placeholder($text-1);
+	.form-input {
+		float: left;
+		padding: 0 5px;
 
-	input,
-	select {
-		height: 40px;
-		
-		color: $text-1;
-		font-size: 1.4em;
-
-		padding: 10px 20px;
-
-		border: 0;
-		background: $input-1;
+		input {
+			min-width: 400px;
+		}
 	}
 
-	input {
-		min-width: 400px;
-	}
+	.form-select {
+		float: left;
+		padding: 0 5px;
 
-	select {
-		@include appearance(none);
-		padding: 10px 60px 10px 20px;
-		background: image_url('icon-select.jpg') no-repeat right top $input-1;
+		select {
+			min-width: 150px;
+		}
 	}
 }
 

@@ -2,13 +2,13 @@
   <div class="grid">
     <span class="login-title">Login</span>
 
-    <%= simple_form_for :user, url: user_session_path, :html=> { class: 'login-form' } do |f| %>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html=> { class: 'login-form' }) do |f| %>
       <div class="login-input">
         <%= f.input :email, required: false, autofocus: true, :placeholder => "email", label: false %>
       </div>
 
       <div class="login-input">
-        <%= f.input :password, required: false, :placeholder => "email", label: false %>
+        <%= f.input :password, required: false, :placeholder => "senha", label: false %>
       </div>
 
       <div class="login-submit">

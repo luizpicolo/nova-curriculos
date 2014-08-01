@@ -1,0 +1,42 @@
+/*
+	Destaq
+*/
+
+.featured {
+	padding: 40px 0;
+
+	.last {
+		border-left: solid 1px #ddd;
+	}
+}
+
+.featured-item {
+	@include box-sizing(border-box);
+	
+	cursor: default;
+
+	width: 210px;
+	height: 210px;
+
+	font-size: 2.1em;
+	text-align: center;
+
+	margin: 0 auto;
+	padding: 10px 0;
+
+	strong {
+		font-style: italic;
+	}
+
+	a {
+		color: $text-4;
+		font-style: italic;
+	}
+}
+
+.featured-title {
+	color: $text-3;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0;
+}

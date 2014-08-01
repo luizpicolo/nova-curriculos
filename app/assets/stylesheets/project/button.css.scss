@@ -77,6 +77,14 @@
 	}
 }
 
+.btn-gray {
+	background: $btn-6;
+
+	&:hover {
+		background-color: rgba($btn-6, .8);
+	}
+}
+
 
 .btn-facebook {
 	background: $btn-3;

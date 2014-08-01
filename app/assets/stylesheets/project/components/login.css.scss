@@ -4,7 +4,7 @@
 
 .login {
 	cursor: default;
-	line-height: 45px;
+	line-height: 50px;
 	text-align: center;
 	background: $component;
 }
@@ -51,7 +51,7 @@
 
 .logged {
 	cursor: default;
-	height: 45px;
+	height: 50px;
 	text-align: center;
 	background: $component;
 }
@@ -64,7 +64,7 @@
 .logged-message {
 	float: left;
 	display: inline-block;
-	line-height: 45px;
+	line-height: 50px;
 
 	color: $text-3;
 	font-size: 1.4em;
@@ -72,18 +72,18 @@
 
 .logged-avatar {
 	float: left;
-	width: 36px;
-	height: 36px;
+	width: 40px;
+	height: 40px;
 
-	margin: 4px 10px;
+	margin: 5px 10px;
 
-	background: image_url('icon-avatar.jpg') no-repeat left;
+	background: image_url('nc-min-icons.png') no-repeat left $bg;
 }
 
 .logged-name {
 	float: left;
 	display: inline-block;
-	line-height: 45px;
+	line-height: 50px;
 
 	color: $text-2;
 	font-size: 1.4em;	
@@ -102,7 +102,7 @@
 
 	li {
 		display: inline-block;
-		padding: 10px 0;
+		padding: 12px 0;
 	}
 
 	a {

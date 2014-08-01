@@ -10,9 +10,25 @@
 }
 
 .nc-recruiters {
-	background-position: 0 0;
+	background-position: -60px 0;
 }
 
 .nc-candidate {
-	background-position: -60px 0;	
+	background-position: 0 0;	
+}
+
+
+.nc-min-icon {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	background: image_url('nc-min-icons.png') no-repeat;
+}
+
+.nc-min-recruiters {
+	background-position: -40px 0;
+}
+
+.nc-min-candidate {
+	background-position: 0 0;	
 }
