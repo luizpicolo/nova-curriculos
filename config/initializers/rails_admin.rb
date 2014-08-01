@@ -368,12 +368,14 @@ RailsAdmin.config do |config|
       field :id
       field :name
       field :email
+      field :is_candidate
       field :updated_at
       field :admin
     end
     edit do
       field :name
       field :email
+      field :is_candidate
       field :password
       field :password_confirmation
       field :admin
