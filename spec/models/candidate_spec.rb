@@ -41,8 +41,7 @@ RSpec.describe Candidate, :type => :model do
   describe "Delegate" do
   	it "should delegate name for a user" do
   		candidate = FactoryGirl.build(:candidate)
-  		user = FactoryGirl.build(:user)
-  		expect(candidate.name).to eq(user.name)
+  		expect(candidate.name).to eq(candidate.user.name)
   	end
   end
 

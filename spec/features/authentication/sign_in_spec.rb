@@ -1,12 +1,10 @@
 require 'rails_helper'
-include Warden::Test::Helpers
-Warden.test_mode!
 
-feature 'Sign in', :js => true do
+feature 'Sign in' do
   let!(:user) { FactoryGirl.create(:user) }
 
   scenario 'with valid credentials' do
-    login_as(user, :scope => :user)
+    sign_in user
     expect(page).to have_content('Login efetuado com sucesso!')
   end
 
