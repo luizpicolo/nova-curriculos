@@ -27,24 +27,25 @@
 <main id="main">
   <div class="search margin-bottom">
     <div class="grid">
-      <form class="search-form" action="">
+      <%= form_tag root_path, :method => :get, :class => "search-form" do %>
         <div class="form-input form-input-green">
           <label class="hidden" for="busca">Buscar vaga por região, empresa, descrição...</label>
-          <input type="text" id="busca" name="busca" placeholder="buscar vaga por região, empresa, descrição..." required>
+          <%= text_field_tag :search, params[:search], :placeholder => "buscar vaga por região, empresa, descrição...", :required => true %>
         </div>
 
         <div class="form-select form-select-green">
           <label class="hidden" for="area-atuacao">Área de atuação</label>
-          <select name="area-atuacao" id="area-atuacao">
-            <option value="opcao-1">opção 1</option>
-            <option value="opcao-1">opção 2</option>
+          <select name="jobs_category" id="area-atuacao">
+            <% @jobs_categories.each do |job_category|%>
+            <option value="<%= job_category.name%>"><%= job_category.name%></option>
+            <% end %>
           </select>
         </div>
 
         <div class="search-submit">
-          <input class="btn btn-green btn-large" type="submit" value="Buscar">
+          <%= submit_tag "Busca", :name => nil, :class => "btn btn-green btn-large" %>
         </div>
-      </form>
+      <% end %>
     </div>
   </div>
 

@@ -23,6 +23,9 @@ gem 'responders'
 gem 'cancan'
 gem 'sanitize-rails', require: 'sanitize/rails'
 gem 'jscrollpane-rails'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'progress_bar'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
