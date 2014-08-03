@@ -59,6 +59,30 @@ RailsAdmin.config do |config|
     # end
   end
 
+  ### Curse Extras ###
+  config.model 'ExtraCourse' do
+    navigation_label 'Candidatos'
+  end
+
+  ### Language ###
+  config.model 'Language' do
+    navigation_label 'Candidatos'
+    list do
+      field :id
+      field :speech
+      field :candidate
+    end
+    edit do
+      field :speech, :enum do
+        enum do
+          ['ingles', 'white']
+        end
+      end
+      field :level
+    end
+  end
+
+
   ###  Candidate  ###
   config.model 'Candidate' do
     navigation_label 'Candidatos'
@@ -299,6 +323,7 @@ RailsAdmin.config do |config|
     edit do
       field :job_title
       field :company
+      field :city
       field :salary_range
       field :type_contract
       field :job_category
@@ -339,24 +364,6 @@ RailsAdmin.config do |config|
     end
     edit do
       field :name
-    end
-  end
-
-  ### Language ###
-  config.model 'Language' do
-    navigation_label 'Vagas'
-    list do
-      field :id
-      field :speech
-      field :candidate
-    end
-    edit do
-      field :speech, :enum do
-        enum do
-          ['ingles', 'white']
-        end
-      end
-      field :level
     end
   end
 

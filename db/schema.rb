@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140731042931) do
+ActiveRecord::Schema.define(version: 20140803034602) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling",      null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140731042931) do
     t.string   "institution",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "candidate_id"
+    t.integer  "candidate_id",   null: false
   end
 
   create_table "branch_operations", force: true do |t|
@@ -42,25 +42,31 @@ ActiveRecord::Schema.define(version: 20140731042931) do
     t.integer  "city_id",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "user_id",      null: false
     t.string   "image"
   end
 
   add_index "candidates", ["city_id"], name: "index_candidates_on_city_id", using: :btree
 
   create_table "candidates_hierarchical_levels", force: true do |t|
-    t.integer  "candidate_id"
-    t.integer  "hierarchical_level_id"
+    t.integer  "candidate_id",          null: false
+    t.integer  "hierarchical_level_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "candidates_hierarchical_levels", ["candidate_id"], name: "index_candidates_hierarchical_levels_on_candidate_id", using: :btree
+  add_index "candidates_hierarchical_levels", ["hierarchical_level_id"], name: "index_candidates_hierarchical_levels_on_hierarchical_level_id", using: :btree
+
   create_table "candidates_professional_areas", force: true do |t|
-    t.integer  "candidate_id"
-    t.integer  "professional_area_id"
+    t.integer  "candidate_id",         null: false
+    t.integer  "professional_area_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "candidates_professional_areas", ["candidate_id"], name: "index_candidates_professional_areas_on_candidate_id", using: :btree
+  add_index "candidates_professional_areas", ["professional_area_id"], name: "index_candidates_professional_areas_on_professional_area_id", using: :btree
 
   create_table "cities", force: true do |t|
     t.string   "name",       null: false
@@ -154,12 +160,12 @@ ActiveRecord::Schema.define(version: 20140731042931) do
     t.boolean  "job_premiun"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
+    t.string   "slug",              null: false
+    t.integer  "city_id",           null: false
   end
 
   add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
   add_index "jobs", ["job_category_id"], name: "index_jobs_on_job_category_id", using: :btree
-  add_index "jobs", ["slug"], name: "index_jobs_on_slug", unique: true, using: :btree
   add_index "jobs", ["type_contract_id"], name: "index_jobs_on_type_contract_id", using: :btree
 
   create_table "languages", force: true do |t|
@@ -187,7 +193,7 @@ ActiveRecord::Schema.define(version: 20140731042931) do
     t.text     "attributions"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "candidate_id"
+    t.integer  "candidate_id",                 null: false
   end
 
   create_table "states", force: true do |t|

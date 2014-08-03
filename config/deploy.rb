@@ -71,6 +71,9 @@ task :deploy => :environment do
       
       queue %[echo -n "-----> Restart Apache Service: "]
       #queue 'sudo service httpd restart'
+
+      queue %[echo -n "-----> Restart Apache Solr: "]
+      queue 'rake sunspot:solr:restart'
     end
   end
 end

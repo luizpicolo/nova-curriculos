@@ -1,6 +1,5 @@
 class AddSlugToJobs < ActiveRecord::Migration
   def change
-    add_column :jobs, :slug, :string
-    add_index :jobs, :slug, unique: true
+    add_column :jobs, :slug, :string, index: true, null: false, unique: true
   end
 end
