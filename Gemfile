@@ -26,6 +26,7 @@ gem 'jscrollpane-rails'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'progress_bar'
+gem 'bootstrap-wysihtml5-rails', '0.3.1.24'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

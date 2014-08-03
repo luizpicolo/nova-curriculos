@@ -8,7 +8,7 @@
             <li class="vacancies-sidebar-item <%= premiun %>">
               <section>
                 <%= link_to opportunities_path(job.slug), :class => "vacancies-link" do %>
-                  <h2 class="vacancies-category"><%= job.category.name %></h2>
+                  <h2 class="vacancies-category"><%= job.job_category.name %></h2>
                   <h1 class="vacancies-title"><%= job.job_title %></h1>                  
                   <p class="vacancies-enterprise">
                     <span class="fa fa-briefcase"></span> <%= job.company.corporate_name %>
@@ -46,7 +46,7 @@
           </div>
 
           <div class="vacancy-description margin-bottom">
-            <p class="vacancy-category"><%= @job.category.name %></p>
+            <p class="vacancy-category"><%= @job.job_category.name %></p>
             <h2 class="vacancy-title"><%= @job.job_title %></h2>
             <p class="vacancy-location">
               <span class="fa fa-map-marker"></span> <%= @job.company.street %> <%= @job.company.number %> <%= @job.company.city.name %> / <%= @job.company.city.state.iso %>
@@ -88,7 +88,7 @@
               <h3 class="vacancy-caption">Descrição</h3>
               <div class="vacancy-text">
                 <p>
-                  <%= @job.description %>
+                  <%= @job.description.html_safe %>
                 </p>
               </div>
             </div>
@@ -96,7 +96,7 @@
             <div class="margin-bottom">
               <h3 class="vacancy-caption">Requisitos</h3>
               <div class="vacancy-text">
-                <%= @job.requirements %>
+                <%= @job.requirements.html_safe %>
               </div>
             </div>
 
@@ -115,7 +115,7 @@
               <h3 class="vacancy-caption">Outras Informações</h3>
               <div class="vacancy-text">
                 <p>
-                  <%= @job.other_information %>
+                  <%= @job.other_information.html_safe %>
                 </p>
               </div>
             </div>

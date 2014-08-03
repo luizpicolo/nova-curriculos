@@ -206,7 +206,9 @@ RailsAdmin.config do |config|
       field :cnpj
       field :city
       field :branch_operation
-      field :description
+      field :description, :wysihtml5 do
+        config_options :html => false
+      end  
       field :logo, :carrierwave
     end
     # show do
@@ -329,10 +331,16 @@ RailsAdmin.config do |config|
       field :job_category
       field :amount_vacancies
       field :time_contract
-      field :description
-      field :requirements
+      field :description, :wysihtml5 do
+        config_options :html => false
+      end 
+      field :requirements, :wysihtml5 do
+        config_options :html => false
+      end 
       field :period_of_work
-      field :other_information
+      field :other_information, :wysihtml5 do
+        config_options :html => false
+      end 
       field :start_date do
         date_format :default
       end
