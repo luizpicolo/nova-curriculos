@@ -24,3 +24,7 @@
 
 # Uploads
 /public/uploads/
+
+# Solr
+solr/data/
+solr/development/data/

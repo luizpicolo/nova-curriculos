@@ -30,16 +30,13 @@
       <%= form_tag root_path, :method => :get, :class => "search-form" do %>
         <div class="form-input form-input-green">
           <label class="hidden" for="busca">Buscar vaga por região, empresa, descrição...</label>
-          <%= text_field_tag :search, params[:search], :placeholder => "buscar vaga por região, empresa, descrição...", :required => true %>
+          <%= text_field_tag :search, params[:search], :placeholder => "buscar vaga por região, empresa, descrição...", :required => false %>
         </div>
 
         <div class="form-select form-select-green">
           <label class="hidden" for="area-atuacao">Área de atuação</label>
-          <select name="jobs_category" id="area-atuacao">
-            <% @jobs_categories.each do |job_category|%>
-            <option value="<%= job_category.name%>"><%= job_category.name%></option>
-            <% end %>
-          </select>
+          <% jobs_categories_array = JobCategory.all.map { |job_category| [job_category.name, job_category.name.downcase] } %>
+          <%= select_tag(:category, options_for_select(jobs_categories_array, params[:category]), :include_blank => true) %>
         </div>
 
         <div class="search-submit">
@@ -58,13 +55,13 @@
           <li class="vacancies-item <%= premiun %>">
             <section>
               <%= link_to opportunities_path(job.slug), :class => "vacancies-link" do %>
-                <h2 class="vacancies-category"><%= job.category.name %></h2>
+                <h2 class="vacancies-category"><%= job.job_category.name %></h2>
                 <h1 class="vacancies-title"><%= job.job_title %></h1>                  
                 <p class="vacancies-enterprise">
                   <span class="fa fa-briefcase"></span> <%= job.company.corporate_name %>
                 </p>
                 <p class="vacancies-location">
-                  <span class="fa fa-map-marker"></span> <%= job.company.city.name %> / <%= job.company.city.state.iso %>
+                  <span class="fa fa-map-marker"></span> <%= job.city.name %> / <%= job.city.state.iso %>
                 </p>
               <% end %>
 

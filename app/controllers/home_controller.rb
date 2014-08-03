@@ -8,8 +8,12 @@ class HomeController < ApplicationController
   	# Search Solr
   	@search = Job.where("start_date <= ?", time_now).where("finish_date >= ?", time_now).search do
   	  fulltext params[:search] do
-  	  	fields(:company, :job_title, :job_category)
-  	  end
+        fields(:job_title, :company, :description, :city)
+      end
+      fulltext params[:category] do
+        fields(:job_category)
+      end
+      order_by :created_at, :desc
   	end
 
   	@jobs = @search.results
