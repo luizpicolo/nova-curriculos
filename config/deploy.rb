@@ -13,8 +13,8 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 # Rails Enviroment
 # set :rails_env, 'production'
 
-set :domain, '192.168.1.5'
-set :deploy_to, '/home/picolo/ruby/nova-curriculos-production'
+set :domain, '104.131.207.186'
+set :deploy_to, '/home/production/railsapp'
 set :repository, 'git@bitbucket.org:luizpicolo_/nova-curriculos.git'
 set :branch, 'master'
 
@@ -26,7 +26,7 @@ set :term_mode, nil
 set :shared_paths, ['config/database.yml', 'log']
 
 # Optional settings:
-set :user, 'picolo'    # Username in the server to SSH to.
+set :user, 'production'    # Username in the server to SSH to.
 #   set :port, '30000'     # SSH port number.
 
 # This task is the environment that is loaded for most commands, such as
@@ -37,7 +37,7 @@ task :environment do
   # invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
-  invoke :'rvm:use[ruby-2.1.2@default]'
+  invoke :'rvm:use[ruby-2.1.2@novacurriculos]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
@@ -70,10 +70,11 @@ task :deploy => :environment do
       queue "touch #{deploy_to}/tmp/restart.txt"
       
       queue %[echo -n "-----> Restart Apache Service: "]
-      #queue 'sudo service httpd restart'
+      queue 'sudo service nginx restart'
 
       queue %[echo -n "-----> Restart Apache Solr: "]
-      queue 'rake sunspot:solr:restart'
+      queue 'RAILS_ENV=production bundle exec rake sunspot:solr:restart'
+      queue 'RAILS_ENV=production bundle exec rake sunspot:solr:reindex'
     end
   end
 end

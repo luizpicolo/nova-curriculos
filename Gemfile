@@ -11,7 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'friendly_id', '~> 5.0.0' 
 gem 'rails_admin'
-#gem 'ckeditor'
+gem 'bootstrap-wysihtml5-rails', '0.3.1.24'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails-i18n'
@@ -26,7 +26,6 @@ gem 'jscrollpane-rails'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'progress_bar'
-gem 'bootstrap-wysihtml5-rails', '0.3.1.24'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
@@ -47,7 +46,8 @@ group :development, :test do
 end
 
 group :production do
-  gem 'rails_12factor'
+  gem 'therubyracer' 
+  #gem 'rails_12factor'
 	gem 'pg'
   gem 'passenger'
 end
