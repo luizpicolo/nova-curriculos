@@ -26,6 +26,7 @@
 /public/uploads/
 
 # Solr
+/solr
 solr/data/*
 solr/pids/*
 solr/development/data/*
