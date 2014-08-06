@@ -71,6 +71,9 @@ task :deploy => :environment do
       
       queue %[echo -n "-----> Restart Apache Service: "]
       queue 'sudo service nginx restart'
+
+      queue %[echo -n "-----> Restart Apache tomcat: "]
+      queue 'sudo service tomcat6 restart'
     end
   end
 end
