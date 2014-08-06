@@ -24,6 +24,7 @@ gem 'cancan'
 gem 'sanitize-rails', require: 'sanitize/rails'
 gem 'jscrollpane-rails'
 gem 'sunspot_rails'
+gem 'figaro'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
