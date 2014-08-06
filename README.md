@@ -13,9 +13,11 @@ test
     
 execute server
 
+    bundle exec rake sunspot:solr:start (development)
+    bundle exec rake sunspot:solr:reindex (development)
     rails s
     open http://localhost:3000
-
+    
 ## Generate Access to Admin
 
     rails c
@@ -34,7 +36,7 @@ copy
 
 ## Deployment
 
-    [add instructions]
+    mina deploy
 
 ## Contributors
 
