@@ -71,10 +71,6 @@ task :deploy => :environment do
       
       queue %[echo -n "-----> Restart Apache Service: "]
       queue 'sudo service nginx restart'
-
-      queue %[echo -n "-----> Restart Apache Solr: "]
-      queue 'RAILS_ENV=production bundle exec rake sunspot:solr:restart'
-      queue 'RAILS_ENV=production bundle exec rake sunspot:solr:reindex'
     end
   end
 end
