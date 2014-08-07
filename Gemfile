@@ -24,6 +24,7 @@ gem 'cancan'
 gem 'sanitize-rails', require: 'sanitize/rails'
 gem 'sunspot_rails'
 gem 'figaro'
+gem 'ckeditor'
 
 # JS
 gem 'jscrollpane-rails'
