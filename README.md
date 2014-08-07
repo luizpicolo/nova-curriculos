@@ -1,5 +1,7 @@
 # Nova Curriculos
 
+[ ![Codeship Status for luizpicolo_/nova-curriculos](https://www.codeship.io/projects/45fcd340-0090-0132-fb71-6a55843d78ca/status)](https://www.codeship.io/projects/30001)
+
 ## Execute project
 
     git clone git@bitbucket.org:luizpicolo_/nova-curriculos.git
@@ -37,6 +39,7 @@ copy
 ## Deployment
 
     mina deploy
+    mina deploy:cleanup
 
 ## Contributors
 
