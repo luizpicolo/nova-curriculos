@@ -18,9 +18,9 @@ module UserHelpers
     email = options[:email] || user.email
 
     if options[:candidate]
-      visit registration_candidates_path
+      visit registration_candidate_path
     else
-      visit registration_recruiters_path
+      visit registration_recruiter_path
     end
 
     fill_in 'user_name_r', with: user.name
