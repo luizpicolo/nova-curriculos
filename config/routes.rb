@@ -17,8 +17,9 @@ Rails.application.routes.draw do
 
   # Routes
   get "/oportunidades/:slug" => "jobs#show", :as => :opportunities
-  get "/cadastro/candidatos" => "candidates#new", :as => :registration_candidates
-  get "/cadastro/recrutadores" => "recruiters#new", :as => :registration_recruiters
+  get "/candidato/cadastro" => "candidates#new", :as => :registration_candidate
+  get "/recrutador/cadastro" => "recruiters#new", :as => :registration_recruiter
+  get "/candidato/curriculo" => "candidates#show_curriculum", :as => :curriculum_candidate
 
   # Route Root
   root 'home#index'

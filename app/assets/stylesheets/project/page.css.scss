@@ -45,3 +45,20 @@
 		margin: 0;
 	}
 }
+
+.page-caption {
+	cursor: default;
+
+	display: block;
+	
+	width: 100%;
+
+	color: $text-3;
+	font-size: 1.8em;
+	font-weight: 400;
+	text-transform: lowercase;
+	
+	margin: 0 0 15px;
+
+	border-bottom: solid 1px $border-1;
+}

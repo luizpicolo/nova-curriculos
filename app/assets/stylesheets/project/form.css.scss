@@ -23,11 +23,15 @@ label {
 	text-transform: lowercase;
 
 	margin-bottom: 5px;
+
+	a {
+		color: $text-4;
+	}
 }
 
 
 .form-input {
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	@include placeholder($text-6);
 
 	input {
@@ -41,8 +45,12 @@ label {
 
 		padding: 10px 15px;
 
-		border: 0;
+		border: solid 1px transparent;
 		background: $input-2;
+
+		&:focus {
+			border-color: $border-1;
+		}
 	}
 }
 
@@ -51,13 +59,43 @@ label {
 
 	input {
 		color: $text-1;
+		border: 0;
 		background: $input-1;
+
+		&:focus {
+			border: 0;
+		}
+	}
+}
+
+
+.form-textarea {
+	margin-bottom: 15px;
+	@include placeholder($text-6);
+
+	textarea {
+		display: block;
+
+		width: 100%;
+		min-height: 100px;
+		
+		color: $text-6;
+		font-size: 1.4em;
+
+		padding: 10px 15px;
+
+		border: solid 1px transparent;
+		background: $input-2;
+
+		&:focus {
+			border-color: $border-1;
+		}
 	}
 }
 
 
 .form-select {
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	@include placeholder($text-6);
 
 	select {
@@ -71,8 +109,18 @@ label {
 
 		padding: 10px 10px 10px 15px;
 
-		border: 0;
+		border: solid 1px transparent;
 		background: $input-2;
+
+		&:focus {
+			border-color: $border-1;
+		}
+	}
+
+	select[multiple]{
+		min-height: 92px;
+		line-height: 30px;
+		padding: 10px;
 	}
 }
 
@@ -81,8 +129,60 @@ label {
 
 	select {
 		color: $text-1;
+		border: 0;
 		background: $input-1;
+
+		&:focus {
+			border: 0;
+		}
 	}
+}
+
+
+.form-radio {
+	margin-bottom: 15px;
+	@include placeholder($text-6);
+}
+
+.form-radio-item {
+	position: relative;
+	padding-left: 20px;
+
+	input {
+		cursor: pointer;
+
+		position: absolute;
+		top: 4px;
+		left: 0;
+	}
+
+	label {
+		cursor: pointer;
+	}
+
+	p {
+		cursor: default;
+
+		line-height: 1.6em;
+
+		color: $text-6;
+		font-size: 1.3em;
+
+		margin: 0;
+	}
+}
+
+.form-radio-label {
+	cursor: default;
+	
+	display: block;
+
+	color: $text-6;
+	font-size: 1.4em;
+	text-align: left;
+	text-transform: lowercase;
+
+	margin-bottom: 10px;
 }
 
 
@@ -102,4 +202,9 @@ label {
 	font-size: 1.4em;
 	text-align: right;
 	text-transform: lowercase;
+}
+
+
+.form-inline {
+	display: inline-block;
 }

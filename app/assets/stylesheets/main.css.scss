@@ -2,6 +2,7 @@
 @import "vendor/boilerplate-inicio";
 
 @import "project/mixins";
+@import "project/spacing";
 @import "project/grid";
 
 @import "project/color";
@@ -22,6 +23,7 @@
 @import "project/components/search";
 @import "project/components/vacancies";
 @import "project/components/vacancy";
+@import "project/components/display";
 
 // @import "vendor/fancybox";
 // @import "vendor/jcarousel";

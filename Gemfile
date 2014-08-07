@@ -22,9 +22,12 @@ gem 'simple_form'
 gem 'responders'
 gem 'cancan'
 gem 'sanitize-rails', require: 'sanitize/rails'
-gem 'jscrollpane-rails'
 gem 'sunspot_rails'
 gem 'figaro'
+
+# JS
+gem 'jscrollpane-rails'
+gem 'jquery-placeholder-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

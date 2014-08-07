@@ -4,9 +4,10 @@
 
 .login {
 	cursor: default;
+	height: 50px;
 	line-height: 50px;
 	text-align: center;
-	background: $component;
+	background: $component-1;
 }
 
 .login-title {
@@ -53,7 +54,7 @@
 	cursor: default;
 	height: 50px;
 	text-align: center;
-	background: $component;
+	background: $component-1;
 }
 
 .logged-info {

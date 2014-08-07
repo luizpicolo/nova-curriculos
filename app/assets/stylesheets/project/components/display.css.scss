@@ -1,0 +1,69 @@
+/*
+	Display
+*/
+
+.display {
+
+}
+
+.display-list {
+	@include box-sizing(border-box);
+
+	list-style: none;
+	margin: 0;
+	padding: 20px;
+
+	background: $component-2;
+}
+
+.display-scroll {
+	max-height: 205px;
+}
+
+.display-small-scroll {
+	max-height: 150px;
+}
+
+.display-large-scroll {
+	max-height: 310px;
+}
+
+.display-item {
+	position: relative;
+
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+
+	border-bottom: solid 1px $border-4;
+
+	p {
+		color: $text-6;
+		font-size: 1.3em;
+
+		margin: 0;
+	}
+}
+
+.display-title {
+	color: $text-3;
+	font-size: 1.8em;
+	font-weight: 600;
+
+	margin: 0;
+}
+
+.display-text {
+	padding-top: 10px;
+}
+
+.display-btn {
+	cursor: default;
+
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	.btn {
+		margin-left: 5px;
+	}
+}
