@@ -6,6 +6,7 @@ require 'rspec/rails'
 require 'factory_girl_rails'
 require "email_spec"
 require 'capybara/rspec'
+require 'sunspot/rails/spec_helper'
 
 # externals
 require 'simplecov'
@@ -58,5 +59,14 @@ RSpec.configure do |config|
   
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+
+  # Configures for Sunspot
+  config.before(:each) do
+    ::Sunspot.session = ::Sunspot::Rails::StubSessionProxy.new(::Sunspot.session)
+  end
+
+  config.after(:each) do
+    ::Sunspot.session = ::Sunspot.session.original_session
   end
 end
