@@ -39,7 +39,7 @@ module NovaCurriculos
     # Generate JavaScript
     config.generators.javascripts = false
 
-    config.assets.precompile += ['admin.js', 'admin.css']
+    config.assets.precompile += ["rails_admin/rails_admin.js", "rails_admin/rails_admin.css", "rails_admin/jquery.colorpicker.js", "rails_admin/jquery.colorpicker.css", 'ckeditor/*']
 
     # Custom Fail Devise
     config.autoload_paths += %W(#{config.root}/lib)
