@@ -13,8 +13,6 @@ require 'sunspot_test/rspec'
 require 'simplecov'
 SimpleCov.start 'rails'
 
-$original_sunspot_session = Sunspot.session
-
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -64,14 +62,13 @@ RSpec.configure do |config|
     DatabaseRewinder.clean
   end
 
-  config.before do
-    Sunspot.session = Sunspot::Rails::StubSessionProxy.new($original_sunspot_session)
+  config.before :all do
+    SunspotTest.stub
   end
-
-  config.before :each, :solr => true do
-    Sunspot::Rails::Tester.start_original_sunspot_session
-    Sunspot.session = $original_sunspot_session
+   
+  config.before(:all, search: true) do
+    SunspotTest.setup_solr
     Sunspot.remove_all!
+    Sunspot.commit
   end
-
 end
