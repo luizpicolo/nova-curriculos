@@ -48,6 +48,7 @@ group :development, :test do
   gem 'sunspot_solr'
   gem 'sunspot_test'
   gem 'progress_bar'
+  gem 'sunspot-rails-tester'
   gem 'database_rewinder'
   gem "rubycritic", :require => false
 end

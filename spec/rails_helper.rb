@@ -26,6 +26,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+$original_sunspot_session = Sunspot.session
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -62,13 +64,13 @@ RSpec.configure do |config|
     DatabaseRewinder.clean
   end
 
-  config.before :all do
-    SunspotTest.stub
+  config.before do
+    Sunspot.session = Sunspot::Rails::StubSessionProxy.new($original_sunspot_session)
   end
-   
-  config.before(:all, search: true) do
-    SunspotTest.setup_solr
+
+  config.before :each, :solr => true do
+    Sunspot::Rails::Tester.start_original_sunspot_session
+    Sunspot.session = $original_sunspot_session
     Sunspot.remove_all!
-    Sunspot.commit
   end
 end
