@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Search', :solr => true, :search => true do
+feature 'Search', :search => true do
   let!(:job) { FactoryGirl.create(:job) }
 
   # SunspotTest.solr_startup_timeout = 60
