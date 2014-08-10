@@ -28,15 +28,19 @@ class Job < ActiveRecord::Base
     text :job_title, :boost => 5.0
     text :description
     time :created_at
-    text :job_category do
+    text :category do
       job_category.name
     end
-    text :company do
-      company.fancy_name
+    text :company_corporate_name do
       company.corporate_name
+    end
+    text :company_fancy_name do
+      company.fancy_name
     end
     text :city do
       city.name
+    end
+    text :state do
       city.state.name
     end
   end

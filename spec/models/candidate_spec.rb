@@ -4,17 +4,17 @@ RSpec.describe Candidate, :type => :model do
 
 	include CarrierWave::Test::Matchers
 
-	before do
-		file = FactoryGirl.build :candidate
-		ImageUploader.enable_processing = true
-		@uploader = ImageUploader.new(Candidate.new, :image)
-		@uploader.store!(file.image)
-	end
+	# before do
+	# 	file = FactoryGirl.build :candidate
+	# 	ImageUploader.enable_processing = true
+	# 	@uploader = ImageUploader.new(Candidate.new, :image)
+	# 	@uploader.store!(file.image)
+	# end
 
-	after do
-		ImageUploader.enable_processing = false
-		@uploader.remove!
-	end
+	# after do
+	# 	ImageUploader.enable_processing = false
+	# 	@uploader.remove!
+	# end
 
   describe "Validations" do
 		it 'should be invalid if there is no sex' do
@@ -29,6 +29,16 @@ RSpec.describe Candidate, :type => :model do
 
 		it 'should be invalid if there is no user association' do
 			candidate = FactoryGirl.build :candidate, :user => nil
+			expect(candidate).to be_invalid
+		end
+
+		it 'should be invalid if there is no phone message' do
+			candidate = FactoryGirl.build :candidate, :phone_message => nil
+			expect(candidate).to be_invalid
+		end
+
+		it 'should be invalid if there is no mini curriculum' do
+			candidate = FactoryGirl.build :candidate, :mini_curriculum => nil
 			expect(candidate).to be_invalid
 		end
 
