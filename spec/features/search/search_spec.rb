@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-feature 'Search', :search => true do
+feature 'Search', :search => true, :solr => true do
   let!(:job) { FactoryGirl.create(:job) }
-
-  # :job_title, :company, :description, :city
 
   scenario 'when searching job by title' do	
   	Sunspot.commit
