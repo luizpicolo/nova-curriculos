@@ -208,3 +208,13 @@ label {
 .form-inline {
 	display: inline-block;
 }
+
+
+.form-submit-container {
+	text-align: center;
+
+	margin: $margin 0;
+	padding-top: $padding;
+
+	border-top: solid 1px $border-4;
+}

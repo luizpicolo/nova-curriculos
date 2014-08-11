@@ -113,3 +113,24 @@ $padding: 20px;
 .padding-small-right {
 	padding-right: $padding/2;
 }
+
+
+.padding-large {
+	padding-top: $padding*2;
+}
+
+.padding-large-top {
+	padding-top: $padding*2;
+}
+
+.padding-large-bottom {
+	padding-bottom: $padding*2;
+}
+
+.padding-large-left {
+	padding-left: $padding*2;
+}
+
+.padding-large-right {
+	padding-right: $padding*2;
+}

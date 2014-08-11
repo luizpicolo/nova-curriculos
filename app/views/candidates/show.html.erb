@@ -1,0 +1,599 @@
+<main id="main">
+  <div class="grid padding-top">
+    <div class="page-title-container">
+      <h1 class="page-title">
+        <span class="nc-min-icon nc-min-candidate"></span> 
+        <span>Currículo</span>
+      </h1>
+    </div>
+    
+    <div class="row margin-large-bottom">
+      <div class="col-6 col-left padding-right">
+        <%= simple_form_for @candidate, defaults: { input_html: { class: 'form-curriculo' } } do |f| %>
+          <fieldset>
+            <legend class="page-caption">Dados do Candidato</legend>
+
+            <div class="form-input">
+              <%= f.input :full_name, :required => true, :label => "Nome completo"  %>
+            </div>
+
+            <div class="row">
+              <div class="col-6 col-left padding-small-right">
+                <div class="form-radio">
+                  <span class="form-radio-label">Sexo*</span>
+                  
+                  <div class="row">
+                    <div class="form-radio-item col-6 col-left padding-right">
+                      <label for="feminino">Feminino</label>
+                      <input type="radio" id="feminino" name="sexo">
+                    </div>
+                    
+                    <div class="form-radio-item col-6 col-right padding-left">
+                      <label for="masculino">Masculino</label>
+                      <input type="radio" id="masculino" name="sexo">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-right padding-small-left">
+                <div class="form-input">
+                  <label for="data_nascimento">Data de Nascimento*</label>
+                  <input class="date" type="text" id="data_nascimento" name="data_nascimento" placeholder="*00/00/0000" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-input">
+              <label for="rua">Rua*</label>
+              <input type="text" id="rua" name="rua" required>
+            </div>
+
+            <div class="row">
+              <div class="col-4 col-left padding-right">
+                <div class="form-input">
+                  <label for="numero">Número*</label>
+                  <input class="number" type="text" id="numero" name="numero" required>
+                </div>
+              </div>
+
+              <div class="col-4 col-left">
+                <div class="form-input">
+                  <label for="complemento">Complemento*</label>
+                  <input type="text" id="complemento" name="complemento" required>
+                </div>
+              </div>
+
+              <div class="col-4 col-right padding-left">
+                <div class="form-input">
+                  <label for="bairro">Bairro*</label>
+                  <input type="text" id="bairro" name="bairro" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-5 col-left padding-right">
+                <div class="form-input">
+                  <label for="cidade">Cidade*</label>
+                  <input type="text" id="cidade" name="cidade" required>
+                </div>
+              </div>
+
+              <div class="col-3 col-left">
+                <div class="form-select">
+                  <label for="uf">UF*</label>
+                  <select name="uf" id="uf" required>
+                    <option value="0"></option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-4 col-right padding-left">
+                <div class="form-input">
+                  <label for="cep">CEP*</label>
+                  <input class="cep" type="text" id="cep" name="cep" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 col-left padding-small-right">
+                <div class="form-input">
+                  <label for="telefone">Telefone*</label>
+                  <input class="tel" type="tel" id="telefone" name="telefone" required>
+                </div>
+              </div>
+
+              <div class="col-6 col-left padding-small-left">
+                <div class="form-input">
+                  <label for="telefone_comercial">Telefone Comercial</label>
+                  <input class="tel" type="tel" id="telefone_comercial" name="telefone_comercial">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 col-left padding-small-right">
+                <div class="form-input">
+                  <label for="celular">Celular*</label>
+                  <input class="tel" type="tel" id="celular" name="celular" required>
+                </div>
+              </div>
+
+              <div class="col-6 col-left padding-small-left">
+                <div class="form-input">
+                  <label for="telefone_comercial">Telefone Recados</label>
+                  <input class="tel" type="tel" id="telefone_comercial" name="telefone_comercial">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-submit text-center">
+            <input class="btn btn-blue" type="submit" value="Salvar dados do candidato">
+          </div>
+        <% end %>
+      </div>
+
+      <div class="col-6 col-right padding-left">
+        <form action="" class="form-curriculo">
+          <fieldset>
+            <legend class="page-caption">Objetivos Profissionais</legend>
+
+            <div class="form-input">
+              <label for="objetivo_cargo">Objetivo ou cargo de interesse*</label>
+              <input type="text" id="objetivo_cargo" name="objetivo_cargo" required>
+            </div>
+
+            <div class="form-radio">
+              <span class="form-radio-label">Área Profissional</span>
+              
+              <div class="row">
+                <div class="col-6 col-left padding-small-right">
+                  <div class="form-radio-item">
+                    <label for="administrativa">Administrativa</label>
+                    <input type="checkbox" name="administrativa" id="administrativa">
+                  </div>
+                </div>
+                
+                <div class="col-6 col-right padding-small-left">
+                  <div class="form-radio-item">
+                    <label for="agrarias">Agrárias</label>
+                    <input type="checkbox" name="agrarias" id="agrarias">
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-6 col-left padding-small-right">
+                  <div class="form-radio-item">
+                    <label for="atendimento">Atendimento</label>
+                    <input type="checkbox" name="atendimento" id="atendimento">
+                  </div>
+                </div>
+                
+                <div class="col-6 col-right padding-small-left">
+                  <div class="form-radio-item">
+                    <label for="comunicacao_e_publicidade">Comunicação e Publicidade</label>
+                    <input type="checkbox" name="comunicacao_e_publicidade" id="comunicacao_e_publicidade">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-radio">
+              <span class="form-radio-label">Nível hierárquico</span>
+              
+              <div class="row">
+                <div class="col-6 col-left padding-small-right">
+                  <div class="form-radio-item">
+                    <label for="coordenacao_e_supervisao">Coordenação e Supervisão</label>
+                    <input type="checkbox" name="coordenacao_e_supervisao" id="coordenacao_e_supervisao">
+                  </div>
+                </div>
+
+                <div class="col-6 col-right padding-small-left">
+                  <div class="form-radio-item">
+                    <label for="diretoria">Diretoria</label>
+                    <input type="checkbox" name="diretoria" id="diretoria">
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-6 col-left padding-small-right">
+                  <div class="form-radio-item">
+                    <label for="especialista_com_curso_superior">Especialista com Curso Superior</label>
+                    <input type="checkbox" name="especialista_com_curso_superior" id="especialista_com_curso_superior">
+                  </div>
+                </div>
+                
+                <div class="col-6 col-right padding-small-left">
+                  <div class="form-radio-item">
+                    <label for="especialista_com_ensino_medio">Especialista com Ensino Médio</label>
+                    <input type="checkbox" name="especialista_com_ensino_medio" id="especialista_com_ensino_medio">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 col-left padding-small-right">
+                <div class="form-input">
+                  <label for="ultimo_salario">Último Salário*</label>
+                  <input class="money" type="text" id="ultimo_salario" name="ultimo_salario" required>
+                </div>
+              </div>
+
+              <div class="col-6 col-right padding-small-left">
+                <div class="form-input">
+                  <label for="pretensao_salarial">Pretensão Salarial</label>
+                  <input class="money" type="text" id="pretensao_salarial" name="pretensao_salarial">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 col-right padding-small-left">
+                <div class="form-radio-item">
+                  <label for="combinar">À Combinar</label>
+                  <input type="checkbox" id="combinar" name="combinar">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-submit text-center">
+            <input class="btn btn-blue" type="submit" value="Salvar objetivo profissional">
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <div class="row margin-large-bottom">
+      <div class="col-6 col-left padding-right">
+        <form action="" class="form-curriculo">
+          <fieldset>
+            <legend class="page-caption">Formação Acadêmica</legend>
+
+            <div class="form-input">
+              <label for="grau_de_escolaridade">Grau de Escolaridade</label>
+              <input type="text" id="grau_de_escolaridade" name="grau_de_escolaridade">
+            </div>
+
+            <div class="form-input">
+              <label for="curso">Nome do curso*</label>
+              <input type="text" id="curso" name="curso" required>
+            </div>
+
+            <div class="form-input">
+              <label for="instituicao">Nome da Instituição*</label>
+              <input type="text" id="instituicao" name="instituicao" required>
+            </div>
+
+            <div class="row">
+              <div class="col-6 col-left padding-small-right">
+                <div class="form-input">
+                  <label for="data_inicio">Data de início*</label>
+                  <input class="date" type="text" id="data_inicio" name="data_inicio" required>
+                </div>
+              </div>
+
+              <div class="col-6 col-right padding-small-left">
+                <div class="form-input">
+                  <label for="data_conclusao">Data de conclusão*</label>
+                  <input class="date" type="text" id="data_conclusao" name="data_conclusao" required>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-submit text-center">
+            <input class="btn btn-blue" type="submit" value="Salvar formação acadêmica">
+          </div>
+        </form>
+      </div>
+      
+      <div class="col-6 col-right padding-left">
+        <div class="display">
+          <h2 class="page-caption">Formações acadêmicas salvas</h2>
+          
+          <div class="display-scroll scroll">
+            <ul class="display-list">
+              <?php for ($i = 0; $i < 5; $i++) { ?>
+              <li class="display-item">
+                <section>
+                  <h3 class="display-title">Curso</h3>
+                  <p>Instituição</p>
+                  <p>Grau de escolaridade</p>
+                  <p>de 00/00/0000 à 00/00/0000</p>
+
+                  <div class="display-btn">
+                    <a class="btn btn-blue" href="#">Editar</a>
+                  </div>
+                </section>
+              </li>
+              <?php } ?>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <div class="row margin-large-bottom">
+      <div class="col-6 col-left padding-right">
+        <form action="" class="form-curriculo">
+          <fieldset>
+            <legend class="page-caption">Cursos Extras e Eventos</legend>
+
+            <div class="row">
+              <div class="col-6 col-left padding-small-right">
+                <div class="form-input">
+                  <label for="nome">Nome*</label>
+                  <input type="text" id="nome" name="nome" required>
+                </div>
+              </div>
+
+              <div class="col-6 col-right padding-small-left">
+                <div class="form-input">
+                  <label for="local">Local*</label>
+                  <input type="text" id="local" name="local" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-textarea">
+              <label for="descricao">Descrição*</label>
+              <textarea id="descricao" name="descricao" required></textarea>
+            </div>
+
+            <div class="form-submit text-center">
+              <input class="btn btn-blue" type="submit" value="Salvar curso extra/evento">
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      
+      <div class="col-6 col-right padding-left">
+        <div class="display">
+          <h2 class="page-caption">Cursos ou Eventos salvos</h2>
+          
+          <div class="display-scroll scroll">
+            <ul class="display-list">
+              <?php for ($i = 0; $i < 5; $i++) { ?>
+              <li class="display-item">
+                <section>
+                  <h3 class="display-title">Nome</h3>
+                  <p>Local</p>
+                  <p>de: 01/01/2007 à 01/01/2010</p>
+
+                  <div class="display-text">
+                    <p>
+                      Descrição do curso.
+                    </p>
+                  </div>
+
+                  <div class="display-btn">
+                    <a class="btn btn-blue" href="#">Editar</a>
+                  </div>
+                </section>
+              </li>
+              <?php } ?>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row margin-large-bottom">
+      <div class="col-6 col-left padding-right">
+        <form action="" class="form-curriculo">
+          <fieldset>
+            <legend class="page-caption">Idiomas</legend>
+
+            <div class="row">
+              <div class="col-7 col-left padding-small-right">
+                <div class="form-input">
+                  <label for="idioma">Idioma*</label>
+                  <input type="text" id="idioma" name="idioma" required>
+                </div>
+              </div>
+
+              <div class="col-5 col-right padding-small-left">
+                <div class="form-select">
+                  <label for="nivel">Nível*</label>
+                  <select name="nivel" id="nivel" required>
+                    <option value="0"></option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-submit text-center">
+              <input class="btn btn-blue" type="submit" value="Salvar idioma">
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="col-6 col-right padding-left">
+        <div class="display">
+          <h2 class="page-caption">Idiomas Salvos</h2>
+          
+          <div class="display-small-scroll scroll">
+            <ul class="display-list">
+              <?php for ($i = 0; $i < 10; $i++) { ?>
+              <li class="display-item">
+                <section>
+                  <h3 class="display-title">Idioma</h3>
+                  <p>Nível</p>
+                  
+                  <div class="display-btn">
+                    <a class="btn btn-blue" href="#">Editar</a>
+                  </div>
+                </section>
+              </li>
+              <?php } ?>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row margin-large-bottom">
+      <div class="col-6 col-left padding-right">
+        <form action="" class="form-curriculo">
+          <fieldset>
+            <legend class="page-caption">Experiência Profissional</legend>
+
+            <div class="form-input">
+              <label for="empresa">Empresa*</label>
+              <input type="text" id="empresa" name="empresa" required>
+            </div>
+
+            <div class="form-input">
+              <label for="ultimo_cargo">Último Cargo*</label>
+              <input type="text" id="ultimo_cargo" name="ultimo_cargo" required>
+            </div>
+
+            <div class="row">
+              <div class="col-6 col-left padding-small-right">
+                <div class="form-input">
+                  <label for="data_inicio">Data de início*</label>
+                  <input class="date" type="text" id="data_inicio" name="data_inicio" required>
+                </div>
+              </div>
+
+              <div class="col-6 col-right padding-small-left">
+                <div class="form-input">
+                  <label for="data_saida">Data de saída*</label>
+                  <input class="date" type="text" id="data_saida" name="data_saida" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row margin-bottom">
+              <div class="col-6 col-right padding-small-left">
+                <div class="form-radio-item">
+                  <label for="emprego_atual">emprego atual</label>
+                  <input type="checkbox" name="emprego_atual" id="emprego_atual">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-textarea">
+              <label for="funcoes">Funções*</label>
+              <textarea name="funcoes" id="funcoes" placeholder="Descreva aqui suas funções no cargo." required></textarea>
+            </div>
+
+            <div class="form-submit text-center">
+              <input class="btn btn-blue" type="submit" value="Salvar experiência profissional">
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="col-6 col-right padding-left">
+        <div class="display">
+          <h2 class="page-caption">Idiomas Salvos</h2>
+          
+          <div class="display-large-scroll scroll">
+            <ul class="display-list">
+              <?php for ($i = 0; $i < 10; $i++) { ?>
+              <li class="display-item">
+                <section>
+                  <h3 class="display-title">Cargo</h3>
+                  <p>Empresa</p>
+                  <p>de 00/00/0000 à 00/00/0000</p>
+
+                  <div class="display-text">
+                    <p>
+                      Descrição das funções exercidas no cargo.
+                    </p>
+                  </div>
+                  
+                  <div class="display-btn">
+                    <a class="btn btn-blue" href="#">Editar</a>
+                  </div>
+                </section>
+              </li>
+              <?php } ?>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form action="">
+      <fieldset class="margin-bottom">
+        <legend class="page-caption">Mini Currículo*</legend>
+
+        <div class="form-textarea">
+          <label class="hidden" for="mini_curriculo">Mini Currículo</label>
+          <textarea name="mini_curriculo" id="mini_curriculo" placeholder="Descreva aqui, de forma resumida, seu perfil, experiências e habilidades profissionais." required></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="margin-bottom">
+        <legend class="page-caption">Nível de Confidencialidade</legend>
+        
+        <div class="row">
+          <div class="col-6 col-left padding-right">
+            <div class="form-radio-item">
+              <label for="publico">público</label>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Sapiente cumque, in laboriosam. Blanditiis, excepturi at, 
+                officia cumque laborum eligendi cupiditate, eaque, similique 
+                voluptate facilis quos alias ut esse repellat sit!
+              </p>
+              <input type="radio" name="confidencialidade" id="publico" checked>
+            </div>
+          </div>
+
+          <div class="col-6 col-right padding-left">
+            <div class="form-radio-item">
+              <label for="confidencial">confidencial</label>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Sapiente cumque, in laboriosam. Blanditiis, excepturi at, 
+                officia cumque laborum eligendi cupiditate, eaque, similique 
+                voluptate facilis quos alias ut esse repellat sit!
+              </p>
+              <input type="radio" name="confidencialidade" id="confidencial">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    
+      <div class="form-submit-container">
+        <div class="page-slogan margin-bottom">
+          <div class="page-slogan-text">
+            <p>
+              Muito bem, seu curriculo esta quase pronto! <br>
+              Basta apenas concluir clicando no botão abaixo para <br>
+              poder usufruir livremente de nossos serviços, mas <br>
+              porque pagar com um post?
+            </p>
+            <p>
+              Simples, para nos ajudar a manter nossos serviços <br>
+              gratuitos. =)
+            </p>
+          </div>
+        </div>
+        
+        <div class="form-radio">
+          <div class="form-radio-item form-inline">
+            <label for="termos_de_uso">*li e concordo com os <a href="#">termos de uso.</a></label>
+            <input type="checkbox" name="termos_de_uso" id="termos_de_uso" required>
+          </div>
+        </div>
+
+        <button class="btn btn-facebook">
+          <span class="fa fa-facebook"></span> Concluir currículo e pagar com um post
+        </button>
+      </div>
+    </form>
+  </div>
+</main>

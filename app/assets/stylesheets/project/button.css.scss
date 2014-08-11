@@ -85,6 +85,14 @@
 	}
 }
 
+.btn-red {
+	background: $btn-7;
+
+	&:hover {
+		background-color: $btn-8;
+	}
+}
+
 
 .btn-facebook {
 	background: $btn-3;

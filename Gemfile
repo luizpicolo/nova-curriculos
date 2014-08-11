@@ -45,7 +45,6 @@ group :development, :test do
   gem "binding_of_caller"
   gem 'sunspot_solr'
   gem 'sunspot_test'
-  gem 'sunspot-rails-tester'
   gem 'progress_bar'
   gem 'database_rewinder'
   gem "rubycritic", :require => false
