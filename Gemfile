@@ -34,11 +34,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'database_cleaner'
   gem 'mysql2'
   gem 'email_spec'
   gem 'simplecov', :require => false
-  gem 'launchy'
   gem 'shoulda-matchers'
   gem 'spring'
   gem 'faker'
@@ -47,6 +45,7 @@ group :development, :test do
   gem "binding_of_caller"
   gem 'sunspot_solr'
   gem 'sunspot_test'
+  gem 'sunspot-rails-tester'
   gem 'progress_bar'
   gem 'database_rewinder'
   gem "rubycritic", :require => false
