@@ -16,23 +16,22 @@ class CandidatesController < ApplicationController
 
   def create
   	@candidate = Candidate.new(candidate_params)
-	@candidate.is_male = true
-	@candidate.bith_date = "1981-07-05"
-	@candidate.city_id = 1
-	@candidate.user = current_user
-	if @candidate.save
-	  redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
-	else
-	  redirect_to curriculum_candidate_path, :flash => { :error => "Erro ao atualizar dados. Verifique os campos e tente novamente." }
-	end
-  end
+	  #@candidate.is_male = true
+	  #@candidate.bith_date = "1981-07-05"
+  	@candidate.user = current_user
+  	if @candidate.save
+  	  redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
+  	else
+  	  redirect_to curriculum_candidate_path, :flash => { :error => "Erro ao atualizar dados. Verifique os campos e tente novamente." }
+  	end
+    end
 
   def update
   	if @candidate.update(candidate_params)
-	  redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso" }
-	else
-	  redirect_to curriculum_candidate_path, :flash => { :error => "Erro ao atualizar dados. Verifique os campos e tente novamente." }
-	end
+	    redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso" }
+  	else
+  	  redirect_to curriculum_candidate_path, :flash => { :error => "Erro ao atualizar dados. Verifique os campos e tente novamente." }
+  	end
   end
 
   private
@@ -42,6 +41,9 @@ class CandidatesController < ApplicationController
   end
 
   def candidate_params
-    params.require(:candidate).permit(:full_name)
+    params.require(:candidate).permit(
+      :full_name, :is_male, :birth_date, :street,
+      :number, :complement, :suburb, :city_id
+    )
   end
 end

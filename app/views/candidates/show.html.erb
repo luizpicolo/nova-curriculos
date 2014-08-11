@@ -9,12 +9,13 @@
     
     <div class="row margin-large-bottom">
       <div class="col-6 col-left padding-right">
-        <%= simple_form_for @candidate, defaults: { input_html: { class: 'form-curriculo' } } do |f| %>
+        <%= form_for @candidate, :class => 'form-curriculo' do |f| %>
           <fieldset>
             <legend class="page-caption">Dados do Candidato</legend>
 
             <div class="form-input">
-              <%= f.input :full_name, :required => true, :label => "Nome completo"  %>
+              <%= f.label :full_name, "Nome Completo" %>
+              <%= f.text_field :full_name, :required => true %>
             </div>
 
             <div class="row">
@@ -24,13 +25,13 @@
                   
                   <div class="row">
                     <div class="form-radio-item col-6 col-left padding-right">
-                      <label for="feminino">Feminino</label>
-                      <input type="radio" id="feminino" name="sexo">
+                      <%= f.radio_button :is_male, true  %> 
+                      <%= f.label :is_male, "Masculino" %>
                     </div>
                     
                     <div class="form-radio-item col-6 col-right padding-left">
-                      <label for="masculino">Masculino</label>
-                      <input type="radio" id="masculino" name="sexo">
+                      <%= f.radio_button :is_male, false  %> 
+                      <%= f.label :is_male, "Feminino" %>
                     </div>
                   </div>
                 </div>
@@ -38,61 +39,52 @@
 
               <div class="col-6 col-right padding-small-left">
                 <div class="form-input">
-                  <label for="data_nascimento">Data de Nascimento*</label>
-                  <input class="date" type="text" id="data_nascimento" name="data_nascimento" placeholder="*00/00/0000" required>
+                  <%= f.label :birth_date, "Data de nascimento" %>
+                  <%= f.text_field :birth_date, :required => true, :class => "date", :value => @candidate.birth_date.try(:strftime,("%d/%m/%Y")) %>
                 </div>
               </div>
             </div>
 
             <div class="form-input">
-              <label for="rua">Rua*</label>
-              <input type="text" id="rua" name="rua" required>
+              <%= f.label :street, "Rua" %>
+              <%= f.text_field :street %>
             </div>
 
             <div class="row">
               <div class="col-4 col-left padding-right">
                 <div class="form-input">
-                  <label for="numero">Número*</label>
-                  <input class="number" type="text" id="numero" name="numero" required>
+                  <%= f.label :number, "Número" %>
+                  <%= f.number_field :number, :class => "number" %>
                 </div>
               </div>
 
               <div class="col-4 col-left">
                 <div class="form-input">
-                  <label for="complemento">Complemento*</label>
-                  <input type="text" id="complemento" name="complemento" required>
+                  <%= f.label :complement, "Complemento" %>
+                  <%= f.text_field :complement %>
                 </div>
               </div>
 
               <div class="col-4 col-right padding-left">
                 <div class="form-input">
-                  <label for="bairro">Bairro*</label>
-                  <input type="text" id="bairro" name="bairro" required>
+                  <%= f.label :suburb, "Bairro" %>
+                  <%= f.text_field :suburb %>
                 </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-5 col-left padding-right">
-                <div class="form-input">
-                  <label for="cidade">Cidade*</label>
-                  <input type="text" id="cidade" name="cidade" required>
-                </div>
-              </div>
-
-              <div class="col-3 col-left">
+              <div class="col-8 col-left padding-right">
                 <div class="form-select">
-                  <label for="uf">UF*</label>
-                  <select name="uf" id="uf" required>
-                    <option value="0"></option>
-                  </select>
+                   <%= f.label :city_id, "Cidade" %>
+                  <%= f.select :city_id, City.all.collect {|p| [ p.name, p.id ] } %>
                 </div>
               </div>
 
               <div class="col-4 col-right padding-left">
                 <div class="form-input">
                   <label for="cep">CEP*</label>
-                  <input class="cep" type="text" id="cep" name="cep" required>
+                  <input class="cep" type="text" id="cep" name="cep" >
                 </div>
               </div>
             </div>
@@ -101,7 +93,7 @@
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
                   <label for="telefone">Telefone*</label>
-                  <input class="tel" type="tel" id="telefone" name="telefone" required>
+                  <input class="tel" type="tel" id="telefone" name="telefone" >
                 </div>
               </div>
 
@@ -117,7 +109,7 @@
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
                   <label for="celular">Celular*</label>
-                  <input class="tel" type="tel" id="celular" name="celular" required>
+                  <input class="tel" type="tel" id="celular" name="celular" >
                 </div>
               </div>
 
@@ -143,7 +135,7 @@
 
             <div class="form-input">
               <label for="objetivo_cargo">Objetivo ou cargo de interesse*</label>
-              <input type="text" id="objetivo_cargo" name="objetivo_cargo" required>
+              <input type="text" id="objetivo_cargo" name="objetivo_cargo" >
             </div>
 
             <div class="form-radio">
@@ -222,7 +214,7 @@
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
                   <label for="ultimo_salario">Último Salário*</label>
-                  <input class="money" type="text" id="ultimo_salario" name="ultimo_salario" required>
+                  <input class="money" type="text" id="ultimo_salario" name="ultimo_salario" >
                 </div>
               </div>
 
@@ -264,26 +256,26 @@
 
             <div class="form-input">
               <label for="curso">Nome do curso*</label>
-              <input type="text" id="curso" name="curso" required>
+              <input type="text" id="curso" name="curso" >
             </div>
 
             <div class="form-input">
               <label for="instituicao">Nome da Instituição*</label>
-              <input type="text" id="instituicao" name="instituicao" required>
+              <input type="text" id="instituicao" name="instituicao" >
             </div>
 
             <div class="row">
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
                   <label for="data_inicio">Data de início*</label>
-                  <input class="date" type="text" id="data_inicio" name="data_inicio" required>
+                  <input class="date" type="text" id="data_inicio" name="data_inicio" >
                 </div>
               </div>
 
               <div class="col-6 col-right padding-small-left">
                 <div class="form-input">
                   <label for="data_conclusao">Data de conclusão*</label>
-                  <input class="date" type="text" id="data_conclusao" name="data_conclusao" required>
+                  <input class="date" type="text" id="data_conclusao" name="data_conclusao" >
                 </div>
               </div>
             </div>
@@ -331,21 +323,21 @@
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
                   <label for="nome">Nome*</label>
-                  <input type="text" id="nome" name="nome" required>
+                  <input type="text" id="nome" name="nome" >
                 </div>
               </div>
 
               <div class="col-6 col-right padding-small-left">
                 <div class="form-input">
                   <label for="local">Local*</label>
-                  <input type="text" id="local" name="local" required>
+                  <input type="text" id="local" name="local" >
                 </div>
               </div>
             </div>
 
             <div class="form-textarea">
               <label for="descricao">Descrição*</label>
-              <textarea id="descricao" name="descricao" required></textarea>
+              <textarea id="descricao" name="descricao" ></textarea>
             </div>
 
             <div class="form-submit text-center">
@@ -396,14 +388,14 @@
               <div class="col-7 col-left padding-small-right">
                 <div class="form-input">
                   <label for="idioma">Idioma*</label>
-                  <input type="text" id="idioma" name="idioma" required>
+                  <input type="text" id="idioma" name="idioma" >
                 </div>
               </div>
 
               <div class="col-5 col-right padding-small-left">
                 <div class="form-select">
                   <label for="nivel">Nível*</label>
-                  <select name="nivel" id="nivel" required>
+                  <select name="nivel" id="nivel" >
                     <option value="0"></option>
                   </select>
                 </div>
@@ -449,26 +441,26 @@
 
             <div class="form-input">
               <label for="empresa">Empresa*</label>
-              <input type="text" id="empresa" name="empresa" required>
+              <input type="text" id="empresa" name="empresa" >
             </div>
 
             <div class="form-input">
               <label for="ultimo_cargo">Último Cargo*</label>
-              <input type="text" id="ultimo_cargo" name="ultimo_cargo" required>
+              <input type="text" id="ultimo_cargo" name="ultimo_cargo" >
             </div>
 
             <div class="row">
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
                   <label for="data_inicio">Data de início*</label>
-                  <input class="date" type="text" id="data_inicio" name="data_inicio" required>
+                  <input class="date" type="text" id="data_inicio" name="data_inicio" >
                 </div>
               </div>
 
               <div class="col-6 col-right padding-small-left">
                 <div class="form-input">
                   <label for="data_saida">Data de saída*</label>
-                  <input class="date" type="text" id="data_saida" name="data_saida" required>
+                  <input class="date" type="text" id="data_saida" name="data_saida" >
                 </div>
               </div>
             </div>
@@ -484,7 +476,7 @@
 
             <div class="form-textarea">
               <label for="funcoes">Funções*</label>
-              <textarea name="funcoes" id="funcoes" placeholder="Descreva aqui suas funções no cargo." required></textarea>
+              <textarea name="funcoes" id="funcoes" placeholder="Descreva aqui suas funções no cargo." ></textarea>
             </div>
 
             <div class="form-submit text-center">
@@ -531,7 +523,7 @@
 
         <div class="form-textarea">
           <label class="hidden" for="mini_curriculo">Mini Currículo</label>
-          <textarea name="mini_curriculo" id="mini_curriculo" placeholder="Descreva aqui, de forma resumida, seu perfil, experiências e habilidades profissionais." required></textarea>
+          <textarea name="mini_curriculo" id="mini_curriculo" placeholder="Descreva aqui, de forma resumida, seu perfil, experiências e habilidades profissionais." ></textarea>
         </div>
       </fieldset>
 
@@ -586,7 +578,7 @@
         <div class="form-radio">
           <div class="form-radio-item form-inline">
             <label for="termos_de_uso">*li e concordo com os <a href="#">termos de uso.</a></label>
-            <input type="checkbox" name="termos_de_uso" id="termos_de_uso" required>
+            <input type="checkbox" name="termos_de_uso" id="termos_de_uso" >
           </div>
         </div>
 
