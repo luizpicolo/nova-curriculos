@@ -8,9 +8,9 @@ FactoryGirl.define do
     number { Faker::Address.building_number }
     complement { Faker::Address.secondary_address }
     home_phone { Faker::PhoneNumber.phone_number }
-    home_commercial { Faker::PhoneNumber.phone_number }
+    commercial_phone { Faker::PhoneNumber.phone_number }
     mobile_phone { Faker::PhoneNumber.cell_phone }
-    phone_message { Faker::PhoneNumber.phone_number }
+    message_phone { Faker::PhoneNumber.phone_number }
     mini_curriculum { Faker::Lorem.paragraph }
     
     city factory: :city

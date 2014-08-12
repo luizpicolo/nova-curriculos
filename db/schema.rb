@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811204520) do
+ActiveRecord::Schema.define(version: 20140812042556) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling",      null: false
@@ -31,24 +31,28 @@ ActiveRecord::Schema.define(version: 20140811204520) do
   end
 
   create_table "candidates", force: true do |t|
-    t.boolean  "is_male",         null: false
-    t.date     "birth_date",      null: false
+    t.boolean  "is_male",                              null: false
+    t.date     "birth_date",                           null: false
     t.integer  "zip_code"
     t.string   "street"
     t.integer  "number"
     t.string   "complement"
     t.string   "home_phone"
     t.string   "mobile_phone"
-    t.integer  "city_id",         null: false
+    t.integer  "city_id",                              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",         null: false
+    t.integer  "user_id",                              null: false
     t.string   "image"
     t.string   "full_name"
-    t.string   "home_commercial"
-    t.string   "phone_message"
+    t.string   "commercial_phone"
+    t.string   "message_phone"
     t.text     "mini_curriculum"
     t.string   "suburb"
+    t.string   "position_of_interest"
+    t.string   "salary_pretension"
+    t.string   "last_salary"
+    t.boolean  "salary_to_be_agreed",  default: false
   end
 
   add_index "candidates", ["city_id"], name: "index_candidates_on_city_id", using: :btree

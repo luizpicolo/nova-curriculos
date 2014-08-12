@@ -9,7 +9,7 @@ class Candidate < ActiveRecord::Base
   validates :is_male, :inclusion => { :in => [true, false] }, presence: true
   validates :birth_date, :mobile_phone, presence: true
   validates :user, :presence => true
-  validates :phone_message, :presence => true
+  validates :message_phone, :presence => true
 
   delegate :name, to: :user, :allow_nil => true
 

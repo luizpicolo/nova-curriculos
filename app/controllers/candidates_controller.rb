@@ -8,7 +8,7 @@ class CandidatesController < ApplicationController
   def show
   	candidate = Candidate.find_by_user_id(current_user)
   	if candidate.nil?
-	  @candidate = Candidate.new
+	    @candidate = Candidate.new
   	else
   	  @candidate = candidate
   	end
@@ -16,15 +16,13 @@ class CandidatesController < ApplicationController
 
   def create
   	@candidate = Candidate.new(candidate_params)
-	  #@candidate.is_male = true
-	  #@candidate.bith_date = "1981-07-05"
   	@candidate.user = current_user
   	if @candidate.save
   	  redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
   	else
   	  redirect_to curriculum_candidate_path, :flash => { :error => "Erro ao atualizar dados. Verifique os campos e tente novamente." }
   	end
-    end
+  end
 
   def update
   	if @candidate.update(candidate_params)
@@ -43,7 +41,11 @@ class CandidatesController < ApplicationController
   def candidate_params
     params.require(:candidate).permit(
       :full_name, :is_male, :birth_date, :street,
-      :number, :complement, :suburb, :city_id
+      :number, :complement, :suburb, :city_id, :zip_code,
+      :home_phone, :commercial_phone, :mobile_phone, 
+      :message_phone, {:professional_area_ids => []},
+      {:hierarchical_level_ids => []}, :position_of_interest,
+      :last_salary, :salary_pretension, :salary_to_be_agreed
     )
   end
 end

@@ -32,8 +32,8 @@ RSpec.describe Candidate, :type => :model do
 			expect(candidate).to be_invalid
 		end
 
-		it 'should be invalid if there is no phone message' do
-			candidate = FactoryGirl.build :candidate, :phone_message => nil
+		it 'should be invalid if there is no message phone' do
+			candidate = FactoryGirl.build :candidate, :message_phone => nil
 			expect(candidate).to be_invalid
 		end
 

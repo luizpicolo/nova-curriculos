@@ -1,0 +1,22 @@
+.checkboxes_curriculum {
+
+	margin: 0;
+	padding: 0;
+
+	li {
+		display: inline-block;
+		list-style: none;
+		width: 230px;
+
+		input {
+			margin-right: 6px;
+			position: relative;
+			top: 2px;
+		}
+
+		&:nth-child(even) {
+			position: relative;
+			left: 10px;
+		}
+	}
+}
