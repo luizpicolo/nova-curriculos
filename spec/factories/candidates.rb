@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :candidate do
     full_name { Faker::Name.name }
     is_male true
-    bith_date Time.now
+    birth_date Time.now
     zip_code { Faker::Address.zip_code }
     street { Faker::Address.street_name }
     number { Faker::Address.building_number }

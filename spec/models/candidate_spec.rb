@@ -22,8 +22,8 @@ RSpec.describe Candidate, :type => :model do
 			expect(candidate).to be_invalid
 		end
 
-		it 'should be invalid if there is no bith date' do
-			candidate = FactoryGirl.build :candidate, :bith_date => nil
+		it 'should be invalid if there is no birth date' do
+			candidate = FactoryGirl.build :candidate, :birth_date => nil
 			expect(candidate).to be_invalid
 		end
 
@@ -37,10 +37,10 @@ RSpec.describe Candidate, :type => :model do
 			expect(candidate).to be_invalid
 		end
 
-		it 'should be invalid if there is no mini curriculum' do
-			candidate = FactoryGirl.build :candidate, :mini_curriculum => nil
-			expect(candidate).to be_invalid
-		end
+		# it 'should be invalid if there is no mini curriculum' do
+		# 	candidate = FactoryGirl.build :candidate, :mini_curriculum => nil
+		# 	expect(candidate).to be_invalid
+		# end
 
 		it "object created is valid" do
 			candidate = FactoryGirl.build(:candidate)
