@@ -6,8 +6,8 @@ $(document).ready(function() {
 	$(".alert").click(function(){
 	    $(this).fadeOut(500);
 	})
-});
 
+});
 
 $(document).ready(function(){
   // active();
@@ -16,7 +16,7 @@ $(document).ready(function(){
   // page_up();
   // page_back();
 
-  $('input, textarea').placeholder();
+  //$('input, textarea').placeholder();
 
   $('.date').mask('00/00/0000');  
   $('.tel').mask('(00) 0000-0000');

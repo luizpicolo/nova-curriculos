@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.jscrollpane
-//= require jquery-placeholder
 //= require jquery.mask.min
 //= require_tree .
