@@ -9,10 +9,6 @@
     rake db:create
     rake db:migrate
     
-test
-
-    rspec
-    
 execute server
 
     bundle exec rake sunspot:solr:start (development)
@@ -35,6 +31,11 @@ copy
 - Mysql 5.5+ or Postgre 9.3+ DataBase
 - rvm 1.25.x+ (optional)
 
+
+## Execute test
+
+    bundle exec sunspot-solr start -p 8983
+    rspec
 
 ## Deployment
 
