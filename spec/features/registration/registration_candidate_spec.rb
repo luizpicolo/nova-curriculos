@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Registration_candidate' do
+feature 'Registration candidate' do
   let!(:user) { FactoryGirl.build(:user) }
 
   scenario 'with valid data' do
