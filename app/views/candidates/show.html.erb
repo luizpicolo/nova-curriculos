@@ -14,23 +14,23 @@
             <legend class="page-caption">Dados do Candidato</legend>
 
             <div class="form-input">
-              <%= f.label :full_name, "Nome Completo" %>
+              <%= f.label :full_name, "*Nome Completo" %>
               <%= f.text_field :full_name, :required => true %>
             </div>
 
             <div class="row">
               <div class="col-6 col-left padding-small-right">
                 <div class="form-radio">
-                  <span class="form-radio-label">Sexo*</span>
+                  <span class="form-radio-label">*Sexo</span>
                   
                   <div class="row">
                     <div class="form-radio-item col-6 col-left padding-right">
-                      <%= f.radio_button :is_male, true  %> 
+                      <%= f.radio_button :is_male, true, :required => true %> 
                       <%= f.label :is_male, "Masculino" %>
                     </div>
                     
                     <div class="form-radio-item col-6 col-right padding-left">
-                      <%= f.radio_button :is_male, false  %> 
+                      <%= f.radio_button :is_male, false, :required => true  %> 
                       <%= f.label :is_male, "Feminino" %>
                     </div>
                   </div>
@@ -39,8 +39,8 @@
 
               <div class="col-6 col-right padding-small-left">
                 <div class="form-input">
-                  <%= f.label :birth_date, "Data de nascimento" %>
-                  <%= f.text_field :birth_date, :required => true, :class => "date", :value => @candidate.birth_date.try(:strftime,("%d/%m/%Y")) %>
+                  <%= f.label :birth_date, "*Data de nascimento" %>
+                  <%= f.text_field :birth_date, :required => true, :class => "date", :value => @candidate.birth_date.try(:strftime,("%d/%m/%Y")), :required => true %>
                 </div>
               </div>
             </div>
@@ -76,8 +76,8 @@
             <div class="row">
               <div class="col-8 col-left padding-right">
                 <div class="form-select">
-                   <%= f.label :city_id, "Cidade" %>
-                  <%= f.select :city_id, City.all.collect {|p| [ p.name, p.id ] } %>
+                   <%= f.label :city_id, "*Cidade" %>
+                  <%= f.select :city_id, City.all.collect {|p| [ p.name, p.id ] }, :required => true %>
                 </div>
               </div>
 
@@ -108,8 +108,8 @@
             <div class="row">
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
-                  <%= f.label :mobile_phone, "Celular" %>
-                  <%= f.text_field :mobile_phone, :class => "tel" %>
+                  <%= f.label :mobile_phone, "Celular*" %>
+                  <%= f.text_field :mobile_phone, :class => "tel", :required => true %>
                 </div>
               </div>
 
