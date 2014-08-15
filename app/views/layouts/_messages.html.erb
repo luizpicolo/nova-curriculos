@@ -6,6 +6,6 @@
 	%>
     <div class="alert alert-<%= key %>">
       <button type="button" class="close">&times;</button>
-      <%= value %>
+      <%= value.html_safe %>
     </div>
 <% end %>

@@ -20,7 +20,11 @@ class CandidatesController < ApplicationController
   	if @candidate.save
   	  redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
   	else
-  	  redirect_to curriculum_candidate_path, :flash => { :error => "Erro ao atualizar dados. Verifique os campos e tente novamente." }
+      error_msg = ""
+      @candidate.errors.full_messages.each do |msg|  
+        error_msg << "<div>#{msg}</div>"
+      end
+  	  redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
   	end
   end
 
@@ -28,7 +32,11 @@ class CandidatesController < ApplicationController
   	if @candidate.update(candidate_params)
 	    redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso" }
   	else
-  	  redirect_to curriculum_candidate_path, :flash => { :error => "Erro ao atualizar dados. Verifique os campos e tente novamente." }
+      error_msg = ""
+      @candidate.errors.full_messages.each do |msg|  
+        error_msg << "<div>#{msg}</div>"
+      end
+  	  redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
   	end
   end
 

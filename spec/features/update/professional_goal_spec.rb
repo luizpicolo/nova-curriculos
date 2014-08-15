@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-feature 'Update candidate' do
+feature 'Professional goal' do
   let!(:candidate) { FactoryGirl.create(:candidate) }
 
   scenario 'with valid data' do
-    updating_data candidate
+    update_goal candidate
     expect(page).to have_content('Seus dados foram atualizados com sucesso')
   end
 end

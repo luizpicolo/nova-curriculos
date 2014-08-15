@@ -9,7 +9,7 @@
     
     <div class="row margin-large-bottom">
       <div class="col-6 col-left padding-right">
-        <%= form_for @candidate, :class => 'form-curriculo' do |f| %>
+        <%= form_for @candidate, :class => 'form-curriculo', :validate => true do |f| %>
           <fieldset>
             <legend class="page-caption">Dados do Candidato</legend>
 
@@ -40,7 +40,7 @@
               <div class="col-6 col-right padding-small-left">
                 <div class="form-input">
                   <%= f.label :birth_date, "*Data de nascimento" %>
-                  <%= f.text_field :birth_date, :required => true, :class => "date", :value => @candidate.birth_date.try(:strftime,("%d/%m/%Y")), :required => true %>
+                  <%= f.text_field :birth_date, :class => "date", :value => @candidate.birth_date.try(:strftime,("%d/%m/%Y")), :required => true%>
                 </div>
               </div>
             </div>

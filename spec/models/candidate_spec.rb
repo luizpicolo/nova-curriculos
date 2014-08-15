@@ -17,6 +17,11 @@ RSpec.describe Candidate, :type => :model do
 	# end
 
   describe "Validations" do
+    it 'should be invalid if there is no name' do
+			candidate = FactoryGirl.build :candidate, :full_name => nil
+			expect(candidate).to be_invalid
+		end
+
 		it 'should be invalid if there is no sex' do
 			candidate = FactoryGirl.build :candidate, :is_male => nil
 			expect(candidate).to be_invalid

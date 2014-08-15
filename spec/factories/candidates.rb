@@ -11,6 +11,9 @@ FactoryGirl.define do
     commercial_phone { Faker::PhoneNumber.phone_number }
     mobile_phone { Faker::PhoneNumber.cell_phone }
     message_phone { Faker::PhoneNumber.phone_number }
+    position_of_interest { Faker::Name.name }
+    last_salary { Faker::Number.number(4) }
+    salary_pretension { Faker::Number.number(4) }
     mini_curriculum { Faker::Lorem.paragraph }
     
     city factory: :city
