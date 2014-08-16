@@ -7,11 +7,9 @@ class CandidatesController < ApplicationController
 
   def show
   	candidate = Candidate.find_by_user_id(current_user)
-  	if candidate.nil?
-	    @candidate = Candidate.new
-  	else
-  	  @candidate = candidate
-  	end
+    academic_training = AcademicTraining.find_by_candidate_id(current_user)
+  	candidate.nil? ?  @candidate = Candidate.new : @candidate = candidate
+    academic_training.nil? ? @academic_training = AcademicTraining.new : @academic_training = academic_training
   end
 
   def create
@@ -21,7 +19,7 @@ class CandidatesController < ApplicationController
   	  redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
   	else
       error_msg = ""
-      @candidate.errors.full_messages.each do |msg|  
+      @candidate.errors.full_messages.each do |msg|
         error_msg << "<div>#{msg}</div>"
       end
   	  redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
@@ -33,7 +31,7 @@ class CandidatesController < ApplicationController
 	    redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso" }
   	else
       error_msg = ""
-      @candidate.errors.full_messages.each do |msg|  
+      @candidate.errors.full_messages.each do |msg|
         error_msg << "<div>#{msg}</div>"
       end
   	  redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
@@ -50,7 +48,7 @@ class CandidatesController < ApplicationController
     params.require(:candidate).permit(
       :full_name, :is_male, :birth_date, :street,
       :number, :complement, :suburb, :city_id, :zip_code,
-      :home_phone, :commercial_phone, :mobile_phone, 
+      :home_phone, :commercial_phone, :mobile_phone,
       :message_phone, {:professional_area_ids => []},
       {:hierarchical_level_ids => []}, :position_of_interest,
       :last_salary, :salary_pretension, :salary_to_be_agreed

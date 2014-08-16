@@ -2,11 +2,11 @@
   <div class="grid padding-top">
     <div class="page-title-container">
       <h1 class="page-title">
-        <span class="nc-min-icon nc-min-candidate"></span> 
+        <span class="nc-min-icon nc-min-candidate"></span>
         <span>Currículo</span>
       </h1>
     </div>
-    
+
     <div class="row margin-large-bottom">
       <div class="col-6 col-left padding-right">
         <%= form_for @candidate, :class => 'form-curriculo', :validate => true do |f| %>
@@ -22,15 +22,15 @@
               <div class="col-6 col-left padding-small-right">
                 <div class="form-radio">
                   <span class="form-radio-label">*Sexo</span>
-                  
+
                   <div class="row">
                     <div class="form-radio-item col-6 col-left padding-right">
-                      <%= f.radio_button :is_male, true, :required => true %> 
+                      <%= f.radio_button :is_male, true, :required => true %>
                       <%= f.label :is_male, "Masculino" %>
                     </div>
-                    
+
                     <div class="form-radio-item col-6 col-right padding-left">
-                      <%= f.radio_button :is_male, false, :required => true  %> 
+                      <%= f.radio_button :is_male, false, :required => true  %>
                       <%= f.label :is_male, "Feminino" %>
                     </div>
                   </div>
@@ -140,7 +140,7 @@
 
             <div class="form-radio">
               <span class="form-radio-label">Área Profissional</span>
-              
+
               <ul class="checkboxes_curriculum">
               <%= f.collection_check_boxes(:professional_area_ids, ProfessionalArea.all, :id, :name) do |b|%>
               <% '<li>'.html_safe << b.label { b.check_box << b.text } << '</li>'.html_safe %>
@@ -151,7 +151,7 @@
 
             <div class="form-radio">
               <span class="form-radio-label">Nível hierárquico</span>
-              
+
               <ul class="checkboxes_curriculum">
               <%= f.collection_check_boxes(:hierarchical_level_ids, HierarchicalLevel.all, :id, :name) do |b|%>
               <% '<li>'.html_safe << b.label { b.check_box << b.text } << '</li>'.html_safe %>
@@ -187,72 +187,75 @@
           </fieldset>
 
           <div class="form-submit text-center">
-            <input class="btn btn-blue" type="submit" value="Salvar objetivo profissional">
+            <%= f.submit "Salvar objetivo profissional", :class => "btn btn-blue" %>
           </div>
         <% end %>
       </div>
     </div>
-    
+
     <div class="row margin-large-bottom">
       <div class="col-6 col-left padding-right">
-        <form action="" class="form-curriculo">
+        <%= form_for @academic_training, :class => 'form-curriculo' do |f| %>
           <fieldset>
             <legend class="page-caption">Formação Acadêmica</legend>
 
-            <div class="form-input">
-              <label for="grau_de_escolaridade">Grau de Escolaridade</label>
-              <input type="text" id="grau_de_escolaridade" name="grau_de_escolaridade">
+            <div class="form-select">
+              <%= f.label :schooling_id, "Grau de escolaridade" %>
+              <%= f.select :schooling_id, Schooling.all.collect {|p| [ p.name, p.id ] }, :required => true %>
             </div>
 
             <div class="form-input">
-              <label for="curso">Nome do curso*</label>
-              <input type="text" id="curso" name="curso" >
+              <%= f.label :name_of_course, "Nome do curso" %>
+              <%= f.text_field :name_of_course, :required => true %>
             </div>
 
             <div class="form-input">
-              <label for="instituicao">Nome da Instituição*</label>
-              <input type="text" id="instituicao" name="instituicao" >
+              <%= f.label :institution, "Instituição" %>
+              <%= f.text_field :institution, :required => true %>
             </div>
 
             <div class="row">
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
-                  <label for="data_inicio">Data de início*</label>
-                  <input class="date" type="text" id="data_inicio" name="data_inicio" >
+                  <%= f.label :birth_date, "Data início" %>
+                  <%= f.text_field :start_date, :class => "date", :value => @academic_training.start_date.try(:strftime,("%d/%m/%Y")), :required => true %>
                 </div>
               </div>
 
               <div class="col-6 col-right padding-small-left">
                 <div class="form-input">
-                  <label for="data_conclusao">Data de conclusão*</label>
-                  <input class="date" type="text" id="data_conclusao" name="data_conclusao" >
+                  <%= f.label :finish_date, "Data término" %>
+                  <%= f.text_field :finish_date, :class => "date", :value => @academic_training.finish_date.try(:strftime,("%d/%m/%Y")) %>
                 </div>
               </div>
             </div>
           </fieldset>
 
           <div class="form-submit text-center">
-            <input class="btn btn-blue" type="submit" value="Salvar formação acadêmica">
+            <%= f.submit "Salvar formação acadêmica", :class => "btn btn-blue" %>
           </div>
-        </form>
+        <% end %>
       </div>
-      
+
       <div class="col-6 col-right padding-left">
         <div class="display">
           <h2 class="page-caption">Formações acadêmicas salvas</h2>
-          
+
           <div class="display-scroll scroll">
             <ul class="display-list">
-              <% for i in (1..5) %>
+              <% @candidate.academic_trainings.each do |academic_training| %>
               <li class="display-item">
                 <section>
-                  <h3 class="display-title">Curso</h3>
-                  <p>Instituição</p>
-                  <p>Grau de escolaridade</p>
-                  <p>de 00/00/0000 à 00/00/0000</p>
+                  <h3 class="display-title"><%= academic_training.name_of_course%></h3>
+                  <p><%= academic_training.institution%></p>
+                  <p><%= academic_training.schooling.name %></p>
+                  <p>
+                    de <%= academic_training.start_date.try(:strftime,("%d/%m/%Y")) %>
+                    à <%= academic_training.finish_date.try(:strftime,("%d/%m/%Y")) || "Ainda Cursando" %></p>
 
                   <div class="display-btn">
                     <a class="btn btn-blue" href="#">Editar</a>
+                    <a class="btn btn-red" href="#">Excluir</a>
                   </div>
                 </section>
               </li>
@@ -262,7 +265,7 @@
         </div>
       </div>
     </div>
-      
+
     <div class="row margin-large-bottom">
       <div class="col-6 col-left padding-right">
         <form action="" class="form-curriculo">
@@ -296,11 +299,11 @@
           </fieldset>
         </form>
       </div>
-      
+
       <div class="col-6 col-right padding-left">
         <div class="display">
           <h2 class="page-caption">Cursos ou Eventos salvos</h2>
-          
+
           <div class="display-scroll scroll">
             <ul class="display-list">
               <% for i in (1..5) %>
@@ -362,7 +365,7 @@
       <div class="col-6 col-right padding-left">
         <div class="display">
           <h2 class="page-caption">Idiomas Salvos</h2>
-          
+
           <div class="display-small-scroll scroll">
             <ul class="display-list">
               <% for i in (1..5) %>
@@ -370,7 +373,7 @@
                 <section>
                   <h3 class="display-title">Idioma</h3>
                   <p>Nível</p>
-                  
+
                   <div class="display-btn">
                     <a class="btn btn-blue" href="#">Editar</a>
                   </div>
@@ -439,7 +442,7 @@
       <div class="col-6 col-right padding-left">
         <div class="display">
           <h2 class="page-caption">Idiomas Salvos</h2>
-          
+
           <div class="display-large-scroll scroll">
             <ul class="display-list">
               <% for i in (1..5) %>
@@ -454,7 +457,7 @@
                       Descrição das funções exercidas no cargo.
                     </p>
                   </div>
-                  
+
                   <div class="display-btn">
                     <a class="btn btn-blue" href="#">Editar</a>
                   </div>
@@ -479,15 +482,15 @@
 
       <fieldset class="margin-bottom">
         <legend class="page-caption">Nível de Confidencialidade</legend>
-        
+
         <div class="row">
           <div class="col-6 col-left padding-right">
             <div class="form-radio-item">
               <label for="publico">público</label>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                Sapiente cumque, in laboriosam. Blanditiis, excepturi at, 
-                officia cumque laborum eligendi cupiditate, eaque, similique 
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sapiente cumque, in laboriosam. Blanditiis, excepturi at,
+                officia cumque laborum eligendi cupiditate, eaque, similique
                 voluptate facilis quos alias ut esse repellat sit!
               </p>
               <input type="radio" name="confidencialidade" id="publico" checked>
@@ -498,9 +501,9 @@
             <div class="form-radio-item">
               <label for="confidencial">confidencial</label>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                Sapiente cumque, in laboriosam. Blanditiis, excepturi at, 
-                officia cumque laborum eligendi cupiditate, eaque, similique 
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sapiente cumque, in laboriosam. Blanditiis, excepturi at,
+                officia cumque laborum eligendi cupiditate, eaque, similique
                 voluptate facilis quos alias ut esse repellat sit!
               </p>
               <input type="radio" name="confidencialidade" id="confidencial">
@@ -508,7 +511,7 @@
           </div>
         </div>
       </fieldset>
-    
+
       <div class="form-submit-container">
         <div class="page-slogan margin-bottom">
           <div class="page-slogan-text">
@@ -524,7 +527,7 @@
             </p>
           </div>
         </div>
-        
+
         <div class="form-radio">
           <div class="form-radio-item form-inline">
             <label for="termos_de_uso">*li e concordo com os <a href="#">termos de uso.</a></label>

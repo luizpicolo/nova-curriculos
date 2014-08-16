@@ -11,7 +11,7 @@ module CandidateHelpers
     message_phone = options[:message_phone] || candidate.message_phone
 
     sign_in @user
-  	#city = FactoryGirl.create(:city)
+  	city = create_city
 
   	visit curriculum_candidate_path
 
@@ -19,7 +19,7 @@ module CandidateHelpers
     choose "candidate_is_male_true" if is_male == true
     choose "candidate_is_male_false" if is_male == false
   	fill_in "candidate_birth_date", with: birth_date
-  	#select "candidate_city_id", :from => city.id
+  	select city.name, :from => "candidate_city_id"
   	fill_in "candidate_mobile_phone", with: mobile_phone
   	fill_in "candidate_message_phone", with: message_phone
   	click_button "Salvar dados do candidato"
@@ -41,8 +41,38 @@ module CandidateHelpers
     click_button "Salvar objetivo profissional"
   end
 
+  def update_academic_training(candidate)
+    updating_information candidate
+
+    academic_training = create_academic_training
+    schooling = create_schooling
+
+    visit curriculum_candidate_path
+
+    select schooling.name, :from => "academic_training_schooling_id"
+    fill_in "academic_training_name_of_course", with: academic_training.name_of_course
+    fill_in "academic_training_institution", with: academic_training.institution
+    fill_in "academic_training_start_date", with: academic_training.start_date
+    fill_in "academic_training_finish_date", with: academic_training.finish_date
+    click_button "Salvar formação acadêmica"
+
+    academic_training
+  end
+
   def create_professional_area
     FactoryGirl.create(:professional_area)
+  end
+
+  def create_city
+    FactoryGirl.create(:city)
+  end
+
+  def create_academic_training
+    FactoryGirl.create(:academic_training)
+  end
+
+  def create_schooling
+    FactoryGirl.create(:schooling)
   end
 
   def create_hierarchical_level

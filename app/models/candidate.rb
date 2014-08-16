@@ -5,7 +5,7 @@ class Candidate < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   #process_in_background :image
-  
+
   validates :full_name, :presence => true
   validates :is_male, :inclusion => { :in => [true, false] }, :presence => true
   validates :birth_date, :mobile_phone, :presence => true
@@ -23,4 +23,5 @@ class Candidate < ActiveRecord::Base
 
   belongs_to :city
   belongs_to :user
+
 end

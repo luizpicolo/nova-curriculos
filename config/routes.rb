@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   # Devise Routes
   devise_for :user, path: 'auth', path_names: {
       sign_in: 'login',
@@ -11,11 +11,12 @@ Rails.application.routes.draw do
       #:sessions => 'sessions',
       #:omniauth_callbacks => 'omniauth_callbacks'
   }
-  
+
   # Rails admin
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resource :candidates
+  resource :academic_trainings
 
   # Routes
   get "/oportunidades/:slug" => "jobs#show", :as => :opportunities

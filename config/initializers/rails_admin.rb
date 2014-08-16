@@ -5,7 +5,7 @@ RailsAdmin.config do |config|
   config.default_items_per_page = 20
   #config.included_models = ["Company", "TypeCompany", "BranchOperation"]
   config.compact_show_view = false
-  
+
   ### Popular gems integration
 
   ## == Devise ==
@@ -59,6 +59,18 @@ RailsAdmin.config do |config|
     # end
   end
 
+  ### Jobs Category ###
+  config.model 'Schooling' do
+    navigation_label 'Candidatos'
+    list do
+      field :id
+      field :name
+    end
+    edit do
+      field :name
+    end
+  end
+
   ### Curse Extras ###
   config.model 'ExtraCourse' do
     navigation_label 'Candidatos'
@@ -96,7 +108,7 @@ RailsAdmin.config do |config|
         inline_add false
         inline_edit false
       end
-      field :bith_date
+      field :birth_date
       field :is_male
       field :zip_code
       field :street
@@ -208,7 +220,7 @@ RailsAdmin.config do |config|
       field :branch_operation
       field :description, :wysihtml5 do
         config_options :html => false
-      end  
+      end
       field :logo, :carrierwave
     end
     # show do
@@ -265,7 +277,7 @@ RailsAdmin.config do |config|
     end
     edit do
       field :name
-      field :state 
+      field :state
     end
     # show do
     #   field :name
@@ -333,14 +345,14 @@ RailsAdmin.config do |config|
       field :time_contract
       field :description, :wysihtml5 do
         config_options :html => false
-      end 
+      end
       field :requirements, :wysihtml5 do
         config_options :html => false
-      end 
+      end
       field :period_of_work
       field :other_information, :wysihtml5 do
         config_options :html => false
-      end 
+      end
       field :start_date do
         date_format :default
       end
