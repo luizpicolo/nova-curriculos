@@ -19,7 +19,7 @@ set :repository, 'git@bitbucket.org:luizpicolo_/nova-curriculos.git'
 set :branch, 'master'
 
 # Fix
-set :term_mode, nil 
+set :term_mode, nil
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
@@ -68,7 +68,7 @@ task :deploy => :environment do
     to :launch do
       queue %[echo -n "-----> Creating new restart.txt: "]
       queue "touch #{deploy_to}/tmp/restart.txt"
-      
+
       queue %[echo -n "-----> Restart Apache Service: "]
       queue 'sudo service nginx restart'
 
@@ -102,7 +102,7 @@ end
 #   invoke :restart
 # end
 
-# # Manutenance 
+# # Manutenance
 # task :maintenance_on
 #   queue 'touch maintenance.txt'
 # end
@@ -118,4 +118,3 @@ end
 #  - http://nadarei.co/mina/tasks
 #  - http://nadarei.co/mina/settings
 #  - http://nadarei.co/mina/helpers
-

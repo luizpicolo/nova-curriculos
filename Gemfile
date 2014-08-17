@@ -9,7 +9,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'friendly_id', '~> 5.0.0' 
+gem 'friendly_id', '~> 5.0.0'
 gem 'rails_admin'
 gem 'bootstrap-wysihtml5-rails', '0.3.1.24'
 gem 'carrierwave'
@@ -40,7 +40,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'spring'
   gem 'faker'
-  gem 'mina' 
+  gem 'mina'
   gem "better_errors"
   gem "binding_of_caller"
   gem 'sunspot_solr'
@@ -51,7 +51,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'therubyracer' 
+  gem 'therubyracer'
   #gem 'rails_12factor'
 	gem 'pg'
   gem 'passenger'

@@ -7,7 +7,9 @@ class CandidatesController < ApplicationController
 
   def show
   	candidate = Candidate.find_by_user_id(current_user)
-    academic_training = AcademicTraining.find_by_candidate_id(current_user)
+    if params[:academic_training_id]
+      academic_training = AcademicTraining.find(params[:academic_training_id])
+    end
   	candidate.nil? ?  @candidate = Candidate.new : @candidate = candidate
     academic_training.nil? ? @academic_training = AcademicTraining.new : @academic_training = academic_training
   end

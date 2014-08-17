@@ -254,8 +254,8 @@
                     à <%= academic_training.finish_date.try(:strftime,("%d/%m/%Y")) || "Ainda Cursando" %></p>
 
                   <div class="display-btn">
-                    <a class="btn btn-blue" href="#">Editar</a>
-                    <a class="btn btn-red" href="#">Excluir</a>
+                    <%= link_to "Editar", edit_academic_trainings_path(academic_training.id), :class => "btn btn-blue"%>
+                    <%= link_to "Excluir", destroy_academic_trainings_path(academic_training.id), :method => :delete, data: {confirm: "Deseja realmente deletar esta informação?"}, :class => "btn btn-red"%>
                   </div>
                 </section>
               </li>

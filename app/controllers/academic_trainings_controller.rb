@@ -16,10 +16,36 @@ class AcademicTrainingsController < ApplicationController
     end
   end
 
+  def update
+    if @academic_training.update(academic_training_params)
+      redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso" }
+    else
+      error_msg = ""
+      @academic_training.errors.full_messages.each do |msg|
+        error_msg << "<div>#{msg}</div>"
+      end
+      redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
+    end
+  end
+
+  def destroy
+    academic_training = AcademicTraining.find(params[:id])
+    unless academic_training.candidate == current_user
+      academic_training.destroy
+      redirect_to curriculum_candidate_path, :notice => 'Formação acadêmica deletada com sucesso.'
+    else
+      error_msg = ""
+      @academic_training.errors.full_messages.each do |msg|
+        error_msg << "<div>#{msg}</div>"
+      end
+      redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
+    end
+  end
+
   private
 
   def set_academic_training
-    @candidate = AcademicTraining.find_by_user_id(current_user)
+    @academic_training = AcademicTraining.find_by_candidate_id(current_user.candidate)
   end
 
   def academic_training_params
