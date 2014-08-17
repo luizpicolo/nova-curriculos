@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'academic training' do
+feature 'update academic training' do
   let!(:candidate) { FactoryGirl.create(:candidate) }
 
   scenario 'with valid data' do

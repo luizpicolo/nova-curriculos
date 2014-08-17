@@ -59,6 +59,12 @@ module CandidateHelpers
     academic_training
   end
 
+  def destroy_academic_training(candidate)
+    academic_training = update_academic_training candidate
+
+    click_link "Excluir"
+  end
+
   def create_professional_area
     FactoryGirl.create(:professional_area)
   end
