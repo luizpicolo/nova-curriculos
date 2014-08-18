@@ -44,7 +44,7 @@ module CandidateHelpers
   def update_academic_training(candidate)
     updating_information candidate
 
-    academic_training = create_academic_training
+    academic_training = build_academic_training
     schooling = create_schooling
 
     visit curriculum_candidate_path
@@ -59,12 +59,32 @@ module CandidateHelpers
     academic_training
   end
 
+  def update_extra_course(candidate)
+    updating_information candidate
+    extra_course = build_extra_course
+
+    visit curriculum_candidate_path
+    fill_in "extra_course_name", with: extra_course.name
+    fill_in "extra_course_local", with: extra_course.local
+    fill_in "extra_course_description", with: extra_course.description
+    click_button "Salvar curso extra/evento"
+
+    extra_course
+  end
+
   def destroy_academic_training(candidate)
     academic_training = update_academic_training candidate
 
     click_link "Excluir"
   end
 
+  def destroy_extra_course(candidate)
+    extra_course = update_extra_course candidate
+
+    click_link "Excluir"
+  end
+
+  # Creates
   def create_professional_area
     FactoryGirl.create(:professional_area)
   end
@@ -73,16 +93,21 @@ module CandidateHelpers
     FactoryGirl.create(:city)
   end
 
-  def create_academic_training
-    FactoryGirl.create(:academic_training)
-  end
-
   def create_schooling
     FactoryGirl.create(:schooling)
   end
 
   def create_hierarchical_level
     FactoryGirl.create(:hierarchical_level)
+  end
+
+  # Builders
+  def build_extra_course
+    FactoryGirl.build(:extra_course)
+  end
+
+  def build_academic_training
+    FactoryGirl.build(:academic_training)
   end
 end
 
