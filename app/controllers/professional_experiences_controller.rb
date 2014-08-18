@@ -45,13 +45,13 @@ class ProfessionalExperiencesController < ApplicationController
   private
 
   def set_professional_experiences
-    @professional_experiences = ProfessionalExperience.find_by_candidate_id(current_user.candidate)
+    @professional_experiences = ProfessionalExperience.find(professional_experiences_params[:id])
   end
 
   def professional_experiences_params
     params.require(:professional_experience).permit(
       :name_company, :last_post, :start_date, :finish_date,
-      :attributions, :jobs_current
+      :attributions, :jobs_current, :id
     )
   end
 end

@@ -45,12 +45,12 @@ class LanguagesController < ApplicationController
   private
 
   def set_language
-    @language = Language.find_by_candidate_id(current_user.candidate)
+    @language = Language.find(language_params[:id])
   end
 
   def language_params
     params.require(:language).permit(
-      :speech, :level
+      :speech, :level, :id
     )
   end
 end

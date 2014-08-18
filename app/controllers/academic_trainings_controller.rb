@@ -45,13 +45,13 @@ class AcademicTrainingsController < ApplicationController
   private
 
   def set_academic_training
-    @academic_training = AcademicTraining.find_by_candidate_id(current_user.candidate)
+    @academic_training = AcademicTraining.find(academic_training_params[:id])
   end
 
   def academic_training_params
     params.require(:academic_training).permit(
       :schooling_id, :name_of_course, :start_date, :finish_date,
-      :institution
+      :institution, :id
     )
   end
 

@@ -45,12 +45,12 @@ class ExtraCoursesController < ApplicationController
   private
 
   def set_extra_course
-    @extra_course = ExtraCourse.find_by_candidate_id(current_user.candidate)
+    @extra_course = ExtraCourse.find(extra_course_params[:id])
   end
 
   def extra_course_params
     params.require(:extra_course).permit(
-      :name, :local, :description
+      :name, :local, :description, :id
     )
   end
 end
