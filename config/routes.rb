@@ -50,6 +50,14 @@ Rails.application.routes.draw do
   patch "/language" => "languages#update", :as => :update_languages
   delete "/language/:id" => "languages#destroy", :as => :destroy_languages
 
+  # Professional Aŕeas
+  get "/candidato/curriculo/pa/:professional_experience_id" => "candidates#show", :as => :edit_professional_experiences
+  get "/professional_experience" => "professional_experiences#index", :as => :professional_experiences
+  get "/professional_experience" => "professional_experiences#index", :as => :professional_experience
+  post "/professional_experience" => "professional_experiences#create", :as => :create_professional_experiences
+  patch "/professional_experience" => "professional_experiences#update", :as => :update_professional_experiences
+  delete "/professional_experience/:id" => "professional_experiences#destroy", :as => :destroy_professional_experiences
+
   # Route Root
   root 'home#index'
 

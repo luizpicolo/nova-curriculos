@@ -72,6 +72,18 @@ module CandidateHelpers
     extra_course
   end
 
+  def update_professional_experience(candidate)
+    updating_information candidate
+    professional_experience = build_professional_experience
+
+    visit curriculum_candidate_path
+
+    fill_in "extra_course_name", with: extra_course.name
+    fill_in "extra_course_local", with: extra_course.local
+    fill_in "extra_course_description", with: extra_course.description
+    click_button "Salvar curso extra/evento"
+  end
+
   def destroy_academic_training(candidate)
     academic_training = update_academic_training candidate
 
@@ -108,6 +120,10 @@ module CandidateHelpers
 
   def build_academic_training
     FactoryGirl.build(:academic_training)
+  end
+
+  def build_professional_experience
+    FactoryGirl.build(:professional_experience)
   end
 end
 

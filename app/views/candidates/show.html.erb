@@ -388,32 +388,32 @@
 
     <div class="row margin-large-bottom">
       <div class="col-6 col-left padding-right">
-        <form action="" class="form-curriculo">
+        <%= form_for @professional_experience, :class => 'form-curriculo', :validate => true do |f| %>
           <fieldset>
             <legend class="page-caption">Experiência Profissional</legend>
 
             <div class="form-input">
-              <label for="empresa">Empresa*</label>
-              <input type="text" id="empresa" name="empresa" >
+              <%= f.label :name_company, "Empresa" %>
+              <%= f.text_field :name_company, :required => true %>
             </div>
 
             <div class="form-input">
-              <label for="ultimo_cargo">Último Cargo*</label>
-              <input type="text" id="ultimo_cargo" name="ultimo_cargo" >
+              <%= f.label :last_post, "Último cargo" %>
+              <%= f.text_field :last_post, :required => true %>
             </div>
 
             <div class="row">
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
-                  <label for="data_inicio">Data de início*</label>
-                  <input class="date" type="text" id="data_inicio" name="data_inicio" >
+                  <%= f.label :start_date, "Data início" %>
+                  <%= f.text_field :start_date, :class => "date", :value => @professional_experience.start_date.try(:strftime,("%d/%m/%Y")), :required => true%>
                 </div>
               </div>
 
               <div class="col-6 col-right padding-small-left">
                 <div class="form-input">
-                  <label for="data_saida">Data de saída*</label>
-                  <input class="date" type="text" id="data_saida" name="data_saida" >
+                  <%= f.label :finish_date, "Data início" %>
+                  <%= f.text_field :finish_date, :class => "date", :value => @professional_experience.finish_date.try(:strftime,("%d/%m/%Y")) %>
                 </div>
               </div>
             </div>
@@ -421,22 +421,22 @@
             <div class="row margin-bottom">
               <div class="col-6 col-right padding-small-left">
                 <div class="form-radio-item">
-                  <label for="emprego_atual">emprego atual</label>
-                  <input type="checkbox" name="emprego_atual" id="emprego_atual">
+                  <%= f.label :jobs_current, "Emprego atual?" %>
+                  <%= f.check_box :jobs_current %>
                 </div>
               </div>
             </div>
 
             <div class="form-textarea">
-              <label for="funcoes">Funções*</label>
-              <textarea name="funcoes" id="funcoes" placeholder="Descreva aqui suas funções no cargo." ></textarea>
+              <%= f.label :attributions, "Funções"%>
+              <%= f.text_area :attributions %>
             </div>
 
             <div class="form-submit text-center">
-              <input class="btn btn-blue" type="submit" value="Salvar experiência profissional">
+              <%= f.submit "Salvar experiência profissional", :class => "btn btn-blue" %>
             </div>
           </fieldset>
-        </form>
+        <% end %>
       </div>
 
       <div class="col-6 col-right padding-left">
@@ -445,21 +445,26 @@
 
           <div class="display-large-scroll scroll">
             <ul class="display-list">
-              <% for i in (1..5) %>
+              <% @candidate.professional_experiences.each do |professional_experience| %>
               <li class="display-item">
                 <section>
-                  <h3 class="display-title">Cargo</h3>
-                  <p>Empresa</p>
-                  <p>de 00/00/0000 à 00/00/0000</p>
+                  <h3 class="display-title"><%= professional_experience.last_post%></h3>
+                  <p><%= professional_experience.name_company %></p>
+                  <% if professional_experience.jobs_current %>
+                  <p>de <%= professional_experience.start_date.try(:strftime,("%d/%m/%Y")) %> até o momento
+                  <% else %>
+                  <p>de <%= professional_experience.start_date.try(:strftime,("%d/%m/%Y")) %> à <%= professional_experience.finish_date.try(:strftime,("%d/%m/%Y")) %></p>
+                  <% end %>
 
                   <div class="display-text">
                     <p>
-                      Descrição das funções exercidas no cargo.
+                      <%= professional_experience.attributions %>
                     </p>
                   </div>
 
                   <div class="display-btn">
-                    <a class="btn btn-blue" href="#">Editar</a>
+                    <%= link_to "Editar", edit_professional_experiences_path(professional_experience.id), :class => "btn btn-blue"%>
+                    <%= link_to "Excluir", destroy_professional_experiences_path(professional_experience.id), :method => :delete, data: {confirm: "Deseja realmente deletar esta informação?"}, :class => "btn btn-red"%>
                   </div>
                 </section>
               </li>
