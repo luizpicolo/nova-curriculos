@@ -72,16 +72,33 @@ module CandidateHelpers
     extra_course
   end
 
+  def update_language(candidate)
+    updating_information candidate
+    language = build_language
+
+    visit curriculum_candidate_path
+
+    fill_in "language_speech", with: language.speech
+    select name_level(language.level), :from => "language_level"
+    click_button "Salvar idioma"
+
+    language
+  end
+
   def update_professional_experience(candidate)
     updating_information candidate
     professional_experience = build_professional_experience
 
     visit curriculum_candidate_path
 
-    fill_in "extra_course_name", with: extra_course.name
-    fill_in "extra_course_local", with: extra_course.local
-    fill_in "extra_course_description", with: extra_course.description
-    click_button "Salvar curso extra/evento"
+    fill_in "professional_experience_name_company", with: professional_experience.name_company
+    fill_in "professional_experience_last_post", with: professional_experience.last_post
+    fill_in "professional_experience_start_date", with: professional_experience.start_date
+    fill_in "professional_experience_finish_date", with: professional_experience.finish_date
+    fill_in "professional_experience_attributions", with: professional_experience.attributions
+    click_button "Salvar experiência profissional"
+
+    professional_experience
   end
 
   def destroy_academic_training(candidate)
@@ -120,6 +137,10 @@ module CandidateHelpers
 
   def build_academic_training
     FactoryGirl.build(:academic_training)
+  end
+
+  def build_language
+    FactoryGirl.build(:language)
   end
 
   def build_professional_experience

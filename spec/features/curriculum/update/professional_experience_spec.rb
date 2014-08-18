@@ -6,8 +6,9 @@ feature 'update professional experience' do
   scenario 'with valid data' do
     professional_experience = update_professional_experience candidate
 
-    expect(page).to have_content(professional_experience.speech)
-    expect(page).to have_content(name_level professional_experience.level)
+    expect(page).to have_content(professional_experience.last_post)
+    expect(page).to have_content(professional_experience.name_company)
+    expect(page).to have_content(professional_experience.attributions)
 
     expect(page).to have_content('Seus dados foram atualizados com sucesso')
   end
