@@ -10,8 +10,12 @@ class CandidatesController < ApplicationController
     if params[:academic_training_id]
       academic_training = AcademicTraining.find(params[:academic_training_id])
     end
+    if params[:extra_course_id]
+      extra_course = ExtraCourse.find(params[:extra_course_id])
+    end
   	candidate.nil? ?  @candidate = Candidate.new : @candidate = candidate
     academic_training.nil? ? @academic_training = AcademicTraining.new : @academic_training = academic_training
+    extra_course.nil? ? @extra_course = ExtraCourse.new : @extra_course = extra_course
   end
 
   def create

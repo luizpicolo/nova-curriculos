@@ -34,6 +34,14 @@ Rails.application.routes.draw do
   patch "/academic_trainings" => "academic_trainings#update", :as => :update_academic_trainings
   delete "/academic_trainings/:id" => "academic_trainings#destroy", :as => :destroy_academic_trainings
 
+  # Extras Courses
+  get "/candidato/curriculo/ce/:extra_course_id" => "candidates#show", :as => :edit_extra_courses
+  get "/extra_courses" => "extra_courses#index", :as => :extra_courses
+  get "/extra_courses" => "extra_courses#index", :as => :extra_course
+  post "/extra_courses" => "extra_courses#create", :as => :create_extra_courses
+  patch "/extra_courses" => "extra_courses#update", :as => :update_extra_courses
+  delete "/extra_courses/:id" => "extra_courses#destroy", :as => :destroy_extra_courses
+
   # Route Root
   root 'home#index'
 

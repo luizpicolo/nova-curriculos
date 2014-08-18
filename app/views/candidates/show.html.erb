@@ -268,36 +268,36 @@
 
     <div class="row margin-large-bottom">
       <div class="col-6 col-left padding-right">
-        <form action="" class="form-curriculo">
+        <%= form_for @extra_course, :class => 'form-curriculo', :validate => true do |f| %>
           <fieldset>
             <legend class="page-caption">Cursos Extras e Eventos</legend>
 
             <div class="row">
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
-                  <label for="nome">Nome*</label>
-                  <input type="text" id="nome" name="nome" >
+                  <%= f.label :name, "Nome do curso" %>
+                  <%= f.text_field :name, :required => true %>
                 </div>
               </div>
 
               <div class="col-6 col-right padding-small-left">
                 <div class="form-input">
-                  <label for="local">Local*</label>
-                  <input type="text" id="local" name="local" >
+                  <%= f.label :local, "Local" %>
+                  <%= f.text_field :local, :required => true %>
                 </div>
               </div>
             </div>
 
             <div class="form-textarea">
-              <label for="descricao">Descrição*</label>
-              <textarea id="descricao" name="descricao" ></textarea>
+              <%= f.label :description, "Descrição" %>
+              <%= f.text_area :description, :required => true %>
             </div>
 
             <div class="form-submit text-center">
-              <input class="btn btn-blue" type="submit" value="Salvar curso extra/evento">
+              <%= f.submit "Salvar curso extra/evento", :class => "btn btn-blue" %>
             </div>
           </fieldset>
-        </form>
+        <% end %>
       </div>
 
       <div class="col-6 col-right padding-left">
@@ -306,21 +306,21 @@
 
           <div class="display-scroll scroll">
             <ul class="display-list">
-              <% for i in (1..5) %>
+              <% @candidate.extra_courses.each do |extra_course| %>
               <li class="display-item">
                 <section>
-                  <h3 class="display-title">Nome</h3>
-                  <p>Local</p>
-                  <p>de: 01/01/2007 à 01/01/2010</p>
+                  <h3 class="display-title"><%= extra_course.name %></h3>
+                  <p><%= extra_course.local %></p>
 
                   <div class="display-text">
                     <p>
-                      Descrição do curso.
+                      <%= extra_course.description %>
                     </p>
                   </div>
 
                   <div class="display-btn">
-                    <a class="btn btn-blue" href="#">Editar</a>
+                    <%= link_to "Editar", edit_extra_courses_path(extra_course.id), :class => "btn btn-blue"%>
+                    <%= link_to "Excluir", destroy_extra_courses_path(extra_course.id), :method => :delete, data: {confirm: "Deseja realmente deletar esta informação?"}, :class => "btn btn-red"%>
                   </div>
                 </section>
               </li>
