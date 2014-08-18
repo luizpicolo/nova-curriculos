@@ -333,33 +333,32 @@
 
     <div class="row margin-large-bottom">
       <div class="col-6 col-left padding-right">
-        <form action="" class="form-curriculo">
+        <%= form_for @language, :class => 'form-curriculo', :validate => true do |f| %>
           <fieldset>
             <legend class="page-caption">Idiomas</legend>
 
             <div class="row">
               <div class="col-7 col-left padding-small-right">
                 <div class="form-input">
-                  <label for="idioma">Idioma*</label>
-                  <input type="text" id="idioma" name="idioma" >
+                  <%= f.label :speech, "Idioma" %>
+                  <%= f.text_field :speech, :required => true %>
                 </div>
               </div>
 
               <div class="col-5 col-right padding-small-left">
                 <div class="form-select">
                   <label for="nivel">Nível*</label>
-                  <select name="nivel" id="nivel" >
-                    <option value="0"></option>
-                  </select>
+                  <% options = options_for_select([['Básico', 1], ['Intermediário', 2], ['Avançado', 3]], @language.level)%>
+                  <%= f.select(:level, options) %>
                 </div>
               </div>
             </div>
 
             <div class="form-submit text-center">
-              <input class="btn btn-blue" type="submit" value="Salvar idioma">
+              <%= f.submit "Salvar idioma", :class => "btn btn-blue" %>
             </div>
           </fieldset>
-        </form>
+        <% end %>
       </div>
 
       <div class="col-6 col-right padding-left">
@@ -368,14 +367,15 @@
 
           <div class="display-small-scroll scroll">
             <ul class="display-list">
-              <% for i in (1..5) %>
+              <% @candidate.languages.each do |language| %>
               <li class="display-item">
                 <section>
-                  <h3 class="display-title">Idioma</h3>
-                  <p>Nível</p>
+                  <h3 class="display-title"><%= language.speech%></h3>
+                  <p><%= name_level language.level %></p>
 
                   <div class="display-btn">
-                    <a class="btn btn-blue" href="#">Editar</a>
+                    <%= link_to "Editar", edit_languages_path(language.id), :class => "btn btn-blue"%>
+                    <%= link_to "Excluir", destroy_languages_path(language.id), :method => :delete, data: {confirm: "Deseja realmente deletar esta informação?"}, :class => "btn btn-red"%>
                   </div>
                 </section>
               </li>
@@ -441,7 +441,7 @@
 
       <div class="col-6 col-right padding-left">
         <div class="display">
-          <h2 class="page-caption">Idiomas Salvos</h2>
+          <h2 class="page-caption">Experiências profissionais Salvos</h2>
 
           <div class="display-large-scroll scroll">
             <ul class="display-list">

@@ -42,6 +42,14 @@ Rails.application.routes.draw do
   patch "/extra_courses" => "extra_courses#update", :as => :update_extra_courses
   delete "/extra_courses/:id" => "extra_courses#destroy", :as => :destroy_extra_courses
 
+  # Extras Courses
+  get "/candidato/curriculo/lg/:language_id" => "candidates#show", :as => :edit_languages
+  get "/language" => "languages#index", :as => :languages
+  get "/language" => "languages#index", :as => :language
+  post "/language" => "languages#create", :as => :create_languages
+  patch "/language" => "languages#update", :as => :update_languages
+  delete "/language/:id" => "languages#destroy", :as => :destroy_languages
+
   # Route Root
   root 'home#index'
 
