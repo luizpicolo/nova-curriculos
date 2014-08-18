@@ -48,6 +48,7 @@ group :development, :test do
   gem 'progress_bar'
   gem 'database_rewinder'
   gem "rubycritic", :require => false
+  gem 'mailcatcher'
 end
 
 group :production do
