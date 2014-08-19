@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :job_premiun do
-    start_date "2014-08-18"
-    finish_date "2014-08-18"
+    start_date Time.new(2014)
+    finish_date Time.new(2015)
+    job factory: :job
   end
 end

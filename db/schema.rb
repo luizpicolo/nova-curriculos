@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819014124) do
+ActiveRecord::Schema.define(version: 20140819034059) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling_id",   null: false
@@ -158,12 +158,12 @@ ActiveRecord::Schema.define(version: 20140819014124) do
   create_table "job_premiuns", force: true do |t|
     t.date     "start_date"
     t.date     "finish_date"
-    t.integer  "jobs_id",     null: false
+    t.integer  "job_id",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "job_premiuns", ["jobs_id"], name: "index_job_premiuns_on_jobs_id", using: :btree
+  add_index "job_premiuns", ["job_id"], name: "index_job_premiuns_on_job_id", using: :btree
 
   create_table "jobs", force: true do |t|
     t.string   "job_title"
@@ -179,7 +179,6 @@ ActiveRecord::Schema.define(version: 20140819014124) do
     t.text     "other_information"
     t.date     "start_date"
     t.date     "finish_date"
-    t.boolean  "job_premiun"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug",              null: false

@@ -359,9 +359,29 @@ RailsAdmin.config do |config|
       field :finish_date do
         date_format :default
       end
-      field :job_premiun
     end
   end
+
+  ### Jobs Category ###
+  config.model 'JobPremiun' do
+    navigation_label 'Vagas'
+    list do
+      field :id
+      field :job
+      field :start_date
+      field :finish_date
+    end
+    edit do
+      field :job
+      field :start_date do
+        date_format :default
+      end
+      field :finish_date do
+        date_format :default
+      end
+    end
+  end
+
 
   ### Jobs Category ###
   config.model 'JobCategory' do

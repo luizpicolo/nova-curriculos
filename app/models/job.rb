@@ -18,7 +18,7 @@ class Job < ActiveRecord::Base
   belongs_to :type_contract
   belongs_to :company
   belongs_to :city
-  belongs_to :job_premiun
+  has_one :job_premiun
 
   # GAMBIARRA QUE DEVE SER RESOLVIDA :(
   belongs_to :jobs_category

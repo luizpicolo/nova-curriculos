@@ -67,6 +67,7 @@ RSpec.describe Job, :type => :model do
   	it { should belong_to(:type_contract) }
   	it { should belong_to(:company) }
   	it { should belong_to(:job_category) }
+    it { should have_one(:job_premiun) }
   end
 
 end

@@ -3,7 +3,7 @@ class CreateJobPremiuns < ActiveRecord::Migration
     create_table :job_premiuns do |t|
       t.date :start_date
       t.date :finish_date
-      t.references :jobs, index:true, null: false
+      t.references :job, index:true, null: false
 
       t.timestamps
     end
