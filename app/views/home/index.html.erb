@@ -4,8 +4,8 @@
       <section class="featured-item">
         <span class="nc-icon nc-recruiters"></span>
         <h2 class="featured-title">
-          <strong>Recrutadores</strong>, 
-          <%= link_to "cadastre", registration_candidate_path %> agora sua vaga, é 
+          <strong>Recrutadores</strong>,
+          <%= link_to "cadastre", registration_candidate_path %> agora sua vaga, é
           <strong>gratuito.</strong>
         </h2>
       </section>
@@ -15,8 +15,8 @@
       <section class="featured-item">
         <span class="nc-icon nc-candidate"></span>
         <h2 class="featured-title">
-          <strong>Candidatos</strong>, 
-          <%= link_to "cadastre", registration_recruiter_path %> seu currículo e 
+          <strong>Candidatos</strong>,
+          <%= link_to "cadastre", registration_recruiter_path %> seu currículo e
           <strong>pague com um post</strong> no facebook
         </h2>
       </section>
@@ -56,7 +56,7 @@
             <section>
               <%= link_to opportunities_path(job.slug), :class => "vacancies-link" do %>
                 <h2 class="vacancies-category"><%= job.job_category.name %></h2>
-                <h1 class="vacancies-title"><%= job.job_title %></h1>                  
+                <h1 class="vacancies-title"><%= job.job_title %></h1>
                 <p class="vacancies-enterprise">
                   <span class="fa fa-briefcase"></span> <%= job.company.corporate_name %>
                 </p>

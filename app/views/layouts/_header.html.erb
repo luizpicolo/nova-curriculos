@@ -5,22 +5,28 @@
         <h1>Nova Currículo</h1>
       </a>
     </div>
-    
+
     <div id="nav-container">
       <nav id="nav" class="nav-active">
         <ul>
           <li>
             <span>Candidato</span>
             <ul class="nav-drop">
-              <li><%= link_to "Cadastro", registration_candidate_path %></li>
+              <% if current_user.nil? %>
+              <li><%= link_to "Cadastrar", registration_candidate_path %></li>
+              <% else %>
               <li><%= link_to "Currículo",  curriculum_candidate_path %></li>
+              <% end %>
             </ul>
           </li>
           <li>
             <span>Recrutador</span>
             <ul class="nav-drop nav-drop-large">
+              <% if current_user.nil? %>
               <li><%= link_to "Cadastro", registration_recruiter_path %></li>
+              <% else %>
               <li><a href="recrutador/cadastrar-vaga">Cadastrar vaga</a></li>
+              <% end %>
             </ul>
           </li>
           <li><a href="contato">Contato</a></li>

@@ -12,12 +12,13 @@ class Job < ActiveRecord::Base
       			:description,
       			:requirements,
       			:period_of_work,
-      			:start_date, 
+      			:start_date,
       			:finish_date, presence: true
 
   belongs_to :type_contract
   belongs_to :company
   belongs_to :city
+  belongs_to :job_premiun
 
   # GAMBIARRA QUE DEVE SER RESOLVIDA :(
   belongs_to :jobs_category

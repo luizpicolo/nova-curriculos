@@ -1,4 +1,3 @@
-
 production:
   ADDRESS: smtp.gmail.com
   PORT: 587
@@ -7,9 +6,11 @@ production:
   PASSWORD: *picolo153
 
 development:
-  ADDRESS: localhost
-  PORT: 1025
-  DOMAIN: localhost:3000
+  ADDRESS: smtp.gmail.com
+  PORT: 587
+  DOMAIN: gmail.com
+  USER_NAME: luizpicolo
+  PASSWORD: *picolo153
 
 test:
   ADDRESS: localhost

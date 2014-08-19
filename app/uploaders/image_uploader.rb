@@ -20,7 +20,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def default_url
     # For Rails 3.1+ asset pipeline compatibility:
     ActionController::Base.helpers.asset_path("assets/" + [version_name, "icon-avatar.jpg"].compact.join('_'))
-  
+
     #{}"/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
 
@@ -43,7 +43,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg)
+    %w(jpg jpeg png)
   end
 
   # Override the filename of the uploaded files:

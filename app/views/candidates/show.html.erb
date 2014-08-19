@@ -9,7 +9,7 @@
 
     <div class="row margin-large-bottom">
       <div class="col-6 col-left padding-right">
-        <%= form_for @candidate, :class => 'form-curriculo', :validate => true do |f| %>
+        <%= form_for @candidate, :class => 'form-curriculo' do |f| %>
           <fieldset>
             <legend class="page-caption">Dados do Candidato</legend>
 
@@ -117,6 +117,15 @@
                 <div class="form-input">
                   <%= f.label :message_phone, "*Telefone recado" %>
                   <%= f.text_field :message_phone, :class => "tel", :required => true %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 col-left padding-small-right">
+                <div class="form-file">
+                  <%= f.label :image, "Imagens" %>
+                  <%= f.file_field :image %>
                 </div>
               </div>
             </div>
@@ -479,13 +488,16 @@
       </div>
     </div>
 
-    <form action="">
+    <%= form_for @candidate, :class => 'form-curriculo' do |f| %>
       <fieldset class="margin-bottom">
         <legend class="page-caption">Mini Currículo*</legend>
 
         <div class="form-textarea">
-          <label class="hidden" for="mini_curriculo">Mini Currículo</label>
-          <textarea name="mini_curriculo" id="mini_curriculo" placeholder="Descreva aqui, de forma resumida, seu perfil, experiências e habilidades profissionais." ></textarea>
+          <%= f.label :mini_curriculum, "Mini Curriculo", :class => "hidden" %>
+          <%= f.text_area :mini_curriculum,
+                          :required => true,
+                          :placeholder => "Descreva aqui, de forma resumida, seu perfil, experiências e habilidades profissionais."
+          %>
         </div>
       </fieldset>
 
@@ -502,7 +514,7 @@
                 officia cumque laborum eligendi cupiditate, eaque, similique
                 voluptate facilis quos alias ut esse repellat sit!
               </p>
-              <input type="radio" name="confidencialidade" id="publico" checked>
+              <%= f.radio_button :is_public, true, :required => true %>
             </div>
           </div>
 
@@ -515,7 +527,7 @@
                 officia cumque laborum eligendi cupiditate, eaque, similique
                 voluptate facilis quos alias ut esse repellat sit!
               </p>
-              <input type="radio" name="confidencialidade" id="confidencial">
+              <%= f.radio_button :is_public, false, :required => true %>
             </div>
           </div>
         </div>
@@ -540,14 +552,13 @@
         <div class="form-radio">
           <div class="form-radio-item form-inline">
             <label for="termos_de_uso">*li e concordo com os <a href="#">termos de uso.</a></label>
-            <input type="checkbox" name="termos_de_uso" id="termos_de_uso" >
+            <%= f.check_box :term, {:required => true}, "true", "false" %>
           </div>
         </div>
 
-        <button class="btn btn-facebook">
-          <span class="fa fa-facebook"></span> Concluir currículo e pagar com um post
-        </button>
+        <%= f.hidden_field :id %>
+        <%= f.submit "Concluir currículo e pagar com um post", :class => "btn btn-facebook" %>
       </div>
-    </form>
+    <% end %>
   </div>
 </main>

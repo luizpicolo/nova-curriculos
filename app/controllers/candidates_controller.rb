@@ -19,7 +19,7 @@ class CandidatesController < ApplicationController
     if params[:professional_experience_id]
       professional_experience = ProfessionalExperience.find(params[:professional_experience_id])
     end
-  	candidate.nil? ?  @candidate = Candidate.new : @candidate = candidate
+  	candidate.nil? ? @candidate = Candidate.new : @candidate = candidate
     academic_training.nil? ? @academic_training = AcademicTraining.new : @academic_training = academic_training
     extra_course.nil? ? @extra_course = ExtraCourse.new : @extra_course = extra_course
     language.nil? ? @language = Language.new : @language = language
@@ -62,10 +62,11 @@ class CandidatesController < ApplicationController
     params.require(:candidate).permit(
       :full_name, :is_male, :birth_date, :street,
       :number, :complement, :suburb, :city_id, :zip_code,
-      :home_phone, :commercial_phone, :mobile_phone,
+      :home_phone, :commercial_phone, :mobile_phone, :image,
       :message_phone, {:professional_area_ids => []},
       {:hierarchical_level_ids => []}, :position_of_interest,
-      :last_salary, :salary_pretension, :salary_to_be_agreed
+      :last_salary, :salary_pretension, :salary_to_be_agreed,
+      :mini_curriculum, :is_public, :term
     )
   end
 end
