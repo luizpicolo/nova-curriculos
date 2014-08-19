@@ -11,8 +11,8 @@ FactoryGirl.define do
   	requirements { Faker::Lorem.paragraph(2) }
   	period_of_work { Faker::Name.title }
   	other_information { Faker::Lorem.paragraph(2) }
-  	start_date (Time.now - 1.days)
-  	finish_date (Time.now + 2.days)
+  	start_date Time.new(2014)
+  	finish_date Time.new(2016)
   	job_premiun false
     city factory: :city
   end
