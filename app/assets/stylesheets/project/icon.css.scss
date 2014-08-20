@@ -6,7 +6,7 @@
 	display: inline-block;
 	width: 60px;
 	height: 60px;
-	background: url('nc-icons.png') no-repeat;
+	background: image_url('nc-icons.png') no-repeat;
 }
 
 .nc-recruiters {
@@ -14,7 +14,7 @@
 }
 
 .nc-candidate {
-	background-position: 0 0;	
+	background-position: 0 0;
 }
 
 
@@ -22,7 +22,7 @@
 	display: inline-block;
 	width: 40px;
 	height: 40px;
-	background: url('nc-min-icons.png') no-repeat;
+	background: image_url('nc-min-icons.png') no-repeat;
 }
 
 .nc-min-recruiters {
@@ -30,5 +30,5 @@
 }
 
 .nc-min-candidate {
-	background-position: 0 0;	
+	background-position: 0 0;
 }

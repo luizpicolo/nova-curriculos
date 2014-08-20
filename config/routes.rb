@@ -18,13 +18,17 @@ Rails.application.routes.draw do
   resource :candidates
 
   # Routes
-  get "/oportunidades/:slug" => "jobs#show", :as => :opportunities
-  get "/candidato/cadastro" => "candidates#new", :as => :registration_candidate
-  get "/recrutador/cadastro" => "recruiters#new", :as => :registration_recruiter
-  get "/candidato/curriculo" => "candidates#show", :as => :curriculum_candidate
+  get "/oportunidades/:slug" => "jobs#show", :as => :show_job
+  get "/oportunidades" => "jobs#index", :as => :jobs
+  get "/candidato/cadastro" => "candidates#new", :as => :new_candidate
+  get "/contratante/cadastro" => "contractors#new", :as => :new_contractor
+  get "/candidato/curriculo" => "candidates#show", :as => :show_curriculum_candidate
   get "/candidato/curriculo" => "candidates#show", :as => :candidate
   post "/candidato/curriculo" => "candidates#create"
   patch "/candidato/curriculo" => "candidates#update"
+
+  # recruters
+  get "/contratante/cadastrar-vaga" => "jobs#new", :as => :new_vacancy
 
   # Academic Trainings
   get "/candidato/curriculo/fa/:academic_training_id" => "candidates#show", :as => :edit_academic_trainings

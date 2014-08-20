@@ -9,7 +9,7 @@
 
 #logo {
 	float: left;
-	background: url('nova-curriculo.png') no-repeat left;
+	background: image_url('nova-curriculo.png') no-repeat left;
 
 	a {
 		display: block;
@@ -71,7 +71,7 @@
 		font-size: 1.4em;
 		text-decoration: none;
 		text-transform: lowercase;
-		
+
 		padding: 3px 10px 4px;
 	}
 
@@ -123,7 +123,7 @@
 	float: left;
 	margin-left: 5px;
 	padding: 10px 0;
-	
+
 	a {
 		display: inline-block;
 

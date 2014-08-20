@@ -17,7 +17,12 @@
         <% if current_user.admin? %>
         <li><%= link_to "Admin", rails_admin_path, :class => "btn btn-link" %></li>
         <% end %>
-        <li><a class="btn btn-link" href="#">Meu Perfil</a></li>
+        <% if current_user.is_company? %>
+        <li><a class="btn btn-link" href="#">Perfil empresa</a></li>
+        <li><%= link_to "Cadastrar vaga", new_vacancy_path, :class => "btn btn-link"%></li>
+        <% else %>
+        <li><%= link_to "Currículo", show_curriculum_candidate_path, :class => "btn btn-link" %></li>
+        <% end %>
         <li><a class="btn btn-link" href="#">Trocar senha</a></li>
         <li>
           <%= link_to "Sair", destroy_user_session_path, :method => :delete, :class => "btn btn-link" %></li>

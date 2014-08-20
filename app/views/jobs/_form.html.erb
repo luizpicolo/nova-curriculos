@@ -1,0 +1,114 @@
+    <main id="main">
+      <div class="grid padding-top">
+        <div class="page-title-container">
+          <h1 class="page-title">
+            <span class="nc-min-icon nc-min-recruiters"></span>
+            <span>Cadastrar Vaga</span>
+          </h1>
+        </div>
+        <% if @company.user_id == current_user.id %>
+        <%= form_for @job, :class => 'form-curriculo' do |f| %>
+          <fieldset>
+            <div class="row">
+              <div class="col-6 col-left padding-right">
+                <legend class="page-caption">Dados da Vaga</legend>
+
+                <div class="form-input">
+                  <%= f.label :job_title, "*Título da vaga" %>
+                  <%= f.text_field :job_title, :required => true %>
+                </div>
+
+                <div class="row">
+                  <div class="col-4 col-left padding-small-right">
+                    <div class="form-input">
+                      <%= f.label :salary_range, "*Título da vaga" %>
+                      <%= f.text_field :salary_range, :required => true, :class => "money" %>
+                    </div>
+                  </div>
+
+                  <div class="col-8 col-right padding-small-left padding-top">
+                    <div class="form-radio-item">
+                      <label for="a_combinar">à combinar</label>
+                      <input type="checkbox" name="a_combinar" id="a_combinar">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-4 col-left">
+                    <div class="form-select padding-small-right">
+                      <label for="contratacao">Contratação*</label>
+                      <select name="tipo" id="tipo" required>
+                        <option value="0"></option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-3 col-left padding-small-left">
+                    <div class="form-input">
+                      <label for="vagas">Vagas*</label>
+                      <input class="number" type="text" name="vagas" id="vagas" required>
+                    </div>
+                  </div>
+
+                  <div class="col-5 col-right padding-left">
+                    <div class="form-input">
+                      <label for="tempo_de_contrato">Tempo de Contrato</label>
+                      <input type="text" name="tempo_de_contrato" id="tempo_de_contrato">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-textarea">
+                  <label for="descricao_da_vaga">Descrição da Vaga*</label>
+                  <textarea name="descricao_da_vaga" id="descricao_da_vaga" required></textarea>
+                </div>
+              </div>
+
+              <div class="col-6 col-right padding-left padding-large-top">
+                <div class="form-textarea">
+                  <label for="requisitos">Requisitos*</label>
+                  <textarea name="requisitos" id="requisitos" required></textarea>
+                </div>
+
+                <div class="form-textarea">
+                  <label for="horarios">Horário de Serviço*</label>
+                  <textarea name="horarios" id="horarios" required></textarea>
+                </div>
+
+                <div class="form-textarea">
+                  <label for="outras_informacoes">Outras Informações*</label>
+                  <textarea name="outras_informacoes" id="outras_informacoes" required></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-submit-container">
+              <div class="page-slogan margin-bottom">
+                <div class="page-slogan-text">
+                  <p>
+                    Deixe sua vaga em evidência entre as <br>
+                    primeiras vagas do site, contrate agora <br>
+                    a nossa <a href="#">vaga premium</a>.
+                  </p>
+                </div>
+              </div>
+
+              <div class="form-radio">
+                <div class="form-radio-item form-inline">
+                  <label for="termos_de_uso">*li e concordo com os <a href="#">termos de uso.</a></label>
+                  <input type="checkbox" name="termos_de_uso" id="termos_de_uso" required>
+                </div>
+              </div>
+
+              <div class="form-submit">
+                <button class="btn btn-blue">Publicar Vaga</button>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+        <% else %>
+        ddddd
+        <% end %>
+      </div>
+    </main>

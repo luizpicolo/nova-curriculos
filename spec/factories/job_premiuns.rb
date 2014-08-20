@@ -1,9 +1,7 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :job_premiun do
-    start_date Time.new(2014)
-    finish_date Time.new(2015)
+    start_date (Time.now - 2.days)
+    finish_date (Time.now + 2.days)
     job factory: :job
   end
 end

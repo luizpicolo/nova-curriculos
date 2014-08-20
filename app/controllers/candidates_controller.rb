@@ -3,6 +3,9 @@ class CandidatesController < ApplicationController
   before_action :set_candidate, only: [:update]
 
   def new
+    unless current_user.nil?
+      redirect_to root_path, :flash => { :notice => "Deslogue-se para cadastrar um novo usuário" }
+    end
   end
 
   def show
@@ -19,6 +22,7 @@ class CandidatesController < ApplicationController
     if params[:professional_experience_id]
       professional_experience = ProfessionalExperience.find(params[:professional_experience_id])
     end
+
   	candidate.nil? ? @candidate = Candidate.new : @candidate = candidate
     academic_training.nil? ? @academic_training = AcademicTraining.new : @academic_training = academic_training
     extra_course.nil? ? @extra_course = ExtraCourse.new : @extra_course = extra_course

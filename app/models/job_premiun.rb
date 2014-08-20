@@ -1,5 +1,5 @@
 class JobPremiun < ActiveRecord::Base
-  validates :start_date, :finish_date, :job_id, presence: true
+  validates :start_date, :finish_date, :job, presence: true
   belongs_to :job
 
   def validate_date

@@ -9,26 +9,10 @@
     <div id="nav-container">
       <nav id="nav" class="nav-active">
         <ul>
-          <li>
-            <span>Candidato</span>
-            <ul class="nav-drop">
-              <% if current_user.nil? %>
-              <li><%= link_to "Cadastrar", registration_candidate_path %></li>
-              <% else %>
-              <li><%= link_to "Currículo",  curriculum_candidate_path %></li>
-              <% end %>
-            </ul>
-          </li>
-          <li>
-            <span>Recrutador</span>
-            <ul class="nav-drop nav-drop-large">
-              <% if current_user.nil? %>
-              <li><%= link_to "Cadastro", registration_recruiter_path %></li>
-              <% else %>
-              <li><a href="recrutador/cadastrar-vaga">Cadastrar vaga</a></li>
-              <% end %>
-            </ul>
-          </li>
+          <% if current_user.nil? %>
+          <li><%= link_to "Candidatos", new_candidate_path %></li>
+          <li><%= link_to "Contratantes", new_contractor_path %></li>
+          <% end %>
           <li><a href="contato">Contato</a></li>
         </ul>
       </nav>

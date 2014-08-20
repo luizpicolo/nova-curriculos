@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  
+
   def new
     super # no customization, simply call the devise implementation
   end
@@ -7,13 +7,17 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
 
-    resource_saved = resource.save 
+    resource_saved = resource.save
     yield resource if block_given?
     if resource_saved
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
         sign_up(resource_name, resource)
-        respond_with resource, location: curriculum_candidate_path
+        if resource.is_candidate
+          respond_with resource, location: curriculum_candidate_path
+        else
+          respond_with resource, location: root_path
+        end
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
         expire_data_after_sign_in!
