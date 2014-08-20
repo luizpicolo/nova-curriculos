@@ -13,7 +13,7 @@ module CandidateHelpers
     sign_in @user
   	city = create_city
 
-  	visit curriculum_candidate_path
+  	visit show_curriculum_candidate_path
 
 	  fill_in "candidate_full_name", with: full_name
     choose "candidate_is_male_true" if is_male == true
@@ -31,7 +31,7 @@ module CandidateHelpers
     professional_area = create_professional_area
     hierarchical_level = create_hierarchical_level
 
-    visit curriculum_candidate_path
+    visit show_curriculum_candidate_path
 
   	fill_in "candidate_position_of_interest", with: candidate.position_of_interest
     check "candidate_professional_area_ids_#{professional_area.id}"
@@ -47,7 +47,7 @@ module CandidateHelpers
     academic_training = build_academic_training
     schooling = create_schooling
 
-    visit curriculum_candidate_path
+    visit show_curriculum_candidate_path
 
     select schooling.name, :from => "academic_training_schooling_id"
     fill_in "academic_training_name_of_course", with: academic_training.name_of_course
@@ -63,7 +63,7 @@ module CandidateHelpers
     updating_information candidate
     extra_course = build_extra_course
 
-    visit curriculum_candidate_path
+    visit show_curriculum_candidate_path
     fill_in "extra_course_name", with: extra_course.name
     fill_in "extra_course_local", with: extra_course.local
     fill_in "extra_course_description", with: extra_course.description
@@ -76,7 +76,7 @@ module CandidateHelpers
     updating_information candidate
     language = build_language
 
-    visit curriculum_candidate_path
+    visit show_curriculum_candidate_path
 
     fill_in "language_speech", with: language.speech
     select name_level(language.level), :from => "language_level"
@@ -89,7 +89,7 @@ module CandidateHelpers
     updating_information candidate
     professional_experience = build_professional_experience
 
-    visit curriculum_candidate_path
+    visit show_curriculum_candidate_path
 
     fill_in "professional_experience_name_company", with: professional_experience.name_company
     fill_in "professional_experience_last_post", with: professional_experience.last_post

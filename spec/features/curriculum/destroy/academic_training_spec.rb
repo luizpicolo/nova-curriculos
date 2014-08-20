@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'destroy academic training' do
+feature 'destroy academic training', :js => true do
   let!(:candidate) { FactoryGirl.create(:candidate) }
 
   scenario 'with sucess?' do
