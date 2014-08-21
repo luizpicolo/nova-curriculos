@@ -6,25 +6,25 @@ class ExtraCoursesController < ApplicationController
     @extra_course = ExtraCourse.new(extra_course_params)
     @extra_course.candidate = current_user.candidate
     if @extra_course.save
-      redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
+      redirect_to show_curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
     else
       error_msg = ""
       @extra_course.errors.full_messages.each do |msg|
         error_msg << "<div>#{msg}</div>"
       end
-      redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
+      redirect_to show_curriculum_candidate_path, :flash => { :error => error_msg }
     end
   end
 
   def update
     if @extra_course.update(extra_course_params)
-      redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso" }
+      redirect_to show_curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso" }
     else
       error_msg = ""
       @extra_course.errors.full_messages.each do |msg|
         error_msg << "<div>#{msg}</div>"
       end
-      redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
+      redirect_to show_curriculum_candidate_path, :flash => { :error => error_msg }
     end
   end
 
@@ -32,13 +32,13 @@ class ExtraCoursesController < ApplicationController
     extra_course = ExtraCourse.find(params[:id])
     unless extra_course.candidate == current_user
       extra_course.destroy
-      redirect_to curriculum_candidate_path, :notice => 'Curso extra/evento deletado com sucesso.'
+      redirect_to show_curriculum_candidate_path, :notice => 'Curso extra/evento deletado com sucesso.'
     else
       error_msg = ""
       @extra_course.errors.full_messages.each do |msg|
         error_msg << "<div>#{msg}</div>"
       end
-      redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
+      redirect_to show_curriculum_candidate_path, :flash => { :error => error_msg }
     end
   end
 

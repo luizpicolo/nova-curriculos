@@ -4,7 +4,7 @@
       <span class="logged-message">Seja bem vindo (a)</span>
       <span class="logged-avatar">
         <% if current_user.candidate.try(:image) %>
-          <%= link_to curriculum_candidate_path do %>
+          <%= link_to show_curriculum_candidate_path do %>
           <%= image_tag current_user.candidate.image.thumb_min %>
           <% end %>
         <% end %>

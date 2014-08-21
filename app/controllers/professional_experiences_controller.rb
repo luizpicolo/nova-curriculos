@@ -6,25 +6,25 @@ class ProfessionalExperiencesController < ApplicationController
     @professional_experiences = ProfessionalExperience.new(professional_experiences_params)
     @professional_experiences.candidate = current_user.candidate
     if @professional_experiences.save
-      redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
+      redirect_to show_curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
     else
       error_msg = ""
       @professional_experiences.errors.full_messages.each do |msg|
         error_msg << "<div>#{msg}</div>"
       end
-      redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
+      redirect_to show_curriculum_candidate_path, :flash => { :error => error_msg }
     end
   end
 
   def update
     if @professional_experiences.update(professional_experiences_params)
-      redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso" }
+      redirect_to show_curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso" }
     else
       error_msg = ""
       @professional_experiences.errors.full_messages.each do |msg|
         error_msg << "<div>#{msg}</div>"
       end
-      redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
+      redirect_to show_curriculum_candidate_path, :flash => { :error => error_msg }
     end
   end
 
@@ -32,13 +32,13 @@ class ProfessionalExperiencesController < ApplicationController
     professional_experiences = ProfessionalExperience.find(params[:id])
     unless professional_experiences.candidate == current_user
       professional_experiences.destroy
-      redirect_to curriculum_candidate_path, :notice => 'Curso extra/evento deletado com sucesso.'
+      redirect_to show_curriculum_candidate_path, :notice => 'Curso extra/evento deletado com sucesso.'
     else
       error_msg = ""
       @professional_experiences.errors.full_messages.each do |msg|
         error_msg << "<div>#{msg}</div>"
       end
-      redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
+      redirect_to show_curriculum_candidate_path, :flash => { :error => error_msg }
     end
   end
 

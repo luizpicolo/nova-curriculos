@@ -6,25 +6,25 @@ class LanguagesController < ApplicationController
     @language = Language.new(language_params)
     @language.candidate = current_user.candidate
     if @language.save
-      redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
+      redirect_to show_curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
     else
       error_msg = ""
       @language.errors.full_messages.each do |msg|
         error_msg << "<div>#{msg}</div>"
       end
-      redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
+      redirect_to show_curriculum_candidate_path, :flash => { :error => error_msg }
     end
   end
 
   def update
     if @language.update(language_params)
-      redirect_to curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso" }
+      redirect_to show_curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso" }
     else
       error_msg = ""
       @language.errors.full_messages.each do |msg|
         error_msg << "<div>#{msg}</div>"
       end
-      redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
+      redirect_to show_curriculum_candidate_path, :flash => { :error => error_msg }
     end
   end
 
@@ -32,13 +32,13 @@ class LanguagesController < ApplicationController
     language = Language.find(params[:id])
     unless language.candidate == current_user
       language.destroy
-      redirect_to curriculum_candidate_path, :notice => 'Curso extra/evento deletado com sucesso.'
+      redirect_to show_curriculum_candidate_path, :notice => 'Curso extra/evento deletado com sucesso.'
     else
       error_msg = ""
       @language.errors.full_messages.each do |msg|
         error_msg << "<div>#{msg}</div>"
       end
-      redirect_to curriculum_candidate_path, :flash => { :error => error_msg }
+      redirect_to show_curriculum_candidate_path, :flash => { :error => error_msg }
     end
   end
 
