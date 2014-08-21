@@ -7,7 +7,7 @@ class Candidate < ActiveRecord::Base
   #process_in_background :image
 
   validates :full_name, :presence => true
-  validates :is_male, :inclusion => { :in => [true, false] }, :presence => true
+  validates :is_male, :inclusion => { :in => [true, false] }
   validates :birth_date, :mobile_phone, :presence => true
   validates :user, :presence => true
   validates :message_phone, :presence => true
