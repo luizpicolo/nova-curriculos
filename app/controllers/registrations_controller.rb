@@ -14,7 +14,7 @@ class RegistrationsController < Devise::RegistrationsController
         set_flash_message :notice, :signed_up if is_flashing_format?
         sign_up(resource_name, resource)
         if resource.is_candidate
-          respond_with resource, location: curriculum_candidate_path
+          respond_with resource, location: show_curriculum_candidate_path
         else
           respond_with resource, location: root_path
         end

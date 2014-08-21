@@ -16,7 +16,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 set :domain, '104.131.207.186'
 set :deploy_to, '/home/production/railsapp'
 set :repository, 'git@bitbucket.org:luizpicolo_/nova-curriculos.git'
-set :branch, 'master'
+set :branch, 'deploy'
 
 # Fix
 set :term_mode, nil
