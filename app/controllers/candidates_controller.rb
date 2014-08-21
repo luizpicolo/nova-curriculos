@@ -34,7 +34,7 @@ class CandidatesController < ApplicationController
   	@candidate = Candidate.new(candidate_params)
   	@candidate.user = current_user
   	if @candidate.save
-  	  redirect_to show_show_curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
+  	  redirect_to show_curriculum_candidate_path, :flash => { :notice => "Seus dados foram atualizados com sucesso." }
   	else
       error_msg = ""
       @candidate.errors.full_messages.each do |msg|

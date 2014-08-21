@@ -7,9 +7,9 @@
             <% job.job_premiun ? premiun = "vacancies-premium" : premiun = "" %>
             <li class="vacancies-sidebar-item <%= premiun %>">
               <section>
-                <%= link_to opportunities_path(job.slug), :class => "vacancies-link" do %>
+                <%= link_to show_job_path(job.slug), :class => "vacancies-link" do %>
                   <h2 class="vacancies-category"><%= job.job_category.name %></h2>
-                  <h1 class="vacancies-title"><%= job.job_title %></h1>                  
+                  <h1 class="vacancies-title"><%= job.job_title %></h1>
                   <p class="vacancies-enterprise">
                     <span class="fa fa-briefcase"></span> <%= job.company.corporate_name %>
                   </p>
@@ -123,7 +123,9 @@
           </div>
 
           <div class="vacancy-options">
+            <% if current_user.is_candidate %>
             <a class="btn btn-blue" href="#">Candidatar-se a Vaga</a>
+            <% end %>
             <a class="btn btn-facebook" href="#">
               <span class="fa fa-facebook-square"></span> Recomende esta Vaga
             </a>
