@@ -14,8 +14,27 @@ class JobsController < ApplicationController
     @job = Job.new
   end
 
+  def create
+
+  end
+
   def show
   	@jobs = Job.all
   	@job = Job.find_by_slug(params[:slug])
+  end
+
+  private
+
+  def set_job
+    @job = Job.find(params[:id])
+  end
+
+  def job_params
+    params.require(:job).permit(
+      :job_title, :salary_range, :type_contract,
+      :job_category, :amount_vacancies, :time_contract,
+      :description, :requirements, :period_of_work,
+      :city, :salary_negotiable, :is_premium, :status
+    )
   end
 end

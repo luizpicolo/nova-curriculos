@@ -66,24 +66,26 @@
 
                 <div class="form-textarea">
                   <%= f.label :description, "Descrição da vaga" %>
-                  <%= f.text_area :description, :required => true %>
+                  <%= f.text_area :description, :required => true, :class => "height_120px" %>
                 </div>
+
               </div>
 
               <div class="col-6 col-right padding-left padding-large-top">
+
                 <div class="form-textarea">
                   <%= f.label :requirements, "Requerimentos" %>
-                  <%= f.text_area :requirements, :required => true %>
+                  <%= f.text_area :requirements, :required => true, :class => "height_120px" %>
                 </div>
 
                 <div class="form-textarea">
                   <%= f.label :period_of_work, "Horário de trabalho" %>
-                  <%= f.text_area :period_of_work, :required => true %>
+                  <%= f.text_area :period_of_work, :required => true, :class => "height_120px" %>
                 </div>
 
                 <div class="form-textarea">
                   <%= f.label :other_information, "Outras informações" %>
-                  <%= f.text_area :other_information, :required => true %>
+                  <%= f.text_area :other_information, :required => true, :class => "height_120px" %>
                 </div>
               </div>
             </div>
@@ -102,12 +104,19 @@
               <div class="form-radio">
                 <div class="form-radio-item form-inline">
                   <label for="termos_de_uso">*li e concordo com os <a href="#">termos de uso.</a></label>
-                  <input type="checkbox" name="termos_de_uso" id="termos_de_uso" required>
+                  <%= f.check_box :term, {:required => true}, "true", "false" %>
+                </div>
+              </div>
+
+              <div class="form-radio">
+                <div class="form-radio-item form-inline">
+                  <label for="termos_de_uso">Deseja tornar esta vaga Premim <a href="#">Saiba mais</a></label>
+                  <%= f.check_box :is_premium, {:required => true}, "true", "false" %>
                 </div>
               </div>
 
               <div class="form-submit">
-                <button class="btn btn-blue">Publicar Vaga</button>
+                <%= f.submit "Publicar vaga", :class => "btn btn-blue" %>
               </div>
             </div>
           </fieldset>

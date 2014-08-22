@@ -13,6 +13,7 @@ class Job < ActiveRecord::Base
       			:requirements,
       			:period_of_work,
       			:start_date,
+            :term,
       			:finish_date, presence: true
 
   belongs_to :type_contract

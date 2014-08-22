@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821235934) do
+ActiveRecord::Schema.define(version: 20140822044850) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling_id",   null: false
@@ -167,10 +167,10 @@ ActiveRecord::Schema.define(version: 20140821235934) do
 
   create_table "jobs", force: true do |t|
     t.string   "job_title"
-    t.integer  "company_id",        null: false
+    t.integer  "company_id",                        null: false
     t.string   "salary_range"
-    t.integer  "type_contract_id",  null: false
-    t.integer  "job_category_id",   null: false
+    t.integer  "type_contract_id",                  null: false
+    t.integer  "job_category_id",                   null: false
     t.integer  "amount_vacancies"
     t.string   "time_contract"
     t.text     "description"
@@ -181,9 +181,12 @@ ActiveRecord::Schema.define(version: 20140821235934) do
     t.date     "finish_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug",              null: false
-    t.integer  "city_id",           null: false
+    t.string   "slug",                              null: false
+    t.integer  "city_id",                           null: false
     t.boolean  "salary_negotiable"
+    t.boolean  "is_premium"
+    t.boolean  "status",            default: false
+    t.boolean  "term",              default: false, null: false
   end
 
   add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree

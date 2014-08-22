@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   # recruters
   get "/contratante/cadastrar-vaga" => "jobs#new", :as => :new_vacancy
+  post "/oportunidades" => "jobs#create"
 
   # Academic Trainings
   get "/candidato/curriculo/fa/:academic_training_id" => "candidates#show", :as => :edit_academic_trainings
