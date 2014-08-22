@@ -19,17 +19,24 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-4 col-left padding-small-right">
+                  <div class="col-6 col-left padding-right">
+                    <div class="form-select">
+                      <%= f.label :city_id, "*Cidade" %>
+                      <%= f.select :city_id, City.all.collect {|p| [ p.name, p.id ] }, :required => true %>
+                    </div>
+                  </div>
+
+                  <div class="col-3 col-left padding-small-right">
                     <div class="form-input">
-                      <%= f.label :salary_range, "*Título da vaga" %>
+                      <%= f.label :salary_range, "*Faixa salarial" %>
                       <%= f.text_field :salary_range, :required => true, :class => "money" %>
                     </div>
                   </div>
 
-                  <div class="col-8 col-right padding-small-left padding-top">
+                  <div class="col-3 col-right padding-small-left padding-top salary_negotiable">
                     <div class="form-radio-item">
-                      <label for="a_combinar">à combinar</label>
-                      <input type="checkbox" name="a_combinar" id="a_combinar">
+                      <%= f.label :salary_negotiable, "à combinar"%>
+                      <%= f.check_box :salary_negotiable, {:required => true}, "true", "false" %>
                     </div>
                   </div>
                 </div>
@@ -37,48 +44,46 @@
                 <div class="row">
                   <div class="col-4 col-left">
                     <div class="form-select padding-small-right">
-                      <label for="contratacao">Contratação*</label>
-                      <select name="tipo" id="tipo" required>
-                        <option value="0"></option>
-                      </select>
+                      <%= f.label :type_contract, "*Contratação" %>
+                      <%= f.select :type_contract, TypeContract.all.collect {|p| [ p.name, p.id ] }, :required => true %>
                     </div>
                   </div>
 
                   <div class="col-3 col-left padding-small-left">
                     <div class="form-input">
-                      <label for="vagas">Vagas*</label>
-                      <input class="number" type="text" name="vagas" id="vagas" required>
+                      <%= f.label :amount_vacancies, "*Vagas" %>
+                      <%= f.number_field :amount_vacancies, :required => true %>
                     </div>
                   </div>
 
                   <div class="col-5 col-right padding-left">
                     <div class="form-input">
-                      <label for="tempo_de_contrato">Tempo de Contrato</label>
-                      <input type="text" name="tempo_de_contrato" id="tempo_de_contrato">
+                      <%= f.label :time_contract, "Tempo de contrato" %>
+                      <%= f.text_field :time_contract, :required => true %>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-textarea">
-                  <label for="descricao_da_vaga">Descrição da Vaga*</label>
-                  <textarea name="descricao_da_vaga" id="descricao_da_vaga" required></textarea>
+                  <%= f.label :description, "Descrição da vaga" %>
+                  <%= f.text_area :description, :required => true %>
                 </div>
               </div>
 
               <div class="col-6 col-right padding-left padding-large-top">
                 <div class="form-textarea">
-                  <label for="requisitos">Requisitos*</label>
-                  <textarea name="requisitos" id="requisitos" required></textarea>
+                  <%= f.label :requirements, "Requerimentos" %>
+                  <%= f.text_area :requirements, :required => true %>
                 </div>
 
                 <div class="form-textarea">
-                  <label for="horarios">Horário de Serviço*</label>
-                  <textarea name="horarios" id="horarios" required></textarea>
+                  <%= f.label :period_of_work, "Horário de trabalho" %>
+                  <%= f.text_area :period_of_work, :required => true %>
                 </div>
 
                 <div class="form-textarea">
-                  <label for="outras_informacoes">Outras Informações*</label>
-                  <textarea name="outras_informacoes" id="outras_informacoes" required></textarea>
+                  <%= f.label :other_information, "Outras informações" %>
+                  <%= f.text_area :other_information, :required => true %>
                 </div>
               </div>
             </div>
