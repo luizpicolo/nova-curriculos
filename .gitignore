@@ -31,3 +31,6 @@ solr/pids/*
 solr/development/data/*
 solr/test/*
 sunspot-solr.pid
+
+# Ignore application configuration
+#/config/application.yml

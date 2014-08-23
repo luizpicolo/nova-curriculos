@@ -1,8 +1,0 @@
-production:
-  PATH_UPLOADS: "/home/production/railsapp/storage/"
-
-development:
-  PATH_UPLOADS: "/home/picolo/ruby/storage/"
-
-test:
-  PATH_UPLOADS: "/home/picolo/ruby/storage/"
