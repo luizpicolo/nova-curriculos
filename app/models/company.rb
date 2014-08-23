@@ -16,4 +16,13 @@ class Company < ActiveRecord::Base
   belongs_to :user
 
   has_many :jobs
+
+  def logo
+    if Rails.env == "production"
+      self.image.thumb_min.to_s.gsub! ENV['PATH_UPLOADS'], ''
+    else
+      self.image.thumb_min.to_s
+    end
+  end
+
 end
