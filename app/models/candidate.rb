@@ -24,4 +24,12 @@ class Candidate < ActiveRecord::Base
   belongs_to :city
   belongs_to :user
 
+  def avatar
+    if Rails.env == "production"
+      self.image.thumb_min.to_s.gsub! ENV['PATH_UPLOADS'], ''
+    else
+      self.image.thumb_min.to_s
+    end
+  end
+
 end

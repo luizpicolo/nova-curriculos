@@ -16,7 +16,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 set :domain, '104.131.207.186'
 set :deploy_to, '/home/production/railsapp'
 set :repository, 'git@bitbucket.org:luizpicolo_/nova-curriculos.git'
-set :branch, 'deploy'
+set :branch, 'master'
 
 # Fix
 set :term_mode, nil
@@ -63,7 +63,7 @@ task :deploy => :environment do
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
-    invoke :'rails:assets_precompile'
+    #invoke :'rails:assets_precompile'
 
     to :launch do
       queue %[echo -n "-----> Creating new restart.txt: "]
