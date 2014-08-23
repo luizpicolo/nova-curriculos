@@ -26,7 +26,7 @@ class Candidate < ActiveRecord::Base
 
   def avatar
     if Rails.env == "production"
-      self.image.thumb_min.to_s.gsub! ENV['PATH_UPLOADS'], '/storage/'
+      self.image.thumb_min.to_s.gsub! ENV['PATH_UPLOADS'], ''
     else
       self.image.thumb_min.to_s
     end
