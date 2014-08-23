@@ -57,6 +57,11 @@ RSpec.describe Job, :type => :model do
 			expect(job).to be_invalid
 		end
 
+    it 'should be invalid if there is term false' do
+      job = FactoryGirl.build :job, :term => nil
+      expect(job).to be_invalid
+    end
+
 		it "object created is valid" do
 			job = FactoryGirl.build(:job)
 			expect(job).to be_valid

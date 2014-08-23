@@ -13,6 +13,7 @@ FactoryGirl.define do
   	other_information { Faker::Lorem.paragraph(2) }
   	start_date (Time.now - 2.days)
   	finish_date (Time.now + 2.days)
+    term true
     city factory: :city
   end
 end
