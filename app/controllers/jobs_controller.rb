@@ -15,7 +15,20 @@ class JobsController < ApplicationController
   end
 
   def create
-
+    company = Company.find_by_user_id(current_user)
+    @job = Job.new(job_params)
+    @job.company = company
+    @job.start_date = Time.now
+    @job.finish_data = Time.now + 30.days
+    if @job.save
+      redirect_to new_vacancy_path, :flash => { :notice => "Vaga cadastrada com sucesso." }
+    else
+      error_msg = ""
+      @job.errors.full_messages.each do |msg|
+        error_msg << "<div>#{msg}</div>"
+      end
+      redirect_to new_vacancy_path, :flash => { :error => error_msg }
+    end
   end
 
   def show
