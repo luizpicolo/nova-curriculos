@@ -359,6 +359,7 @@ RailsAdmin.config do |config|
       field :finish_date do
         date_format :default
       end
+      field :status
     end
   end
 

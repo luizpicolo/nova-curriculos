@@ -1,0 +1,9 @@
+<%= link_to "Cadastrar Vaga", new_vacancy_path %>
+<br />
+<br />
+<% @jobs.each do |job| %>
+<%= link_to job.job_title, "#" %>
+<%= link_to "Ëditar", edit_vacancy_path(job.id) %>
+<%= link_to 'Excluir', destroy_job_path(job.id), method: :delete, data: { confirm: 'Deseja realmente excluir?' } %>
+<br />
+<% end %>

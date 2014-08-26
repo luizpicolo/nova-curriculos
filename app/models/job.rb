@@ -29,6 +29,9 @@ class Job < ActiveRecord::Base
   searchable do
     text :job_title, :boost => 5.0
     text :description
+    time :start_date
+    time :finish_date
+    boolean :status
     time :created_at
     text :category do
       job_category.name

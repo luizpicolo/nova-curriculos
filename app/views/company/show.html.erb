@@ -1,0 +1,159 @@
+<main id="main">
+  <div class="grid padding-top">
+    <div class="page-title-container">
+      <h1 class="page-title">
+        <span class="nc-min-icon nc-min-recruiters"></span>
+        <span>Cadastro do Recrutador</span>
+      </h1>
+    </div>
+
+    <div class="row margin-large-bottom">
+      <%= form_for @company, :class => 'form-curriculo' do |f| %>
+        <div class="col-6 col-left padding-right">
+          <span class="page-caption">Dados da Empresa</span>
+
+          <div class="form-input">
+            <%= f.label :fancy_name, "Nome fanstasia" %>
+            <%= f.text_field :fancy_name, :required => true %>
+          </div>
+
+          <div class="form-input">
+            <%= f.label :corporate_name, "Nome da empresa" %>
+            <%= f.text_field :corporate_name, :required => true %>
+          </div>
+
+          <div class="row">
+            <div class="col-6 col-left padding-small-right">
+              <div class="form-input">
+                <label for="cnpj">CNPJ*</label>
+                <input type="text" id="cnpj" name="cnpj" required>
+              </div>
+            </div>
+
+            <div class="col-6 col-right padding-small-left">
+              <div class="form-select">
+                <label for="tipo-da-compania">Tipo da Empresa*</label>
+                <select id="tipo-da-compania" name="tipo-da-compania">
+                  <option value="0"></option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-8 col-left padding-small-right">
+              <div class="form-input">
+                <label for="rua">Rua*</label>
+                <input type="text" id="rua" name="rua" required>
+              </div>
+            </div>
+
+            <div class="col-4 col-right padding-small-left">
+              <div class="form-input">
+                <label for="numero">Número*</label>
+                <input class="number" type="text" id="numero" name="numero" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 col-left padding-small-right">
+              <div class="form-input">
+                <label for="cidade">Cidade*</label>
+                <input type="text" id="cidade" name="cidade" required>
+              </div>
+            </div>
+
+            <div class="col-6 col-right padding-small-left">
+              <div class="form-input">
+                <label for="telefone">Telefone*</label>
+                <input class="tel" type="tel" id="telefone" name="telefone" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 col-left padding-small-right">
+              <div class="form-input">
+                <label for="facebook">Facebook</label>
+                <input type="text" id="facebook" name="facebook">
+              </div>
+            </div>
+
+            <div class="col-6 col-right padding-small-left">
+              <div class="form-input">
+                <label for="twitter">Twitter</label>
+                <input type="text" id="twitter" name="twitter">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 col-left padding-small-right">
+              <div class="form-input">
+                <label for="email">E-mail*</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+
+            <div class="col-6 col-right padding-small-left">
+              <div class="form-input">
+                <label for="website">WebSite</label>
+                <input type="text" id="website" name="website">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-right padding-left">
+          <div class="form-radio">
+            <span class="page-caption">Ramos de Atividade</span>
+
+            <div class="row">
+              <div class="col-6 col-left padding-small-right">
+                <div class="form-radio-item">
+                  <label for="administrativa">Administrativa</label>
+                  <input type="checkbox" name="administrativa" id="administrativa">
+                </div>
+              </div>
+
+              <div class="col-6 col-right padding-small-left">
+                <div class="form-radio-item">
+                  <label for="agrarias">Agrárias</label>
+                  <input type="checkbox" name="agrarias" id="agrarias">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 col-left padding-small-right">
+                <div class="form-radio-item">
+                  <label for="atendimento">Atendimento</label>
+                  <input type="checkbox" name="atendimento" id="atendimento">
+                </div>
+              </div>
+
+              <div class="col-6 col-right padding-small-left">
+                <div class="form-radio-item">
+                  <label for="comunicacao_e_publicidade">Comunicação e Publicidade</label>
+                  <input type="checkbox" name="comunicacao_e_publicidade" id="comunicacao_e_publicidade">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span class="page-caption">Histórico da Empresa</span>
+
+          <div class="form-textarea">
+            <label class="hidden" for="historico-da-empresa">Histórico da Empresa*</label>
+            <textarea name="historico-da-empresa" id="historico-da-empresa" placeholder="Descreva aqui um breve histórico da empresa." required></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-submit-container">
+        <input class="btn btn-blue" type="submit" value="Salvar Dados">
+      </div>
+    <% end %>
+  </div>
+</main>

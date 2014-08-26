@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   resource :candidates
 
   # Routes
-  get "/oportunidades/:slug" => "jobs#show", :as => :show_job
-  get "/oportunidades" => "jobs#index", :as => :jobs
   get "/candidato/cadastro" => "candidates#new", :as => :new_candidate
   get "/contratante/cadastro" => "contractors#new", :as => :new_contractor
   get "/candidato/curriculo" => "candidates#show", :as => :show_curriculum_candidate
@@ -27,9 +25,19 @@ Rails.application.routes.draw do
   post "/candidato/curriculo" => "candidates#create"
   patch "/candidato/curriculo" => "candidates#update"
 
-  # recruters
+  # Company
+  get "contratante/empresa" => "company#show", :as => :company
+
+  # contract
+  get "/oportunidades" => "jobs#index", :as => :jobs
+  get "/oportunidades/:id" => "jobs#show", :as => :job
+  get "/oportunidades/:slug" => "jobs#show", :as => :show_job
   get "/contratante/cadastrar-vaga" => "jobs#new", :as => :new_vacancy
+  get "/contratante/vagas" => "jobs#index", :as => :vacancies
+  get "/contratante/vagas/:id" => "jobs#edit", :as => :edit_vacancy
   post "/oportunidades" => "jobs#create"
+  patch "/oportunidades/:slug" => "jobs#update"
+  delete "/oportunidades/:id" => "jobs#destroy", :as => :destroy_job
 
   # Academic Trainings
   get "/candidato/curriculo/fa/:academic_training_id" => "candidates#show", :as => :edit_academic_trainings

@@ -42,17 +42,10 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-4 col-left">
+                  <div class="col-7 col-left">
                     <div class="form-select padding-small-right">
-                      <%= f.label :type_contract, "*Contratação" %>
-                      <%= f.select :type_contract, TypeContract.all.collect {|p| [ p.name, p.id ] }, :required => true %>
-                    </div>
-                  </div>
-
-                  <div class="col-3 col-left padding-small-left">
-                    <div class="form-input">
-                      <%= f.label :amount_vacancies, "*Vagas" %>
-                      <%= f.number_field :amount_vacancies, :required => true %>
+                      <%= f.label :type_contract_id, "*Contratação" %>
+                      <%= f.select :type_contract_id, TypeContract.all.collect {|p| [ p.name, p.id ] }, :required => true %>
                     </div>
                   </div>
 
@@ -60,6 +53,22 @@
                     <div class="form-input">
                       <%= f.label :time_contract, "Tempo de contrato" %>
                       <%= f.text_field :time_contract, :required => true %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-7 col-left">
+                    <div class="form-select padding-small-right">
+                      <%= f.label :job_category_id, "*Contratação" %>
+                      <%= f.select :job_category_id, JobCategory.all.collect {|p| [ p.name, p.id ] }, :required => true %>
+                    </div>
+                  </div>
+
+                  <div class="col-5 col-left padding-small-left">
+                    <div class="form-input">
+                      <%= f.label :amount_vacancies, "*Vagas" %>
+                      <%= f.number_field :amount_vacancies, :required => true %>
                     </div>
                   </div>
                 </div>
