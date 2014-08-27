@@ -32,7 +32,7 @@
 
             <div class="col-6 col-right padding-small-left">
               <div class="form-select">
-                <%= f.label :type_company_id, "*Cidade" %>
+                <%= f.label :type_company_id, "*Tipo empresa" %>
                 <%= f.select :type_company_id, TypeCompany.all.collect {|p| [ p.name, p.id ] }, :required => true %>
               </div>
             </div>
@@ -48,7 +48,7 @@
 
             <div class="col-4 col-right padding-small-left">
               <div class="form-input">
-                <%= f.label :number, "Rua" %>
+                <%= f.label :number, "Número" %>
                 <%= f.number_field :number, :required => true %>
               </div>
             </div>
@@ -113,6 +113,24 @@
               <% '<li>'.html_safe << b.label { b.check_box << b.text } << '</li>'.html_safe %>
               <% end %>
               </ul>
+            </div>
+          </div>
+
+          <span class="page-caption">Localização</span>
+
+          <div class="row">
+            <div class="col-6 col-left padding-small-right">
+              <div class="form-input">
+                <%= f.label :lg, "Longitude" %>
+                <%= f.text_field :lg %>
+              </div>
+            </div>
+
+            <div class="col-6 col-right padding-small-left">
+              <div class="form-input">
+                <%= f.label :lt, "Latitude" %>
+                <%= f.text_field :lt %>
+              </div>
             </div>
           </div>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827040911) do
+ActiveRecord::Schema.define(version: 20140827204239) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling_id",   null: false
@@ -117,6 +117,8 @@ ActiveRecord::Schema.define(version: 20140827040911) do
     t.string   "email"
     t.string   "logo"
     t.string   "twitter"
+    t.integer  "lg"
+    t.integer  "lt"
   end
 
   add_index "companies", ["city_id"], name: "index_companies_on_city_id", using: :btree
