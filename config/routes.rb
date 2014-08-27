@@ -26,12 +26,15 @@ Rails.application.routes.draw do
   patch "/candidato/curriculo" => "candidates#update"
 
   # Company
+  get "contratante/empresa" => "company#show", :as => :companies
   get "contratante/empresa" => "company#show", :as => :company
+  post "contratante/empresa" => "company#create"
+  patch "contratante/empresa" => "company#update"
 
   # contract
   get "/oportunidades" => "jobs#index", :as => :jobs
-  get "/oportunidades/:id" => "jobs#show", :as => :job
   get "/oportunidades/:slug" => "jobs#show", :as => :show_job
+  get "/oportunidades/:id" => "jobs#show", :as => :job
   get "/contratante/cadastrar-vaga" => "jobs#new", :as => :new_vacancy
   get "/contratante/vagas" => "jobs#index", :as => :vacancies
   get "/contratante/vagas/:id" => "jobs#edit", :as => :edit_vacancy

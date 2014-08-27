@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140822044850) do
+ActiveRecord::Schema.define(version: 20140827040911) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling_id",   null: false
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20140822044850) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "branch_operations_companies", force: true do |t|
+    t.integer  "branch_operation_id", null: false
+    t.integer  "company_id",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "branch_operations_companies", ["branch_operation_id"], name: "index_branch_operations_companies_on_branch_operation_id", using: :btree
+  add_index "branch_operations_companies", ["company_id"], name: "index_branch_operations_companies_on_company_id", using: :btree
 
   create_table "candidates", force: true do |t|
     t.boolean  "is_male",                              null: false
@@ -97,21 +107,30 @@ ActiveRecord::Schema.define(version: 20140822044850) do
     t.integer  "number"
     t.string   "facebook"
     t.string   "website"
-    t.integer  "type_company_id",     null: false
+    t.integer  "type_company_id", null: false
     t.string   "cnpj"
-    t.integer  "city_id",             null: false
-    t.integer  "branch_operation_id", null: false
+    t.integer  "city_id",         null: false
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
     t.string   "logo"
+    t.string   "twitter"
   end
 
-  add_index "companies", ["branch_operation_id"], name: "index_companies_on_branch_operation_id", using: :btree
   add_index "companies", ["city_id"], name: "index_companies_on_city_id", using: :btree
   add_index "companies", ["type_company_id"], name: "index_companies_on_type_company_id", using: :btree
+
+  create_table "companies_branch_operations", force: true do |t|
+    t.integer  "company_id",          null: false
+    t.integer  "branch_operation_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "companies_branch_operations", ["branch_operation_id"], name: "index_companies_branch_operations_on_branch_operation_id", using: :btree
+  add_index "companies_branch_operations", ["company_id"], name: "index_companies_branch_operations_on_company_id", using: :btree
 
   create_table "countries", force: true do |t|
     t.string   "name"

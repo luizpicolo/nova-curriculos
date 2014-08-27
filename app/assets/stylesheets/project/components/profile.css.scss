@@ -66,6 +66,8 @@
 }
 
 .profile-caption {
+	cursor: default;
+	
 	color: $text-3;
 	font-size: 1.8em;
 	font-weight: 400;
@@ -139,9 +141,12 @@
 }
 
 .profile-nav-title {
+	cursor: default;
+
 	color: $text-3;
 	font-size: 1.8em;
 	font-weight: 400;
+	text-transform: lowercase;
 
 	padding-bottom: 5px;
 	margin: 0 0 10px;
@@ -153,4 +158,69 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
+}
+
+
+.profile-vacancies {
+	cursor: default;
+	
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.profile-vacancies-item {
+	@include box-sizing(border-box);
+
+	position: relative;
+
+	padding: 10px 15px;
+	margin: 0 0 10px;
+
+	background: $component-1;
+
+	@include transition(.1s ease);
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.profile-vacancies-title {
+	color: $text-3;
+	font-size: 1.8em;
+	font-weight: 400;
+
+	margin: 0 0 5px;
+	padding: 0;
+}
+
+.profile-vacancies-info {
+	color: $text-3;
+	font-size: 1.3em;
+}
+
+.profile-vacancies-options {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+
+.profile-vacancies-candidates {
+	list-style: disc;
+	margin: 15px 0 0 20px;
+	padding: 0;
+
+	li {
+		color: $text-4;
+		font-size: 1.4em;
+
+		margin-bottom: 10px;
+	}
+
+	a {
+		color: $text-4;
+		text-decoration: underline;
+	}
 }

@@ -53,7 +53,7 @@
 .logged {
 	cursor: default;
 	height: 50px;
-	text-align: center;
+	text-align: left;
 	background: $component-1;
 }
 
@@ -76,7 +76,7 @@
 	width: 40px;
 	height: 40px;
 
-	margin: 5px 10px;
+	margin: 5px 10px 5px 0;
 
 	background: image_url('nc-min-icons.png') no-repeat left $bg;
 }

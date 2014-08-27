@@ -25,17 +25,15 @@
           <div class="row">
             <div class="col-6 col-left padding-small-right">
               <div class="form-input">
-                <label for="cnpj">CNPJ*</label>
-                <input type="text" id="cnpj" name="cnpj" required>
+                <%= f.label :cnpj, "CNPJ" %>
+                <%= f.number_field :cnpj, :required => true %>
               </div>
             </div>
 
             <div class="col-6 col-right padding-small-left">
               <div class="form-select">
-                <label for="tipo-da-compania">Tipo da Empresa*</label>
-                <select id="tipo-da-compania" name="tipo-da-compania">
-                  <option value="0"></option>
-                </select>
+                <%= f.label :type_company_id, "*Cidade" %>
+                <%= f.select :type_company_id, TypeCompany.all.collect {|p| [ p.name, p.id ] }, :required => true %>
               </div>
             </div>
           </div>
@@ -43,15 +41,31 @@
           <div class="row">
             <div class="col-8 col-left padding-small-right">
               <div class="form-input">
-                <label for="rua">Rua*</label>
-                <input type="text" id="rua" name="rua" required>
+                <%= f.label :street, "Rua" %>
+                <%= f.text_field :street, :required => true %>
               </div>
             </div>
 
             <div class="col-4 col-right padding-small-left">
               <div class="form-input">
-                <label for="numero">Número*</label>
-                <input class="number" type="text" id="numero" name="numero" required>
+                <%= f.label :number, "Rua" %>
+                <%= f.number_field :number, :required => true %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 col-left padding-small-right">
+              <div class="form-select">
+                <%= f.label :city_id, "*Cidade" %>
+                <%= f.select :city_id, City.all.collect {|p| [ p.name, p.id ] }, :required => true %>
+              </div>
+            </div>
+
+            <div class="col-6 col-right padding-small-left">
+              <div class="form-input">
+                <%= f.label :phone, "Telefone" %>
+                <%= f.text_field :phone, :required => true, :class => "phone" %>
               </div>
             </div>
           </div>
@@ -59,15 +73,15 @@
           <div class="row">
             <div class="col-6 col-left padding-small-right">
               <div class="form-input">
-                <label for="cidade">Cidade*</label>
-                <input type="text" id="cidade" name="cidade" required>
+                <%= f.label :facebook, "Facebook" %>
+                <%= f.text_field :facebook, :required => true %>
               </div>
             </div>
 
             <div class="col-6 col-right padding-small-left">
               <div class="form-input">
-                <label for="telefone">Telefone*</label>
-                <input class="tel" type="tel" id="telefone" name="telefone" required>
+                <%= f.label :twitter, "Twitter" %>
+                <%= f.text_field :twitter, :required => true %>
               </div>
             </div>
           </div>
@@ -75,31 +89,15 @@
           <div class="row">
             <div class="col-6 col-left padding-small-right">
               <div class="form-input">
-                <label for="facebook">Facebook</label>
-                <input type="text" id="facebook" name="facebook">
+                <%= f.label :email, "E-mail" %>
+                <%= f.text_field :email, :required => true %>
               </div>
             </div>
 
             <div class="col-6 col-right padding-small-left">
               <div class="form-input">
-                <label for="twitter">Twitter</label>
-                <input type="text" id="twitter" name="twitter">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-6 col-left padding-small-right">
-              <div class="form-input">
-                <label for="email">E-mail*</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-            </div>
-
-            <div class="col-6 col-right padding-small-left">
-              <div class="form-input">
-                <label for="website">WebSite</label>
-                <input type="text" id="website" name="website">
+                <%= f.label :website, "WebSite" %>
+                <%= f.text_field :website, :required => true %>
               </div>
             </div>
           </div>
@@ -110,49 +108,31 @@
             <span class="page-caption">Ramos de Atividade</span>
 
             <div class="row">
-              <div class="col-6 col-left padding-small-right">
-                <div class="form-radio-item">
-                  <label for="administrativa">Administrativa</label>
-                  <input type="checkbox" name="administrativa" id="administrativa">
-                </div>
-              </div>
-
-              <div class="col-6 col-right padding-small-left">
-                <div class="form-radio-item">
-                  <label for="agrarias">Agrárias</label>
-                  <input type="checkbox" name="agrarias" id="agrarias">
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-6 col-left padding-small-right">
-                <div class="form-radio-item">
-                  <label for="atendimento">Atendimento</label>
-                  <input type="checkbox" name="atendimento" id="atendimento">
-                </div>
-              </div>
-
-              <div class="col-6 col-right padding-small-left">
-                <div class="form-radio-item">
-                  <label for="comunicacao_e_publicidade">Comunicação e Publicidade</label>
-                  <input type="checkbox" name="comunicacao_e_publicidade" id="comunicacao_e_publicidade">
-                </div>
-              </div>
+              <ul class="checkboxes_curriculum">
+              <%= f.collection_check_boxes(:branch_operation_ids, BranchOperation.all, :id, :name) do |b|%>
+              <% '<li>'.html_safe << b.label { b.check_box << b.text } << '</li>'.html_safe %>
+              <% end %>
+              </ul>
             </div>
           </div>
 
           <span class="page-caption">Histórico da Empresa</span>
 
           <div class="form-textarea">
-            <label class="hidden" for="historico-da-empresa">Histórico da Empresa*</label>
-            <textarea name="historico-da-empresa" id="historico-da-empresa" placeholder="Descreva aqui um breve histórico da empresa." required></textarea>
+            <%= f.label :description, "Histórico da empresa" %>
+            <%= f.text_area :description, :required => true %>
           </div>
+
+          <div class="form">
+            <%= f.label :logo, "Logo Marca" %>
+            <%= f.file_field :logo %>
+          </div>
+
         </div>
       </div>
 
       <div class="form-submit-container">
-        <input class="btn btn-blue" type="submit" value="Salvar Dados">
+        <%= f.submit "Salvar dados da empresa", :class => "btn btn-blue" %>
       </div>
     <% end %>
   </div>

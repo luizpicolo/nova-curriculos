@@ -1,4 +1,4 @@
 class BranchOperation < ActiveRecord::Base
   validates :name, presence: true
-  has_many :companies
+  has_and_belongs_to_many :companies
 end

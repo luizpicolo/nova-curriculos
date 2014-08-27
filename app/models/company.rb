@@ -8,9 +8,9 @@ class Company < ActiveRecord::Base
 
   validates :fancy_name, :corporate_name, :phone,
 			:type_company, :cnpj, :description,
-			:city, :user, :branch_operation, :type_company ,presence: true
+			:city, :user, :branch_operations, :type_company ,presence: true
 
-  belongs_to :branch_operation
+  has_and_belongs_to_many :branch_operations
   belongs_to :type_company
   belongs_to :city
   belongs_to :user
@@ -19,9 +19,9 @@ class Company < ActiveRecord::Base
 
   def logo_marca
     if Rails.env == "production"
-      self.logo.thumb.to_s.gsub! ENV['PATH_UPLOADS'], ''
+      self.logo.thumb_min.to_s.gsub! ENV['PATH_UPLOADS'], ''
     else
-      self.logo.thumb.to_s
+      self.logo.thumb_min.to_s
     end
   end
 

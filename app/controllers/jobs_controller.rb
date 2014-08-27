@@ -10,7 +10,7 @@ class JobsController < ApplicationController
   def new
     company = Company.find_by_user_id current_user
     if company.nil?
-      redirect_to root_path, :flash => { :error => "Por favor, atualize os dados de sua empresa antes de cadastrar uma vaga" }
+      redirect_to company_path, :flash => { :error => "Por favor, atualize os dados de sua empresa antes de cadastrar uma vaga" }
     else
       @company = company
     end
@@ -75,7 +75,11 @@ class JobsController < ApplicationController
   private
 
   def set_job
-    @job = Job.find_by_slug(params[:slug]) || Job.find(params[:id])
+    if params[:slug]
+      @job = Job.find_by_slug(params[:slug])
+    else
+      @job = Job.find(params[:id])
+    end
   end
 
   def job_params

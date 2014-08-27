@@ -62,3 +62,41 @@
 
 	border-bottom: solid 1px $border-1;
 }
+
+
+.page-pagination {
+	cursor: default;
+
+	list-style: none;
+	padding: 0;
+	margin: 30px 0 0;
+
+	li {
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+	a {
+		display: block;
+
+		color: $text-1;
+		font-size: 1.4em;
+		text-decoration: none;
+
+		padding: 4px 10px;
+
+		background: $component-3;
+
+		@include transition(.1s ease);
+
+		&:hover {
+			color: $text-3;
+			background: $component-1;
+		}
+	}
+
+	.active {
+		color: $text-3;
+		background: $component-1;
+	}
+}

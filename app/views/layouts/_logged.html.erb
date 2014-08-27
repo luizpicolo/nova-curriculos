@@ -1,11 +1,14 @@
 <div class="logged">
   <div class="grid-relative">
     <div class="logged-info">
-      <span class="logged-message">Seja bem vindo (a)</span>
       <span class="logged-avatar">
         <% if current_user.candidate.try(:image) %>
           <%= link_to show_curriculum_candidate_path do %>
           <%= image_tag current_user.candidate.avatar %>
+          <% end %>
+        <% elsif current_user.company.try(:logo)%>
+          <%= link_to company_path do %>
+          <%= image_tag current_user.company.logo_marca %>
           <% end %>
         <% end %>
       </span>
@@ -19,7 +22,7 @@
         <% end %>
         <% if current_user.is_company? %>
         <li><%= link_to "Perfil empresa", company_path, :class => "btn btn-link"%></li>
-        <li><%= link_to "Vagas", vacancies_path, :class => "btn btn-link"%></li>
+        <li><%= link_to "Minhas Vagas", vacancies_path, :class => "btn btn-link"%></li>
         <% else %>
         <li><%= link_to "Currículo", show_curriculum_candidate_path, :class => "btn btn-link" %></li>
         <% end %>

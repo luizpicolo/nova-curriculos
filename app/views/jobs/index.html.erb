@@ -1,9 +1,56 @@
-<%= link_to "Cadastrar Vaga", new_vacancy_path %>
-<br />
-<br />
-<% @jobs.each do |job| %>
-<%= link_to job.job_title, "#" %>
-<%= link_to "Ëditar", edit_vacancy_path(job.id) %>
-<%= link_to 'Excluir', destroy_job_path(job.id), method: :delete, data: { confirm: 'Deseja realmente excluir?' } %>
-<br />
-<% end %>
+<main id="main">
+  <div class="grid padding-top">
+    <div class="page-title-container">
+      <h1 class="page-title">
+        <span class="nc-min-icon nc-min-recruiters"></span>
+        <span>Meu Perfil</span>
+      </h1>
+    </div>
+
+    <div class="sidebar col-4 col-left">
+      <section class="profile-nav-container">
+        <h2 class="profile-nav-title">Meu Perfil</h2>
+        <ul class="profile-nav">
+          <li><%= link_to "Cadastrar vaga", new_vacancy_path, :class => "btn btn-link" %></li>
+          <li><%= link_to "Minhas vagas", vacancies_path, :class => "btn btn-link" %></li>
+          <li><%= link_to "Perfil empresa", company_path, :class => "btn btn-link"%></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col-8 col-right padding-left">
+      <h1 class="profile-caption">Minhas Vagas</h1>
+
+      <ul class="profile-vacancies">
+        <% @jobs.each do |job| %>
+        <li class="profile-vacancies-item">
+          <h2 class="profile-vacancies-title"><%= job.job_title %></h2>
+          <div class="profile-vacancies-info">
+            Publicado dia <%= job.created_at.try(:strftime,("%d/%m/%Y")) %> -
+            20 Candidatos à vaga -
+            <% unless job.status %>
+            <span class="status_vacancy">Aguardando aprovação</span>
+            <% end %>
+          </div>
+
+          <div class="profile-vacancies-options">
+            <% if job.status %>
+            <%= link_to "Visualizar", show_job_path(job.slug), :class => "btn btn-link" %>
+            <% end %>
+            <%= link_to "Ëditar", edit_vacancy_path(job.id), :class => "btn btn-link" %>
+            <%= link_to 'Excluir', destroy_job_path(job.id), method: :delete, data: { confirm: 'Deseja realmente excluir?' }, :class => "btn btn-link" %>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+
+      <!-- <ol class="page-pagination nav-active">
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">...</a></li>
+        <li><a href="#"><span class="fa fa-angle-double-right"></span></a></li>
+      </ol> -->
+    </div>
+</main>
