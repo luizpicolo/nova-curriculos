@@ -12,6 +12,7 @@ FactoryGirl.define do
     type_company factory: :type_company
     cnpj { Faker::Company.duns_number }
     city factory: :city
+    #branch_operations factory: :branch_operation
     description { Faker::Lorem.paragraph }
     user factory: :user
     #logo File.open(File.join(Rails.root, '/spec/fixtures/files/image.png'))

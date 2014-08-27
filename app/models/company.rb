@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
   #process_in_background :logo
 
   validates :fancy_name, :corporate_name, :phone,
-			      :type_company, :cnpj, :description,
+			      :type_company, :cnpj, :description, #:branch_operations,
 			      :city, :user, :type_company, presence: true
 
   has_and_belongs_to_many :branch_operations
