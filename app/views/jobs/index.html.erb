@@ -34,9 +34,10 @@
           </div>
 
           <div class="profile-vacancies-options">
-            <% if job.status %>
+            <% if !job.status %>
             <%= link_to "Visualizar", show_job_path(job.slug), :class => "btn btn-link" %>
             <% end %>
+            <%= link_to "Extender vaga", show_job_path(job.slug), :class => "btn btn-link" %>
             <%= link_to "Ëditar", edit_vacancy_path(job.id), :class => "btn btn-link" %>
             <%= link_to 'Excluir', destroy_job_path(job.id), method: :delete, data: { confirm: 'Deseja realmente excluir?' }, :class => "btn btn-link" %>
           </div>
