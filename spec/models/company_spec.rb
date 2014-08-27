@@ -57,11 +57,6 @@ RSpec.describe Company, :type => :model do
 			expect(company).to be_invalid
 		end
 
-		it 'should be invalid if there is no branch_operation' do
-			company = FactoryGirl.build :company, :branch_operation => nil
-			expect(company).to be_invalid
-		end
-
 		it "object created is valid" do
 			company = FactoryGirl.build(:company)
 			expect(company).to be_valid
@@ -76,7 +71,7 @@ RSpec.describe Company, :type => :model do
 	# end
 
   describe "Associations" do
-  	it { should belong_to(:branch_operation) }
+  	it { should have_and_belong_to_many(:branch_operations) }
   	it { should belong_to(:type_company) }
   	it { should belong_to(:city) }
   	it { should belong_to(:user) }

@@ -14,6 +14,7 @@ FactoryGirl.define do
   	start_date (Time.now - 2.days)
   	finish_date (Time.now + 2.days)
     term true
+    status true
     city factory: :city
   end
 end

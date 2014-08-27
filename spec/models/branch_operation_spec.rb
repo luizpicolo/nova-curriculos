@@ -14,6 +14,6 @@ RSpec.describe BranchOperation, :type => :model do
   end
 
   describe "Associations" do
-  	it { should have_many(:companies) }
+  	it { should have_and_belong_to_many(:companies) }
   end
 end
