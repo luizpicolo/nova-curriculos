@@ -18,9 +18,9 @@
             </p>
           </div>
 
-          <a class="btn btn-facebook" href="#">
-            <span class="fa fa-facebook"></span> Cadastro com Facebook
-          </a>
+          <%= link_to user_omniauth_authorize_path(:facebook), :class => "btn btn-facebook" do %>
+            <span class="fa fa-facebook"></span> Login com Facebook
+          <% end %>
         </div>
 
         <div class="margin-bottom">

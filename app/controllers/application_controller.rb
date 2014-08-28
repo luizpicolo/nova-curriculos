@@ -16,16 +16,7 @@ class ApplicationController < ActionController::Base
       login == 'nc' && password == 'nc153'
     end
   end
-
-  def after_sign_up_path_for(resource)
-  credit_path
-  return request.env['omniauth.origin'] || session[:return_to]
-end
-
-def after_sign_in_path_for(resource)
-  return request.env['omniauth.origin'] || session[:return_to]
-end
-
+  
   protected
 
   def configure_permitted_parameters
