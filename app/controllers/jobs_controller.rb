@@ -86,7 +86,7 @@ class JobsController < ApplicationController
     params.require(:job).permit(
       :job_title, :salary_range, :type_contract_id,
       :job_category_id, :amount_vacancies, :time_contract,
-      :description, :requirements, :period_of_work,
+      :description, :requirements, :period_of_work, :other_information,
       :city_id, :salary_negotiable, :is_premium, :status, :term
     )
   end

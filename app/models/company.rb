@@ -17,11 +17,13 @@ class Company < ActiveRecord::Base
 
   has_many :jobs
 
-  def logo_marca
+  def logo_marca(type)
     if Rails.env == "production"
-      self.logo.thumb_min.to_s.gsub! ENV['PATH_UPLOADS'], ''
+      return self.logo.thumb_min.to_s.gsub! ENV['PATH_UPLOADS'], '' if type == "thumb_min"
+      return self.logo.thumb.to_s.gsub! ENV['PATH_UPLOADS'], '' if type == "thumb"
     else
-      self.logo.thumb_min.to_s
+      return self.logo.thumb_min.to_s if type == "thumb_min"
+      return self.logo.thumb.to_s if type == "thumb"
     end
   end
 

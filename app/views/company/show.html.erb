@@ -26,7 +26,7 @@
             <div class="col-6 col-left padding-small-right">
               <div class="form-input">
                 <%= f.label :cnpj, "CNPJ" %>
-                <%= f.number_field :cnpj, :required => true %>
+                <%= f.number_field :cnpj, :required => true, :maxlength => 11 %>
               </div>
             </div>
 
@@ -42,14 +42,14 @@
             <div class="col-8 col-left padding-small-right">
               <div class="form-input">
                 <%= f.label :street, "Rua" %>
-                <%= f.text_field :street, :required => true %>
+                <%= f.text_field :street %>
               </div>
             </div>
 
             <div class="col-4 col-right padding-small-left">
               <div class="form-input">
                 <%= f.label :number, "Número" %>
-                <%= f.number_field :number, :required => true %>
+                <%= f.number_field :number %>
               </div>
             </div>
           </div>
@@ -65,7 +65,7 @@
             <div class="col-6 col-right padding-small-left">
               <div class="form-input">
                 <%= f.label :phone, "Telefone" %>
-                <%= f.text_field :phone, :required => true, :class => "phone" %>
+                <%= f.text_field :phone, :required => true, :class => "tel" %>
               </div>
             </div>
           </div>
@@ -74,14 +74,14 @@
             <div class="col-6 col-left padding-small-right">
               <div class="form-input">
                 <%= f.label :facebook, "Facebook" %>
-                <%= f.text_field :facebook, :required => true %>
+                <%= f.text_field :facebook %>
               </div>
             </div>
 
             <div class="col-6 col-right padding-small-left">
               <div class="form-input">
                 <%= f.label :twitter, "Twitter" %>
-                <%= f.text_field :twitter, :required => true %>
+                <%= f.text_field :twitter %>
               </div>
             </div>
           </div>
@@ -90,14 +90,14 @@
             <div class="col-6 col-left padding-small-right">
               <div class="form-input">
                 <%= f.label :email, "E-mail" %>
-                <%= f.text_field :email, :required => true %>
+                <%= f.text_field :email %>
               </div>
             </div>
 
             <div class="col-6 col-right padding-small-left">
               <div class="form-input">
                 <%= f.label :website, "WebSite" %>
-                <%= f.text_field :website, :required => true %>
+                <%= f.text_field :website %>
               </div>
             </div>
           </div>
@@ -143,7 +143,7 @@
 
           <div class="form">
             <%= f.label :logo, "Logo Marca" %>
-            <%= f.file_field :logo %>
+            <%= f.file_field :logo, :required => true%>
           </div>
 
         </div>

@@ -29,14 +29,14 @@
                   <div class="col-3 col-left padding-small-right">
                     <div class="form-input">
                       <%= f.label :salary_range, "*Faixa salarial" %>
-                      <%= f.text_field :salary_range, :required => true, :class => "money" %>
+                      <%= f.text_field :salary_range, :class => "money" %>
                     </div>
                   </div>
 
                   <div class="col-3 col-right padding-small-left padding-top salary_negotiable">
                     <div class="form-radio-item">
                       <%= f.label :salary_negotiable, "à combinar"%>
-                      <%= f.check_box :salary_negotiable, {:required => true}, "true", "false" %>
+                      <%= f.check_box :salary_negotiable, {}, "true", "false" %>
                     </div>
                   </div>
                 </div>
@@ -52,7 +52,7 @@
                   <div class="col-5 col-right padding-left">
                     <div class="form-input">
                       <%= f.label :time_contract, "Tempo de contrato" %>
-                      <%= f.text_field :time_contract, :required => true %>
+                      <%= f.text_field :time_contract %>
                     </div>
                   </div>
                 </div>
@@ -60,7 +60,7 @@
                 <div class="row">
                   <div class="col-7 col-left">
                     <div class="form-select padding-small-right">
-                      <%= f.label :job_category_id, "*Contratação" %>
+                      <%= f.label :job_category_id, "*Categoria" %>
                       <%= f.select :job_category_id, JobCategory.all.collect {|p| [ p.name, p.id ] }, :required => true %>
                     </div>
                   </div>
@@ -75,7 +75,7 @@
 
                 <div class="form-textarea">
                   <%= f.label :description, "Descrição da vaga" %>
-                  <%= f.text_area :description, :required => true, :class => "height_120px" %>
+                  <%= f.text_area :description, :required => true %>
                 </div>
 
               </div>
@@ -84,17 +84,17 @@
 
                 <div class="form-textarea">
                   <%= f.label :requirements, "Requerimentos" %>
-                  <%= f.text_area :requirements, :required => true, :class => "height_120px" %>
+                  <%= f.text_area :requirements, :required => true %>
                 </div>
 
                 <div class="form-textarea">
                   <%= f.label :period_of_work, "Horário de trabalho" %>
-                  <%= f.text_area :period_of_work, :required => true, :class => "height_120px" %>
+                  <%= f.text_area :period_of_work %>
                 </div>
 
                 <div class="form-textarea">
                   <%= f.label :other_information, "Outras informações" %>
-                  <%= f.text_area :other_information, :required => true, :class => "height_120px" %>
+                  <%= f.text_area :other_information %>
                 </div>
               </div>
             </div>
@@ -120,7 +120,7 @@
               <div class="form-radio">
                 <div class="form-radio-item form-inline">
                   <label for="termos_de_uso">Deseja tornar esta vaga Premim <a href="#">Saiba mais</a></label>
-                  <%= f.check_box :is_premium, {:required => true}, "true", "false" %>
+                  <%= f.check_box :is_premium, {}, "true", "false" %>
                 </div>
               </div>
 

@@ -8,7 +8,7 @@
           <% end %>
         <% elsif current_user.company.try(:logo)%>
           <%= link_to company_path do %>
-          <%= image_tag current_user.company.logo_marca %>
+          <%= image_tag current_user.company.logo_marca("thumb_min") %>
           <% end %>
         <% end %>
       </span>

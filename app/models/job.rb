@@ -5,15 +5,13 @@ class Job < ActiveRecord::Base
 
   validates :job_title,
       			:company,
-            :salary_range,
       			:type_contract,
       			:amount_vacancies,
-      			:time_contract,
       			:description,
       			:requirements,
-      			:period_of_work,
       			:start_date,
             :term,
+            :city,
       			:finish_date, presence: true
 
   belongs_to :type_contract
