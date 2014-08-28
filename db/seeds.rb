@@ -7,9 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.new({
-	:name => "Luiz Picolo", 
-	:email => "luizpicolo@gmail.com", 
-	:password => "123456789", 
-	:password_confirmation => "123456789", 
+	:name => "admin",
+	:email => "admin@novacurriculos.com.br",
+	:password => "mamute153",
+	:is_candidate => true,
+	:password_confirmation => "mamute153",
 	:admin => true
 }).save
