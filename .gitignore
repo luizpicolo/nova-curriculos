@@ -26,11 +26,12 @@
 /public/uploads/
 
 # Solr
-solr/data/*
-solr/pids/*
-solr/development/data/*
-solr/test/*
-sunspot-solr.pid
+/solr/
+/solr/data/*
+/solr/pids/*
+/solr/development/data/*
+/solr/test/*
+/sunspot-solr.pid
 
 # Ignore application configuration
 #/config/application.yml
