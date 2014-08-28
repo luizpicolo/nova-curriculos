@@ -425,6 +425,7 @@ DEPENDENCIES
   mina
   mini_magick
   mysql2
+  omniauth
   omniauth-facebook
   passenger
   pg
