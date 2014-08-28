@@ -256,6 +256,9 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
+  # Facebook
+  config.omniauth :facebook, "456623507810804", "45e7ab12d100d12c51189b4c18a9983e"
+
   config.warden do |manager|
     manager.failure_app = CustomFailure
   end
