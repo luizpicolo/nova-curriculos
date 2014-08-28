@@ -26,7 +26,7 @@
         <% else %>
         <li><%= link_to "Currículo", show_curriculum_candidate_path, :class => "btn btn-link" %></li>
         <% end %>
-        <li><a class="btn btn-link" href="#">Trocar senha</a></li>
+        <li><%= link_to "Trocar senha", edit_user_registration_path, :class => "btn btn-link" %></li>
         <li>
           <%= link_to "Sair", destroy_user_session_path, :method => :delete, :class => "btn btn-link" %></li>
       </ul>

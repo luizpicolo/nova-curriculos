@@ -2,17 +2,19 @@
   <div class="grid">
     <span class="login-title">Login</span>
 
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html=> { class: 'login-form' }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html=> { class: 'login-form' }) do |f| %>
       <div class="login-input">
-        <%= f.input :email, required: false, autofocus: true, :placeholder => "email", label: false %>
+        <%= f.label :email, :class => "hidden" %>
+        <%= f.text_field :email, required: false, autofocus: true, :placeholder => "email"  %>
       </div>
 
       <div class="login-input">
-        <%= f.input :password, required: false, :placeholder => "senha", label: false %>
+        <%= f.label :password, :class => "hidden" %>
+        <%= f.password_field :password, required: false, :placeholder => "senha" %>
       </div>
 
       <div class="login-submit">
-        <%= f.button :submit, "Entrar", :class => "btn btn-blue" %>
+        <%= f.submit "Entrar", :class => "btn btn-blue" %>
       </div>
     <% end %>
 
