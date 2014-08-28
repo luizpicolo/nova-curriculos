@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       login == 'nc' && password == 'nc153'
     end
   end
-  
+
   protected
 
   def configure_permitted_parameters
