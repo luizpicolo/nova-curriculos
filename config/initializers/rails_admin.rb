@@ -426,6 +426,7 @@ RailsAdmin.config do |config|
       field :is_candidate
       field :password
       field :password_confirmation
+      field :slug
       field :admin
     end
     show do
