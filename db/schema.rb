@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140829181454) do
+ActiveRecord::Schema.define(version: 20140829190709) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling_id",   null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140829181454) do
   create_table "candidates", force: true do |t|
     t.boolean  "is_male",                              null: false
     t.date     "birth_date",                           null: false
-    t.integer  "zip_code"
+    t.string   "zip_code"
     t.string   "street"
     t.integer  "number"
     t.string   "complement"

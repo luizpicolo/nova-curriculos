@@ -26,12 +26,13 @@ class Candidate < ActiveRecord::Base
   belongs_to :city
   belongs_to :user
 
-  def avatar
+  def avatar(type)
     if Rails.env == "production"
-      self.image.thumb_min.to_s.gsub! ENV['PATH_UPLOADS'], ''
+      return self.image.thumb_min.to_s.gsub! ENV['PATH_UPLOADS'], '' if type == "thumb_min"
+      return self.image.thumb.to_s.gsub! ENV['PATH_UPLOADS'], '' if type == "thumb"
     else
-      self.image.thumb_min.to_s
+      return self.image.thumb_min.to_s if type == "thumb_min"
+      return self.image.thumb.to_s if type == "thumb"
     end
   end
-
 end

@@ -32,7 +32,12 @@ class CandidatesController < ApplicationController
 
   def show_profile
     @user = User.find_by_slug(params[:slug])
-    @candidate = @user.candidate
+    candidate = @user.candidate
+    if !candidate.nil?
+      @candidate = candidate
+    else
+      redirect_to request.referer, :flash => { :notice => "Este candidado não atualizou seu currículo" }
+    end
   end
 
   def create

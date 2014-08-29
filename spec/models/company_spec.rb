@@ -78,4 +78,12 @@ RSpec.describe Company, :type => :model do
 
   	it { should have_many(:jobs) }
   end
+
+	describe "Logo marca" do
+		it "should return valid path for logo marca" do
+			company = FactoryGirl.build(:company)
+			expect(company.logo_marca("thumb")).to eq("/assets/thumb_avatar.jpg")
+			expect(company.logo_marca("thumb_min")).to eq("/assets/thumb_min_avatar.jpg")
+		end
+	end
 end

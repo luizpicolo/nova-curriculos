@@ -23,7 +23,7 @@
         <div class="profile-header margin-bottom">
           <div class="profile-avatar-container">
             <figure class="profile-avatar">
-              <img src="img/avatar-two.jpg" alt="">
+              <%= image_tag current_user.candidate.avatar("thumb") %>
             </figure>
           </div>
           <div class="profile-info">
@@ -31,34 +31,34 @@
 
             <div class="profile-text margin-small-bottom">
               <p><a href="#"><%= @candidate.user.email %><</a></p>
-              <p><span class="profile-item-caption">Sexo:</span> Feminíno</p>
-              <p><span class="profile-item-caption">Data de nascimento:</span> 00/00/2014</p>
-              <p><span class="profile-item-caption">Endereço:</span> Rua Lorem Ipsum Dolor</p>
+              <p><span class="profile-item-caption">Sexo:</span> <%= @candidate.is_male ? "Masculino" : "Feminio" %> </p>
+              <p><span class="profile-item-caption">Data de nascimento:</span> <%= @candidate.birth_date.strftime("%d/%m/%Y") %></p>
+              <p><span class="profile-item-caption">Endereço:</span> <%= @candidate.street %></p>
             </div>
 
             <div class="row margin-small-bottom">
               <div class="profile-text col-4 col-left">
-                <p><span class="profile-item-caption">Número:</span> 0000</p>
+                <p><span class="profile-item-caption">Número:</span> <%= @candidate.number %></p>
               </div>
 
               <div class="profile-text col-4 col-left">
-                <p><span class="profile-item-caption">Complemento:</span> 0000</p>
+                <p><span class="profile-item-caption">Complemento:</span> <%= @candidate.complement %></p>
               </div>
 
               <div class="profile-text col-4 col-right">
-                <p><span class="profile-item-caption">CEP:</span> 00000-000</p>
+                <p><span class="profile-item-caption">CEP:</span> <%= @candidate.zip_code %></p>
               </div>
             </div>
 
             <div class="row">
               <div class="profile-text col-6 col-left">
-                <p><span class="profile-item-caption">Telefone:</span> (00) 0000-0000</p>
-                <p><span class="profile-item-caption">Telefone:</span> (00) 0000-0000</p>
+                <p><span class="profile-item-caption">Telefone:</span> <%= @candidate.home_phone %></p>
+                <p><span class="profile-item-caption">Telefone:</span> <%= @candidate.mobile_phone %></p>
               </div>
 
               <div class="profile-text col-6 col-right">
-                <p><span class="profile-item-caption">Telefone:</span> (00) 0000-0000</p>
-                <p><span class="profile-item-caption">Telefone:</span> (00) 0000-0000</p>
+                <p><span class="profile-item-caption">Telefone:</span> <%= @candidate.message_phone %></p>
+                <p><span class="profile-item-caption">Telefone:</span> <%= @candidate.commercial_phone %></p>
               </div>
             </div>
           </div>

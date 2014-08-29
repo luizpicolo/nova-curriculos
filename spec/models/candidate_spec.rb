@@ -79,4 +79,12 @@ RSpec.describe Candidate, :type => :model do
   	it { should belong_to(:city) }
   	it { should belong_to(:user) }
   end
+
+	describe "Avatar" do
+		it "should return valid path for image" do
+			candidate = FactoryGirl.build(:candidate)
+			expect(candidate.avatar("thumb")).to eq("/assets/thumb_icon-avatar.jpg")
+			expect(candidate.avatar("thumb_min")).to eq("/assets/thumb_min_icon-avatar.jpg")
+		end
+	end
 end

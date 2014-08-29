@@ -12,11 +12,6 @@ RSpec.describe Job, :type => :model do
 			expect(job).to be_invalid
 		end
 
-		it 'should be invalid if there is no salary range' do
-			job = FactoryGirl.build :job, :salary_range => nil
-			expect(job).to be_invalid
-		end
-
 		it 'should be invalid if there is no type contract' do
 			job = FactoryGirl.build :job, :type_contract => nil
 			expect(job).to be_invalid
@@ -27,11 +22,6 @@ RSpec.describe Job, :type => :model do
 			expect(job).to be_invalid
 		end
 
-		it 'should be invalid if there is no time contract' do
-			job = FactoryGirl.build :job, :time_contract => nil
-			expect(job).to be_invalid
-		end
-
 		it 'should be invalid if there is no description' do
 			job = FactoryGirl.build :job, :description => nil
 			expect(job).to be_invalid
@@ -39,11 +29,6 @@ RSpec.describe Job, :type => :model do
 
 		it 'should be invalid if there is no requirements' do
 			job = FactoryGirl.build :job, :requirements => nil
-			expect(job).to be_invalid
-		end
-
-		it 'should be invalid if there is no period_of_work' do
-			job = FactoryGirl.build :job, :period_of_work => nil
 			expect(job).to be_invalid
 		end
 
