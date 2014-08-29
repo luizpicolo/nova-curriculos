@@ -39,8 +39,12 @@
             <div class="vacancy-enterprise">
               <h1 class="vacancy-enterprise-title"><%= @job.company.fancy_name %></h1>
               <ul class="vacancy-enterprise-list">
-                <li><a href="#"><span class="fa fa-file"></span> <%= @job.company.email %></a></li>
-                <li><a href="#"><span class="fa fa-facebook-square"></span> <%= @job.company.facebook %></a></li>
+                <% if !@job.company.email.empty? %>
+                <li><a href="javascript:void(0)"><span class="fa fa-file"></span> <%= @job.company.email %></a></li>
+                <% end %>
+                <% if !@job.company.facebook.empty? %>
+                <li><a href="<%= @job.company.facebook %>"><span class="fa fa-facebook-square"></span> <%= @job.company.facebook %></a></li>
+                <% end %>
               </ul>
             </div>
           </div>
@@ -74,12 +78,14 @@
                 </div>
               </div>
 
+              <% if !@job.time_contract.empty? %>
               <div class="col-3 col-left">
                 <h3 class="vacancy-caption">Tempo de contrato</h3>
                 <div class="vacancy-text">
-                  <p>*somente para vagas temporárivas</p>
+                  <p><%= @job.time_contract %></p>
                 </div>
               </div>
+              <% end %>
             </div>
           </div>
 
@@ -100,17 +106,16 @@
               </div>
             </div>
 
+            <% if !@job.period_of_work.empty? %>
             <div class="margin-bottom">
               <h3 class="vacancy-caption">Horário de serviço</h3>
               <div class="vacancy-text">
-                <p>
-                  Segunda à Sexta das: 07:00 às 18:00h <br>
-                  Almoço: das 11:00 às 13:00
-                </p>
+                <%= @job.period_of_work.html_safe %>
               </div>
             </div>
+            <% end %>
 
-            <% if !@job.other_information.nil? %>
+            <% if !@job.other_information.empty? %>
             <div>
               <h3 class="vacancy-caption">Outras Informações</h3>
               <div class="vacancy-text">

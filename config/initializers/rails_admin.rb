@@ -217,7 +217,7 @@ RailsAdmin.config do |config|
       field :type_company
       field :cnpj
       field :city
-      field :branch_operation
+      field :branch_operations
       field :description, :wysihtml5 do
         config_options :html => false
       end
