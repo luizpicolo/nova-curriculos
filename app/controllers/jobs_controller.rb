@@ -72,6 +72,10 @@ class JobsController < ApplicationController
     end
   end
 
+  def apply_for_job
+    
+  end
+
   private
 
   def set_job

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828041109) do
+ActiveRecord::Schema.define(version: 20140829181454) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling_id",   null: false
@@ -278,6 +278,7 @@ ActiveRecord::Schema.define(version: 20140828041109) do
     t.boolean  "is_candidate",           default: true,  null: false
     t.string   "provider"
     t.string   "uid"
+    t.string   "slug"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

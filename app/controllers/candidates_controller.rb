@@ -30,6 +30,11 @@ class CandidatesController < ApplicationController
     professional_experience.nil? ? @professional_experience = ProfessionalExperience.new : @professional_experience = professional_experience
   end
 
+  def show_profile
+    @user = User.find_by_slug(params[:slug])
+    @candidate = @user.candidate
+  end
+
   def create
   	@candidate = Candidate.new(candidate_params)
   	@candidate.user = current_user

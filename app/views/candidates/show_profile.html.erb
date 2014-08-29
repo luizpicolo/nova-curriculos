@@ -1,0 +1,159 @@
+<main id="main">
+  <div class="grid padding-top">
+    <div class="page-title-container">
+      <h1 class="page-title">
+        <span class="nc-min-icon nc-min-recruiters"></span>
+        <span>Meu Perfil</span>
+      </h1>
+    </div>
+
+    <div class="sidebar col-4 col-left">
+      <section class="profile-nav-container">
+        <h2 class="profile-nav-title">Meu Perfil</h2>
+        <ul class="profile-nav">
+          <li><a class="btn btn-link" href="#">Minhas Vagas</a></li>
+          <li><a class="btn btn-link" href="#">Editar Currículo</a></li>
+          <li><a class="btn btn-link" href="#">Gerar pdf do currículo</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col-8 col-right padding-left">
+      <article class="profile">
+        <div class="profile-header margin-bottom">
+          <div class="profile-avatar-container">
+            <figure class="profile-avatar">
+              <img src="img/avatar-two.jpg" alt="">
+            </figure>
+          </div>
+          <div class="profile-info">
+            <h1 class="profile-title"><%= @candidate.full_name %></h1>
+
+            <div class="profile-text margin-small-bottom">
+              <p><a href="#"><%= @candidate.user.email %><</a></p>
+              <p><span class="profile-item-caption">Sexo:</span> Feminíno</p>
+              <p><span class="profile-item-caption">Data de nascimento:</span> 00/00/2014</p>
+              <p><span class="profile-item-caption">Endereço:</span> Rua Lorem Ipsum Dolor</p>
+            </div>
+
+            <div class="row margin-small-bottom">
+              <div class="profile-text col-4 col-left">
+                <p><span class="profile-item-caption">Número:</span> 0000</p>
+              </div>
+
+              <div class="profile-text col-4 col-left">
+                <p><span class="profile-item-caption">Complemento:</span> 0000</p>
+              </div>
+
+              <div class="profile-text col-4 col-right">
+                <p><span class="profile-item-caption">CEP:</span> 00000-000</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="profile-text col-6 col-left">
+                <p><span class="profile-item-caption">Telefone:</span> (00) 0000-0000</p>
+                <p><span class="profile-item-caption">Telefone:</span> (00) 0000-0000</p>
+              </div>
+
+              <div class="profile-text col-6 col-right">
+                <p><span class="profile-item-caption">Telefone:</span> (00) 0000-0000</p>
+                <p><span class="profile-item-caption">Telefone:</span> (00) 0000-0000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-item margin-large-bottom">
+          <div class="margin-bottom">
+            <h2 class="profile-caption">Objetivos Profissionais</h2>
+            <ul class="profile-list">
+              <li>
+                <h3 class="profile-list-title">Disponivilidade de horário</h3>
+                <p><span class="profile-list-caption">Área Profissional:</span> Administrativa; Agrárias</p>
+                <p><span class="profile-list-caption">Nível Hierárquico:</span> Coordenação e Supervisão; Diretoria</p>
+                <p><span class="profile-list-caption">Último Salário:</span> R$ 0.000,00</p>
+                <p><span class="profile-list-caption">Pretenção Salarial:</span> à combinar</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="profile-item margin-large-bottom">
+          <div class="margin-bottom">
+            <h2 class="profile-caption">Formação Acadêmica</h2>
+            <ul class="profile-list">
+              <li>
+                <h3 class="profile-list-title">Graduação</h3>
+                <p><span class="profile-list-caption">Curso:</span> Lorem ipsum</p>
+                <p><span class="profile-list-caption">Instituição:</span> Lorem ipsum</p>
+                <p><span class="profile-list-caption">Início:</span> 00/00/0000</p>
+                <p><span class="profile-list-caption">Conclusão:</span> 00/00/0000</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="profile-item margin-large-bottom">
+          <div class="margin-bottom">
+            <h2 class="profile-caption">Cursos Extras e Eventos</h2>
+            <ul class="profile-list">
+              <li>
+                <h3 class="profile-list-title">Lorem ipsum dolor sit</h3>
+                <p><span class="profile-list-caption">Local:</span> Lorem ipsum</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi risus, pharetra in dolor.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="profile-item margin-large-bottom">
+          <div class="margin-bottom">
+            <h2 class="profile-caption">Idiomas</h2>
+            <ul class="profile-list">
+              <li>
+                <h3 class="profile-list-title">Inglês</h3>
+                <p><span class="profile-list-caption">Nível:</span> Básico</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="profile-item margin-large-bottom">
+          <div class="margin-bottom">
+            <h2 class="profile-caption">Experiência Profissional</h2>
+            <ul class="profile-list">
+              <li>
+                <h3 class="profile-list-title">Empresa</h3>
+                <p><span class="profile-list-caption">Último Cargo:</span> Lorem ipsum</p>
+                <p><span class="profile-list-caption">Início:</span> 00/00/0000</p>
+                <p><span class="profile-list-caption">Saída:</span> 00/00/0000</p>
+                <p>
+                  <div class="profile-list-caption">Atribuições e realizações do cargo:</div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi risus, pharetra
+                  in dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi risus,
+                  pharetra in dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi
+                  risus, pharetra in dolor.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="profile-item margin-large-bottom">
+          <div class="margin-bottom">
+            <h2 class="profile-caption">Mini Currículo</h2>
+            <div class="profile-text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi risus, pharetra
+                in dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi risus,
+                pharetra in dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi
+                risus, pharetra in dolor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>

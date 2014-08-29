@@ -17,11 +17,12 @@ Rails.application.routes.draw do
 
   resource :candidates
 
-  # Routes
+  # candidate
   get "/candidato/cadastro" => "candidates#new", :as => :new_candidate
   get "/contratante/cadastro" => "contractors#new", :as => :new_contractor
   get "/candidato/curriculo" => "candidates#show", :as => :show_curriculum_candidate
   get "/candidato/curriculo" => "candidates#show", :as => :candidate
+  get "/curriculo/:slug" => "candidates#show_profile", :as => :show_candidate_profile
   post "/candidato/curriculo" => "candidates#create"
   patch "/candidato/curriculo" => "candidates#update"
 

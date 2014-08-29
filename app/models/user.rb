@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  
+  friendly_id :name, use: :slugged
 
   # after_create :send_welcome_email
 
