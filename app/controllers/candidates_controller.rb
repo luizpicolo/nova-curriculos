@@ -1,6 +1,6 @@
 class CandidatesController < ApplicationController
   before_filter :authenticate_user!, except: [:new]
-  before_action :set_candidate, only: [:update, :apply_for_job]
+  before_action :set_candidate, only: [:update, :apply_for_job, :show_vacancies]
 
   def new
     unless current_user.nil?
@@ -69,8 +69,15 @@ class CandidatesController < ApplicationController
   def apply_for_job
     @job = Job.find(params[:job])
     @job.candidates = [@candidate]
-    @job.save
-    redirect_to root_path, :flash => { :notice => " #{current_user.name}, nós do nova currículos desejamos à você boa sorte =)" }
+    if @job.save
+      redirect_to jobs_path, :flash => { :notice => " #{current_user.name}, nós do nova currículos desejamos à você boa sorte =)" }
+    else
+      redirect_to jobs_path, :flash => { :error => " #{current_user.name}, infelizmente ocorreu um erro. Tente novmente =(" }
+    end
+  end
+
+  def show_vacancies
+    @jobs = @candidate.jobs.order(start_date: :desc).page(params[:page]).per(15)
   end
 
   private

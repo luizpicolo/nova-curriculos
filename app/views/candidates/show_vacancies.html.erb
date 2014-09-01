@@ -1,0 +1,55 @@
+<main id="main">
+  <div class="grid padding-top">
+    <div class="page-title-container">
+      <h1 class="page-title">
+        <span class="nc-min-icon nc-min-recruiters"></span>
+        <span>Meu Perfil</span>
+      </h1>
+    </div>
+
+    <div class="sidebar col-4 col-left">
+      <section class="profile-nav-container">
+        <h2 class="profile-nav-title">Meu Perfil</h2>
+        <ul class="profile-nav">
+          <li><a class="btn btn-link" href="#">Minhas Vagas</a></li>
+          <li><a class="btn btn-link" href="#">Editar Currículo</a></li>
+          <li><a class="btn btn-link" href="#">Gerar pdf do currículo</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col-8 col-right padding-left">
+      <h1 class="profile-caption">Minhas Vagas</h1>
+
+      <ul class="profile-vacancies">
+        <% @jobs.each do |job| %>
+        <li class="profile-vacancies-item">
+          <h2 class="profile-vacancies-title">
+            <% status = job.finish_date > Time.now ? "active_job" : "inactive_job" %>
+            <i class="f1 fa fa-circle <%= status %>"></i>
+            <%= job.job_title %>
+          </h2>
+          <div class="profile-vacancies-info">
+            Publicado dia <%= job.created_at.try(:strftime,("%d/%m/%Y")) %>
+          </div>
+
+          <div class="profile-vacancies-options">
+            <% if status == "active_job" %>
+            <%= link_to "Exibir vaga", show_job_path(job.slug), :class => "btn btn-link" %>
+            <% end %>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+
+      <%= paginate @jobs %>
+      <!-- <ol class="page-pagination nav-active">
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">...</a></li>
+        <li><a href="#"><span class="fa fa-angle-double-right"></span></a></li>
+      </ol> -->
+    </div>
+</main>
