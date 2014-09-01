@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   # Company
   get "contratante/empresa" => "company#show", :as => :companies
   get "contratante/empresa" => "company#show", :as => :company
+  get "/contratante/vaga/:id/candidatos" => "company#show_candidates_for_vancancy", :as => :candidate_for_vacancies
   post "contratante/empresa" => "company#create"
   patch "contratante/empresa" => "company#update"
 

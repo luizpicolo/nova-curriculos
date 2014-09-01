@@ -9,7 +9,7 @@
 
     <div class="sidebar col-4 col-left">
       <section class="profile-nav-container">
-        <h2 class="profile-nav-title">Meu Perfil</h2>
+        <h2 class="profile-nav-title">Menu</h2>
         <ul class="profile-nav">
           <li><%= link_to "Cadastrar vaga", new_vacancy_path, :class => "btn btn-link" %></li>
           <li><%= link_to "Minhas vagas", vacancies_path, :class => "btn btn-link" %></li>
@@ -27,9 +27,9 @@
           <h2 class="profile-vacancies-title"><%= job.job_title %></h2>
           <div class="profile-vacancies-info">
             Publicado dia <%= job.created_at.try(:strftime,("%d/%m/%Y")) %> -
-            20 Candidatos à vaga -
+            Candidatos à vaga: <%= link_to job.candidates.count, candidate_for_vacancies_path(job.id) %>
             <% unless job.status %>
-            <span class="status_vacancy">Aguardando aprovação</span>
+            <span class="status_vacancy"> - Aguardando aprovação</span>
             <% end %>
           </div>
 

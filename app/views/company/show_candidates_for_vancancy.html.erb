@@ -1,0 +1,39 @@
+<main id="main">
+  <div class="grid padding-top">
+    <div class="page-title-container">
+      <h1 class="page-title">
+        <span class="nc-min-icon nc-min-recruiters"></span>
+        <span>Meu Perfil</span>
+      </h1>
+    </div>
+
+    <div class="sidebar col-4 col-left">
+      <section class="profile-nav-container">
+        <h2 class="profile-nav-title">Meu Perfil</h2>
+        <ul class="profile-nav">
+          <li><a class="btn btn-link" href="recrutador-vagas.php">Minhas Vagas</a></li>
+          <li><a class="btn btn-link" href="#">Editar Dados do Recrutador</a></li>
+          <li><a class="btn btn-link" href="#">Vagas Desativadas</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col-8 col-right padding-left">
+      <h1 class="profile-caption">Minhas Vagas</h1>
+
+      <ul class="profile-vacancies">
+        <li class="profile-vacancies-item">
+          <h2 class="profile-vacancies-title"><%= @job.job_title %></h2>
+          <div class="profile-vacancies-info">
+            Publicado dia <%= @job.created_at.try(:strftime,("%d/%m/%Y")) %>
+          </div>
+
+          <ul class="profile-vacancies-candidates">
+            <% @candidates.each do |candidate|%>
+            <li><%= link_to candidate.full_name, show_candidate_profile_path(candidate.user.slug) %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+</main>

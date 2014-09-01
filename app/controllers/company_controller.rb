@@ -33,6 +33,11 @@ class CompanyController < ApplicationController
    end
  end
 
+ def show_candidates_for_vancancy
+   @job = Job.find(params[:id])
+   @candidates = @job.candidates
+ end
+
  private
 
  def set_company

@@ -9,11 +9,13 @@
 
     <div class="sidebar col-4 col-left">
       <section class="profile-nav-container">
-        <h2 class="profile-nav-title">Meu Perfil</h2>
+        <h2 class="profile-nav-title">Menu</h2>
         <ul class="profile-nav">
+          <% if current_user.candidate == @candidate %>
           <li><a class="btn btn-link" href="#">Minhas Vagas</a></li>
           <li><a class="btn btn-link" href="#">Editar Currículo</a></li>
-          <li><a class="btn btn-link" href="#">Gerar pdf do currículo</a></li>
+          <% end %>
+          <li><a class="btn btn-link" href="#">Salvar este currículo em PDF</a></li>
         </ul>
       </section>
     </div>
