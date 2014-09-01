@@ -14,14 +14,13 @@ class Candidate < ActiveRecord::Base
 
   delegate :name, to: :user, :allow_nil => true
 
-  has_and_belongs_to_many :professional_areas
-  has_and_belongs_to_many :hierarchical_levels
+  has_and_belongs_to_many :professional_areas, dependent: :destroy
+  has_and_belongs_to_many :hierarchical_levels, dependent: :destroy
+  has_and_belongs_to_many :jobs, dependent: :destroy
   has_many :professional_experiences, dependent: :destroy
   has_many :academic_trainings, dependent: :destroy
   has_many :languages, dependent: :destroy
   has_many :extra_courses, dependent: :destroy
-
-  has_and_belongs_to_many :jobs
 
   belongs_to :city
   belongs_to :user

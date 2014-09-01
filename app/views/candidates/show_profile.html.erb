@@ -79,8 +79,10 @@
                 <%= hierarchical_level.name << "; " %>
                 <% end %>
                 </p>
+                <% if current_user.is_company? || current_user == @candidate.user %>
                 <p><span class="profile-list-caption">Último Salário:</span> R$ <%= @candidate.last_salary %></p>
-                <p><span class="profile-list-caption">Pretenção Salarial:</span> <%= @candidate.salary_to_be_agreed ? "à combinar" :  @candidate.salary_pretension%></p>
+                <p><span class="profile-list-caption">Pretenção Salarial:</span> R$ <%= @candidate.salary_to_be_agreed ? "à combinar" :  @candidate.salary_pretension%></p>
+                <% end %>
               </li>
             </ul>
           </div>
