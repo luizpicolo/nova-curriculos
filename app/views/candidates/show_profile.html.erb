@@ -69,11 +69,18 @@
             <h2 class="profile-caption">Objetivos Profissionais</h2>
             <ul class="profile-list">
               <li>
-                <h3 class="profile-list-title">Disponivilidade de horário</h3>
-                <p><span class="profile-list-caption">Área Profissional:</span> Administrativa; Agrárias</p>
-                <p><span class="profile-list-caption">Nível Hierárquico:</span> Coordenação e Supervisão; Diretoria</p>
-                <p><span class="profile-list-caption">Último Salário:</span> R$ 0.000,00</p>
-                <p><span class="profile-list-caption">Pretenção Salarial:</span> à combinar</p>
+                <p><span class="profile-list-caption">Área Profissional:</span>
+                <% @candidate.professional_areas.each do |professional_area| %>
+                <%= professional_area.name << "; " %>
+                <% end %>
+                </p>
+                <p><span class="profile-list-caption">Nível Hierárquico:</span>
+                <% @candidate.hierarchical_levels.each do |hierarchical_level| %>
+                <%= hierarchical_level.name << "; " %>
+                <% end %>
+                </p>
+                <p><span class="profile-list-caption">Último Salário:</span> R$ <%= @candidate.last_salary %></p>
+                <p><span class="profile-list-caption">Pretenção Salarial:</span> <%= @candidate.salary_to_be_agreed ? "à combinar" :  @candidate.salary_pretension%></p>
               </li>
             </ul>
           </div>
@@ -83,13 +90,15 @@
           <div class="margin-bottom">
             <h2 class="profile-caption">Formação Acadêmica</h2>
             <ul class="profile-list">
+              <% @candidate.academic_trainings.each do |academic_training| %>
               <li>
-                <h3 class="profile-list-title">Graduação</h3>
-                <p><span class="profile-list-caption">Curso:</span> Lorem ipsum</p>
-                <p><span class="profile-list-caption">Instituição:</span> Lorem ipsum</p>
-                <p><span class="profile-list-caption">Início:</span> 00/00/0000</p>
-                <p><span class="profile-list-caption">Conclusão:</span> 00/00/0000</p>
+                <h3 class="profile-list-title"><%= academic_training.schooling.name %></h3>
+                <p><span class="profile-list-caption">Curso:</span> <%= academic_training.name_of_course %></p>
+                <p><span class="profile-list-caption">Instituição:</span> <%= academic_training.institution %></p>
+                <p><span class="profile-list-caption">Início:</span> <%= academic_training.start_date.strftime("%d/%m/%Y") %></p>
+                <p><span class="profile-list-caption">Conclusão:</span> <%= academic_training.finish_date.strftime("%d/%m/%Y") %></p>
               </li>
+              <% end %>
             </ul>
           </div>
         </div>
@@ -98,11 +107,13 @@
           <div class="margin-bottom">
             <h2 class="profile-caption">Cursos Extras e Eventos</h2>
             <ul class="profile-list">
+              <% @candidate.extra_courses.each do |extra_course| %>
               <li>
-                <h3 class="profile-list-title">Lorem ipsum dolor sit</h3>
-                <p><span class="profile-list-caption">Local:</span> Lorem ipsum</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi risus, pharetra in dolor.</p>
+                <h3 class="profile-list-title"><%= extra_course.name %></h3>
+                <p><span class="profile-list-caption">Local:</span> <%= extra_course.local %></p>
+                <p><%= extra_course.description %></p>
               </li>
+              <% end %>
             </ul>
           </div>
         </div>
@@ -111,10 +122,12 @@
           <div class="margin-bottom">
             <h2 class="profile-caption">Idiomas</h2>
             <ul class="profile-list">
+              <% @candidate.languages.each do |language| %>
               <li>
-                <h3 class="profile-list-title">Inglês</h3>
-                <p><span class="profile-list-caption">Nível:</span> Básico</p>
+                <h3 class="profile-list-title"><%= language.speech %></h3>
+                <p><span class="profile-list-caption">Nível:</span> <%= name_level language.level %></p>
               </li>
+              <% end %>
             </ul>
           </div>
         </div>
@@ -123,19 +136,20 @@
           <div class="margin-bottom">
             <h2 class="profile-caption">Experiência Profissional</h2>
             <ul class="profile-list">
+              <% @candidate.professional_experiences.each do |professional_experience| %>
               <li>
-                <h3 class="profile-list-title">Empresa</h3>
-                <p><span class="profile-list-caption">Último Cargo:</span> Lorem ipsum</p>
-                <p><span class="profile-list-caption">Início:</span> 00/00/0000</p>
-                <p><span class="profile-list-caption">Saída:</span> 00/00/0000</p>
+                <h3 class="profile-list-title"><%= professional_experience.name_company %></h3>
+                <p><span class="profile-list-caption">Último Cargo:</span> <%= professional_experience.last_post %></p>
+                <p><span class="profile-list-caption">Início:</span> <%= professional_experience.start_date.strftime("%d/%m/%Y")%></p>
+                <p><%= professional_experience.jobs_current ? "Emprego atual" : "<span class='profile-list-caption'>Saída:</span> ".html_safe << professional_experience.finish_date.strftime("%d/%m/%Y")%></p>
                 <p>
                   <div class="profile-list-caption">Atribuições e realizações do cargo:</div>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi risus, pharetra
-                  in dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi risus,
-                  pharetra in dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi
-                  risus, pharetra in dolor.
+                <p>
+                  	<%= professional_experience.attributions %>
+                </p>
                 </p>
               </li>
+              <% end %>
             </ul>
           </div>
         </div>
@@ -145,10 +159,7 @@
             <h2 class="profile-caption">Mini Currículo</h2>
             <div class="profile-text">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi risus, pharetra
-                in dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi risus,
-                pharetra in dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi
-                risus, pharetra in dolor.
+                <%= @candidate.mini_curriculum %>
               </p>
             </div>
           </div>
