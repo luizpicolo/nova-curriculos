@@ -129,7 +129,11 @@
 
           <div class="vacancy-options">
             <% if current_user.is_candidate %>
-            <a class="btn btn-blue" href="#">Candidatar-se a Vaga</a>
+            <% if @job.candidate_to_job?(current_user) %>
+            <h2>Boa sorte, esta vaga já esta em sua lista</h2>
+            <% else %>
+            <%= link_to "Candidatar-se a Vaga", apply_for_job_path(@job.id), method: :post, :class => "btn btn-blue" %>
+            <% end %>
             <% end %>
             <a class="btn btn-facebook" href="#">
               <span class="fa fa-facebook-square"></span> Recomende esta Vaga

@@ -1,6 +1,6 @@
 class CandidatesController < ApplicationController
   before_filter :authenticate_user!, except: [:new]
-  before_action :set_candidate, only: [:update]
+  before_action :set_candidate, only: [:update, :apply_for_job]
 
   def new
     unless current_user.nil?
@@ -66,6 +66,13 @@ class CandidatesController < ApplicationController
   	end
   end
 
+  def apply_for_job
+    @job = Job.find(params[:job])
+    @job.candidates = [@candidate]
+    @job.save
+    redirect_to root_path, :flash => { :notice => " #{current_user.name}, nós do nova currículos desejamos à você boa sorte =)" }
+  end
+
   private
 
   def set_candidate
@@ -80,7 +87,7 @@ class CandidatesController < ApplicationController
       :message_phone, {:professional_area_ids => []},
       {:hierarchical_level_ids => []}, :position_of_interest,
       :last_salary, :salary_pretension, :salary_to_be_agreed,
-      :mini_curriculum, :is_public, :term
+      :mini_curriculum, :is_public, :term, :jobs
     )
   end
 end

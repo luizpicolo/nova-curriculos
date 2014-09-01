@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   post "contratante/empresa" => "company#create"
   patch "contratante/empresa" => "company#update"
 
-  # contract
+  # jobs
   get "/oportunidades" => "jobs#index", :as => :jobs
   get "/oportunidades/:slug" => "jobs#show", :as => :show_job
   get "/oportunidades/:id" => "jobs#show", :as => :job
@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   post "/oportunidades" => "jobs#create"
   patch "/oportunidades/:slug" => "jobs#update"
   delete "/oportunidades/:id" => "jobs#destroy", :as => :destroy_job
+  post "/oportunidades/:job/candidatar" => "candidates#apply_for_job", :as => :apply_for_job
 
   # Academic Trainings
   get "/candidato/curriculo/fa/:academic_training_id" => "candidates#show", :as => :edit_academic_trainings

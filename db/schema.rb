@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901120246) do
+ActiveRecord::Schema.define(version: 20140901143810) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling_id",   null: false
@@ -82,13 +82,13 @@ ActiveRecord::Schema.define(version: 20140901120246) do
 
   create_table "candidates_jobs", force: true do |t|
     t.integer  "candidate_id", null: false
-    t.integer  "jobs_id",      null: false
+    t.integer  "job_id",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "candidates_jobs", ["candidate_id"], name: "index_candidates_jobs_on_candidate_id", using: :btree
-  add_index "candidates_jobs", ["jobs_id"], name: "index_candidates_jobs_on_jobs_id", using: :btree
+  add_index "candidates_jobs", ["job_id"], name: "index_candidates_jobs_on_job_id", using: :btree
 
   create_table "candidates_professional_areas", force: true do |t|
     t.integer  "candidate_id",         null: false

@@ -19,7 +19,7 @@ class Job < ActiveRecord::Base
   belongs_to :city
   has_one :job_premiun, dependent: :destroy
 
-  has_and_belongs_to_many :candidates
+  has_and_belongs_to_many :candidates, dependent: :destroy
 
   # GAMBIARRA QUE DEVE SER RESOLVIDA :(
   belongs_to :jobs_category
@@ -48,5 +48,9 @@ class Job < ActiveRecord::Base
     text :state do
       city.state.name
     end
+  end
+
+  def candidate_to_job?(candidate)
+    self.candidates.where("candidate_id = ?", candidate.candidate.id).first
   end
 end
