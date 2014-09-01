@@ -70,9 +70,9 @@ class CandidatesController < ApplicationController
     @job = Job.find(params[:job])
     @job.candidates = [@candidate]
     if @job.save
-      redirect_to jobs_path, :flash => { :notice => " #{current_user.name}, nós do nova currículos desejamos à você boa sorte =)" }
+      redirect_to show_vacancies_path_path, :flash => { :notice => " #{current_user.name}, nós do nova currículos desejamos à você boa sorte =)" }
     else
-      redirect_to jobs_path, :flash => { :error => " #{current_user.name}, infelizmente ocorreu um erro. Tente novmente =(" }
+      redirect_to show_vacancies_path_path, :flash => { :error => " #{current_user.name}, infelizmente ocorreu um erro. Tente novmente =(" }
     end
   end
 

@@ -50,7 +50,7 @@ class Job < ActiveRecord::Base
     end
   end
 
-  def candidate_to_job?(candidate)
-    self.candidates.where("candidate_id = ?", candidate.candidate.id).first
+  def candidate_to_job?(cand)
+    self.candidates.where("candidate_id = ?", cand.candidate).first
   end
 end
