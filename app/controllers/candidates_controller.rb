@@ -68,7 +68,7 @@ class CandidatesController < ApplicationController
 
   def apply_for_job
     @job = Job.find(params[:job])
-    @job.candidates = [@candidate]
+    @job.candidates << @candidate
     if @job.save
       redirect_to show_vacancies_path, :flash => { :notice => " #{current_user.name}, nós do nova currículos desejamos à você boa sorte =)" }
     else
