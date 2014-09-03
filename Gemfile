@@ -25,6 +25,7 @@ gem 'sanitize-rails', require: 'sanitize/rails'
 gem 'sunspot_rails'
 gem 'figaro'
 gem "fog"
+gem "pagseguro", "~> 0.1.13"
 
 # JS
 gem 'jscrollpane-rails'

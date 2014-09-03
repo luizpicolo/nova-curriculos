@@ -78,6 +78,9 @@ Rails.application.routes.draw do
   patch "/professional_experience" => "professional_experiences#update", :as => :update_professional_experiences
   delete "/professional_experience/:id" => "professional_experiences#destroy", :as => :destroy_professional_experiences
 
+  # pagamentos
+  get "/teste_pag_seguro" => "cart#checkout"
+
   # Route Root
   root 'home#index'
 
