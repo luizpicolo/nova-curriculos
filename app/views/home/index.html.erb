@@ -51,7 +51,7 @@
       <div class="clip">
         <ul class="vacancies-list">
           <% @jobs.each do |job| %>
-          <% job.job_premiun.try(:validate_date) ? premiun = "vacancies-premium" : premiun = "" %>
+          <% premiun = job.job_premiun.try(:validate_date) ? "vacancies-premium" : "" %>
           <li class="vacancies-item <%= premiun %>">
             <section>
               <%= link_to show_job_path(job.slug), :class => "vacancies-link" do %>

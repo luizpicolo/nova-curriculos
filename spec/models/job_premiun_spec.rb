@@ -20,7 +20,7 @@ RSpec.describe JobPremiun, :type => :model do
 
   describe "#validate_date" do
     it "should return true with valid interval between dates" do
-      job_premiun = FactoryGirl.build :job_premiun, :start_date => (Time.now - 2.days), :finish_date => (Time.now + 2.days)
+      job_premiun = FactoryGirl.build :job_premiun, :start_date => (Time.now), :finish_date => (Time.now + 2.days)
       expect(job_premiun.validate_date).to be(true)
     end
 
