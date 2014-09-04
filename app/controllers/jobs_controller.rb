@@ -29,7 +29,11 @@ class JobsController < ApplicationController
     @job.start_date = Time.zone.now
     @job.finish_date = Time.zone.now + 30.days
     if @job.save
-      redirect_to jobs_path, :flash => { :notice => "Vaga cadastrada com sucesso." }
+      if job_params[:is_premium] == "0"
+        redirect_to jobs_path, :flash => { :notice => "Vaga cadastrada com sucesso." }
+      else
+        redirect_to cart_checkout_path
+      end
     else
       error_msg = ""
       @job.errors.full_messages.each do |msg|

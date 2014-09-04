@@ -29,9 +29,13 @@
           </div>
 
           <ul class="profile-vacancies-candidates">
-            <% @candidates.each do |candidate|%>
-            <li><%= link_to candidate.full_name, show_candidate_profile_path(candidate.user.slug) %></li>
-            <% end %>
+            <% if @candidates.nil? %>
+              <% @candidates.each do |candidate|%>
+              <li><%= link_to candidate.full_name, show_candidate_profile_path(candidate.user.slug) %></li>
+              <% end %>
+            <% else %>
+            <h2 class="profile-vacancies-title text-center">Infelizmente ainda não há candidatos para esta vaga =(</h2>
+            <% end%>
           </ul>
         </li>
       </ul>

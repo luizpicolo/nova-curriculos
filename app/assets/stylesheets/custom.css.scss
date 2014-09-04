@@ -89,3 +89,43 @@
         border: none;
     }
 }
+
+.pagseguro {
+
+	input[type="submit"]{
+		position: relative;
+
+		display: inline-block;
+		height: 26px;
+		line-height: 26px;
+
+		color: $text-1;
+		font-size: 14px;
+		text-transform: lowercase;
+		text-decoration: none;
+
+		padding: 0 10px;
+
+		border: 0;
+
+		left: 30px;
+
+		@include transition(.1s ease);
+
+		background: $btn-1;
+
+		&:hover {
+			background-color: $btn-3;
+		}
+	}
+}
+
+.summary {
+
+	height: 30px;
+	font-size: 1.3em;
+
+	i {
+		margin-left: 10px;
+	}
+}

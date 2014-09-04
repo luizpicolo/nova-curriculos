@@ -79,7 +79,7 @@ Rails.application.routes.draw do
   delete "/professional_experience/:id" => "professional_experiences#destroy", :as => :destroy_professional_experiences
 
   # pagamentos
-  get "/teste_pag_seguro" => "cart#checkout"
+  get "/cart/checkout" => "cart#checkout", :as => :cart_checkout
 
   # Route Root
   root 'home#index'

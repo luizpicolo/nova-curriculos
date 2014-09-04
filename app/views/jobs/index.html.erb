@@ -20,21 +20,24 @@
 
     <div class="col-8 col-right padding-left">
       <h1 class="profile-caption">Minhas Vagas</h1>
-
+      <div class="summary">
+        <i class="f1 fa fa-circle active_job"></i> Vagas aprovadas
+        <i class="f1 fa fa-circle inactive_job"></i> Vagas em aprovação
+      </div>
       <ul class="profile-vacancies">
         <% @jobs.each do |job| %>
         <li class="profile-vacancies-item">
-          <h2 class="profile-vacancies-title"><%= job.job_title %></h2>
+          <h2 class="profile-vacancies-title">
+            <% status = job.status ? "active_job" : "inactive_job" %>
+            <i class="f1 fa fa-circle <%= status %>"></i>
+            <%= job.job_title %></h2>
           <div class="profile-vacancies-info">
             Publicado dia <%= job.created_at.try(:strftime,("%d/%m/%Y")) %> -
-            Candidatos à vaga: <%= link_to job.candidates.count, candidate_for_vacancies_path(job.id) %>
-            <% unless job.status %>
-            <span class="status_vacancy"> - Aguardando aprovação</span>
-            <% end %>
+            Candidatos à vaga: <%= job.candidates.count %>
           </div>
 
           <div class="profile-vacancies-options">
-            <%= link_to "Extender vaga", "#", :class => "btn btn-link" %>
+            <%= link_to "Candidatos", candidate_for_vacancies_path(job.id), :class => "btn btn-link" %>
             <% if job.status %>
             <%= link_to "Visualizar", show_job_path(job.slug), :class => "btn btn-link" %>
             <% end %>

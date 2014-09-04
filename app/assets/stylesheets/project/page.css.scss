@@ -13,7 +13,7 @@
 	cursor: default;
 	display: inline-block;
 	line-height: 40px;
-	
+
 	color: $text-3;
 	font-size: 1.4em;
 	font-weight: 600;
@@ -22,6 +22,18 @@
 	.nc-min-icon {
 		float: left;
 		margin-right: 10px;
+	}
+}
+
+.page-text {
+	cursor: default;
+
+	color: $text-6;
+	font-size: 1.4em;
+	font-weight: 400;
+
+	a {
+		color: $text-6;
 	}
 }
 
@@ -50,14 +62,14 @@
 	cursor: default;
 
 	display: block;
-	
+
 	width: 100%;
 
 	color: $text-3;
 	font-size: 1.8em;
 	font-weight: 400;
 	text-transform: lowercase;
-	
+
 	margin: 0 0 15px;
 
 	border-bottom: solid 1px $border-1;
@@ -99,4 +111,32 @@
 		color: $text-3;
 		background: $component-1;
 	}
+}
+
+
+.page-vacancy-slogan {
+	width: 340px;
+
+	margin: 0 auto 30px;
+	padding: 0 290px 0 0;
+
+	background: image_url('vaga-destaque.png') no-repeat bottom right;
+
+	.page-slogan {
+		margin: 0 0 10px;
+	}
+}
+
+.page-price-container {
+	margin-top: -10px;
+}
+
+.page-coin {
+	font-size: 1em;
+}
+
+.page-price {
+	color: $text-2;
+	font-size: 1.8em;
+	font-weight: 600;
 }
