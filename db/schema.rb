@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904142357) do
+ActiveRecord::Schema.define(version: 20140904175720) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling_id",   null: false
@@ -196,7 +196,7 @@ ActiveRecord::Schema.define(version: 20140904142357) do
     t.string   "time_contract"
     t.text     "description"
     t.text     "requirements"
-    t.string   "period_of_work"
+    t.text     "period_of_work"
     t.text     "other_information"
     t.date     "start_date"
     t.date     "finish_date"
