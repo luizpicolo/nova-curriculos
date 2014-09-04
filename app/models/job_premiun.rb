@@ -3,7 +3,7 @@ class JobPremiun < ActiveRecord::Base
   belongs_to :job
 
   def validate_date
-    if self.start_date <= Time.now && self.finish_date >= Time.now
+    if self.start_date <= Time.now.strftime("%Y-%m-%d").to_date && self.finish_date >= Time.now.strftime("%Y-%m-%d").to_date
       true
     else
       false

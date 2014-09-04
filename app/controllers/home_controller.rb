@@ -2,12 +2,10 @@ class HomeController < ApplicationController
   def index
     @jobs_categories = JobCategory.all
 
-    time_now = Time.zone.now - 1.day
-
   	# Search Solr
     @search = Job.search do
-      with(:start_date).less_than(time_now.strftime("%Y-%m-%d"))
-      with(:finish_date).greater_than(time_now.strftime("%Y-%m-%d"))
+      with(:start_date).less_than_or_equal_to(Time.now.strftime("%Y-%m-%d").to_date)
+      with(:finish_date).greater_than_or_equal_to(Time.now.strftime("%Y-%m-%d").to_date)
       with(:status, true)
       fulltext params[:search] do
         fields(

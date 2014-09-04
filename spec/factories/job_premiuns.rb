@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :job_premiun do
-    start_date (Time.now - 2.days)
-    finish_date (Time.now + 2.days)
+    start_date (Time.now)
+    finish_date (Time.now)
     job factory: :job
   end
 end
