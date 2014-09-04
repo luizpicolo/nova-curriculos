@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   def index
     @jobs_categories = JobCategory.all
 
-    time_now = Time.zone.now.strftime("%Y-%m-%d")
+    time_now = Time.zone.now.strftime("%Y-%m-%d") - 2.days
 
   	# Search Solr
     @search = Job.search do
