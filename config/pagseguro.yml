@@ -8,6 +8,6 @@ test:
   <<: *development
 
 production:
-  authenticity_token: 9CA8D46AF0C6177CB4C23D76CAF5E4B0
-  email: user@example.com
-  return_to: "http://exemplo.com.br/pedido/efetuado"
+  authenticity_token: F0F299EF843240ABB14A9A484FEE7972
+  email: luizpicolo@gmail.com
+  return_to: "http://app.novacurriculos.com.br/pedido/efetuado"
