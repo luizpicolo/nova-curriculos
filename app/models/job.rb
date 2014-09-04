@@ -17,6 +17,8 @@ class Job < ActiveRecord::Base
   belongs_to :type_contract
   belongs_to :company
   belongs_to :city
+
+  has_one :invoice, dependent: :destroy
   has_one :job_premiun, dependent: :destroy
 
   has_and_belongs_to_many :candidates, dependent: :destroy

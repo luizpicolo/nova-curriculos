@@ -31,4 +31,8 @@ class CartController < ApplicationController
     #   @order.add :id => product.id, :price => product.price, :description => product.title
     # end
   end
+
+  def sucess
+    
+  end
 end

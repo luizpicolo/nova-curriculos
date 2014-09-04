@@ -32,7 +32,11 @@ class JobsController < ApplicationController
       if job_params[:is_premium] == "0"
         redirect_to jobs_path, :flash => { :notice => "Vaga cadastrada com sucesso." }
       else
-        redirect_to cart_checkout_path
+        if create_invoice(company, @job)
+          redirect_to cart_checkout_path
+        else
+          redirect_to jobs_path, :flash => { :alert => "Vaga cadastrada com sucesso. Porém sua solicitaçào para vaga premium nào pode ser atendida. Entre em contato pelo email vagapremim@novacurriculo.com.br" }
+        end
       end
     else
       error_msg = ""
@@ -77,6 +81,13 @@ class JobsController < ApplicationController
   end
 
   private
+
+  def create_invoice(company, job)
+    @invoice = Invoice.new
+    @invoice.company = company
+    @invoice.job = job
+    @invoice.save ? true : false
+  end
 
   def set_job
     if params[:slug]

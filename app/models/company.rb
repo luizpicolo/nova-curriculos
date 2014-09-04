@@ -16,6 +16,7 @@ class Company < ActiveRecord::Base
   belongs_to :user
 
   has_many :jobs, dependent: :destroy
+  has_many :invoices
 
   def logo_marca(type)
     if Rails.env == "production"

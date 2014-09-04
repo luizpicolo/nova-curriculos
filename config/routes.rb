@@ -80,6 +80,7 @@ Rails.application.routes.draw do
 
   # pagamentos
   get "/cart/checkout" => "cart#checkout", :as => :cart_checkout
+  get "/pedido/efetuado" => "cart#sucess"
 
   # Route Root
   root 'home#index'
