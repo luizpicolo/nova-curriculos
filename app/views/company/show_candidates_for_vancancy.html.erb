@@ -29,7 +29,7 @@
           </div>
 
           <ul class="profile-vacancies-candidates">
-            <% if @candidates.nil? %>
+            <% if !@candidates.nil? %>
               <% @candidates.each do |candidate|%>
               <li><%= link_to candidate.full_name, show_candidate_profile_path(candidate.user.slug) %></li>
               <% end %>
