@@ -1,7 +1,7 @@
 
 production:
   PATH_UPLOADS: "/home/production/railsapp/storage/"
-  ASSETS_HOST: "http://assets.novacurriculos.com.br/"
+  ASSETS_HOST: "http://assets.novacurriculos.com.br"
   UPLOAD_HOST: "http://cdn1.novacurriculos.com.br/"
 
 # development:

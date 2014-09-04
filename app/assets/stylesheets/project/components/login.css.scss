@@ -35,7 +35,7 @@
 
 		color: $text-2;
 		font-size: 1.4em;
-		
+
 		padding: 2px 10px;
 
 		border: solid 1px #ccc;
@@ -78,7 +78,7 @@
 
 	margin: 5px 10px 5px 0;
 
-	background: url('../img/nc-min-icons.png') no-repeat left $bg;
+	background: image_url('nc-min-icons.png') no-repeat left $bg;
 }
 
 .logged-name {
@@ -87,7 +87,7 @@
 	line-height: 50px;
 
 	color: $text-2;
-	font-size: 1.4em;	
+	font-size: 1.4em;
 }
 
 .logged-nav {
