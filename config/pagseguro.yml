@@ -9,5 +9,5 @@ test:
 
 production:
   authenticity_token: F0F299EF843240ABB14A9A484FEE7972
-  email: luizpicolo@gmail.com
+  email: luizpicolo@ibest.com.br
   return_to: "http://app.novacurriculos.com.br/pedido/efetuado"

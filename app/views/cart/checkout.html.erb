@@ -29,7 +29,7 @@
 
         <div class="col-8 col-center">
           <div class="row margin-large-bottom">
-            <% PremiumPlan.all.each do |premium_plan|%>
+            <% PremiumPlan.all.each_with_index do |premium_plan, i|%>
             <div class="col-4 col-left padding-right">
               <div class="plan-container">
                 <div class="plan">
@@ -43,7 +43,13 @@
                 </div>
 
                 <div class="plan-radio">
-                  <%= pagseguro_form @order, :submit => "Desejo este plano!" %>
+                  <% if i == 0 %>
+                  <%= pagseguro_form @order_one, :submit => "Desejo este plano!" %>
+                  <% elsif i == 1 %>
+                  <%= pagseguro_form @order_two, :submit => "Desejo este plano!" %>
+                  <% else %>
+                  <%= pagseguro_form @order_three, :submit => "Desejo este plano!" %>
+                  <% end %>
                 </div>
               </div>
             </div>

@@ -33,7 +33,7 @@ class JobsController < ApplicationController
         redirect_to jobs_path, :flash => { :notice => "Vaga cadastrada com sucesso." }
       else
         if create_invoice(company, @job)
-          redirect_to cart_checkout_path
+          redirect_to cart_checkout_path(@invoice.id)
         else
           redirect_to jobs_path, :flash => { :alert => "Vaga cadastrada com sucesso. Porém sua solicitaçào para vaga premium nào pode ser atendida. Entre em contato pelo email vagapremim@novacurriculo.com.br" }
         end

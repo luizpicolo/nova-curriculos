@@ -1,38 +1,50 @@
 class CartController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def checkout
     # Busca o pedido associado ao usuario; esta logica deve
     # ser implementada por voce, da maneira que achar melhor
-    @invoice = current_user
+    @client = current_user
 
     # Instanciando o objeto para geracao do formulario
-    @order = PagSeguro::Order.new(@invoice.id)
+    @order_one   = PagSeguro::Order.new(@client.id)
+    @order_two   = PagSeguro::Order.new(@client.id)
+    @order_three = PagSeguro::Order.new(@client.id)
 
-    @order.billing = {
-      :name                  => "John Doe",
-      :email                 => "john@doe.com",
-      :address_zipcode       => "01234-567",
-      :address_street        => "Rua Orobo",
-      :address_number        => 72,
-      :address_complement    => "Casa do fundo",
-      :address_neighbourhood => "Tenorio",
-      :address_city          => "Pantano Grande",
-      :address_state         => "AC",
-      :address_country       => "Brasil",
-      :phone_area_code       => "22",
-      :phone_number          => "1234-5678"
+    hash = {
+      :name                  => @client.company.corporate_name,
+      :email                 => @client.email,
+      :address_zipcode       => "79750-000",
+      :address_street        => @client.company.street,
+      :address_number        => @client.company.number,
+      :address_city          => @client.company.city.name,
+      :address_state         => @client.company.city.state.iso,
+      :address_country       => @client.company.city.state.country.name,
+      :phone_area_code       => "67",
+      :phone_number          => @client.company.phone
     }
 
-    @order.add :id => 1, :price => "12,00", :description => "teste"
+    @order_one.billing = hash
+    @order_two.billing = hash
+    @order_three.billing = hash
 
-    # adicionando os produtos do pedido ao objeto do formulario
-    # @invoice.products.each do |product|
-    #   # Estes sao os atributos necessarios. Por padrao, peso (:weight) eh definido para 0,
-    #   # quantidade eh definido como 1 e frete (:shipping) eh definido como 0.
-    #   @order.add :id => product.id, :price => product.price, :description => product.title
-    # end
+    @order_one.add :id => params[:id], :price => "29,90", :description => "Fatura de 29,90"
+    @order_two.add :id => params[:id], :price => "39,90", :description => "Fatura de 39,90"
+    @order_three.add :id => params[:id], :price => "49,90", :description => "Fatura de 49,90"
+  end
+
+  def confirm
+    return unless request.post?
+
+    pagseguro_notification do |notification|
+      # Aqui voce deve verificar se o pedido possui os mesmos produtos
+      # que voce cadastrou. O produto soh deve ser liberado caso o status
+      # do pedido seja "completed" ou "approved"
+    end
+
+    render :nothing => true
   end
 
   def sucess
-    
   end
 end
