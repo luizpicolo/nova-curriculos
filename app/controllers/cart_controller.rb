@@ -30,16 +30,18 @@ class CartController < ApplicationController
 
     premium_plan = PremiumPlan.all
 
-    @order_one.add :id => params[:id], :price => premium_plan[0].price, :description => "Fatura de #{premium_plan[0].price}"
-    @order_two.add :id => params[:id], :price => premium_plan[1].price, :description => "Fatura de #{premium_plan[0].price}"
-    @order_three.add :id => params[:id], :price => premium_plan[2].price, :description => "Fatura de #{premium_plan[0].price}"
+    @order_one.add :id => params[:id], :price => premium_plan[0].price, :description => "Compra vaga premium por 1 mes. Valor:  #{premium_plan[0].price}"
+    @order_two.add :id => params[:id], :price => premium_plan[1].price, :description => "Compra vaga premium por 2 mes. Valor: #{premium_plan[0].price}"
+    @order_three.add :id => params[:id], :price => premium_plan[2].price, :description => "Compra vaga premium por 3 mes. Valor: #{premium_plan[0].price}"
   end
 
   def confirm
     return unless request.post?
 
     pagseguro_notification do |notification|
-
+      invoice = Invoice.find(notification.order_id);
+      invoice.status = notification.status
+      invoice.payment_method = notification.payment_method
     end
 
     render :nothing => true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904200628) do
+ActiveRecord::Schema.define(version: 20140905121322) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling_id",   null: false
@@ -171,12 +171,13 @@ ActiveRecord::Schema.define(version: 20140904200628) do
   end
 
   create_table "invoices", force: true do |t|
-    t.integer  "company_id",             null: false
-    t.integer  "job_id",                 null: false
+    t.integer  "company_id",                   null: false
+    t.integer  "job_id",                       null: false
     t.string   "price"
-    t.integer  "status",     default: 0
+    t.string   "status",         default: "0"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "payment_method"
   end
 
   add_index "invoices", ["company_id"], name: "index_invoices_on_company_id", using: :btree
