@@ -28,18 +28,18 @@ class CartController < ApplicationController
     @order_two.billing = hash
     @order_three.billing = hash
 
-    @order_one.add :id => params[:id], :price => "29,90", :description => "Fatura de 29,90"
-    @order_two.add :id => params[:id], :price => "39,90", :description => "Fatura de 39,90"
-    @order_three.add :id => params[:id], :price => "49,90", :description => "Fatura de 49,90"
+    premium_plan = PremiumPlan.all
+
+    @order_one.add :id => params[:id], :price => premium_plan[0].price, :description => "Fatura de #{premium_plan[0].price}"
+    @order_two.add :id => params[:id], :price => premium_plan[1].price, :description => "Fatura de #{premium_plan[0].price}"
+    @order_three.add :id => params[:id], :price => premium_plan[2].price, :description => "Fatura de #{premium_plan[0].price}"
   end
 
   def confirm
     return unless request.post?
 
     pagseguro_notification do |notification|
-      # Aqui voce deve verificar se o pedido possui os mesmos produtos
-      # que voce cadastrou. O produto soh deve ser liberado caso o status
-      # do pedido seja "completed" ou "approved"
+
     end
 
     render :nothing => true
