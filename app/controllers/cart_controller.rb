@@ -42,6 +42,7 @@ class CartController < ApplicationController
       invoice = Invoice.find(notification.order_id);
       invoice.status = notification.status
       invoice.payment_method = notification.payment_method
+      invoice.save
     end
 
     render :nothing => true
