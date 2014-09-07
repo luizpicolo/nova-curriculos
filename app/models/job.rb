@@ -34,6 +34,7 @@ class Job < ActiveRecord::Base
     time :start_date
     time :finish_date
     boolean :status
+    integer :id
     time :created_at
     text :category do
       job_category.name

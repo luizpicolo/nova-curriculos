@@ -80,6 +80,11 @@ class JobsController < ApplicationController
     end
   end
 
+  def more
+    1
+    render layout: false
+  end
+
   private
 
   def create_invoice(company, job)

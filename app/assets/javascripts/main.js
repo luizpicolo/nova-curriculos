@@ -1,3 +1,20 @@
+// Function for load more
+$(document).ready(function () {
+    size_li = $(".vacancies-list li").size();
+    x=1;
+    $('.vacancies-list li:lt('+x+')').show();
+    $('#loadMore').click(function (e) {
+        e.preventDefault();
+        x= (x+5 <= size_li) ? x+5 : size_li;
+        $('.vacancies-list li:lt('+x+')').show();
+    });
+    $('#showLess').click(function (e) {
+        e.preventDefault();
+        x=(x-5<0) ? 3 : x-5;
+        $('.vacancies-list li').not(':lt('+x+')').hide();
+    });
+});
+
 // Close Alerts
 $(document).ready(function() {
 	$(".close").click(function(){

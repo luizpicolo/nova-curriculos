@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   patch "/oportunidades/:slug" => "jobs#update"
   delete "/oportunidades/:id" => "jobs#destroy", :as => :destroy_job
   post "/oportunidades/:job/candidatar" => "candidates#apply_for_job", :as => :apply_for_job
+  post "jobs/more" => "home#index"
 
   # Academic Trainings
   get "/candidato/curriculo/fa/:academic_training_id" => "candidates#show", :as => :edit_academic_trainings
