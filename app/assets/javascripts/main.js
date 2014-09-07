@@ -1,7 +1,8 @@
 // Function for load more
 $(document).ready(function () {
-    size_li = $(".vacancies-list li").size();
-    x=1;
+    size_li = $('.vacancies-list li').size();
+    var value = $('.vacancies-list').data('value');
+    var x = parseInt(value);
     $('.vacancies-list li:lt('+x+')').show();
     $('#loadMore').click(function (e) {
         e.preventDefault();

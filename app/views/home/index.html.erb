@@ -49,7 +49,7 @@
   <div class="vacancies margin-bottom">
     <div class="grid">
       <div class="clip">
-        <ul class="vacancies-list">
+        <ul data-value="12" class="vacancies-list">
           <% @jobs.each do |job| %>
           <% premiun = job.job_premiun.try(:validate_date) ? "vacancies-premium" : "" %>
           <li class="vacancies-item <%= premiun %>">
@@ -73,7 +73,6 @@
           <% end %>
         </ul>
       </div>
-
       <a id="loadMore" class="btn btn-bright-green btn-block btn-extra" href="#">Veja mais vagas</a>
     </div>
   </div>

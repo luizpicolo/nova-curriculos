@@ -2,9 +2,9 @@
     <div class="grid padding-top">
       <div class="sidebar col-4 col-left">
         <div class="vacancies vacancies-sidebar scroll nav-active">
-          <ul class="vacancies-list">
+          <ul data-value="3" class="vacancies-list">
             <% @jobs.each do |job|%>
-            <% job.job_premiun ? premiun = "vacancies-premium" : premiun = "" %>
+            <% premiun = job.job_premiun.try(:validate_date) ? "vacancies-premium" : "" %>
             <li class="vacancies-sidebar-item <%= premiun %>">
               <section>
                 <%= link_to show_job_path(job.slug), :class => "vacancies-link" do %>
@@ -17,7 +17,6 @@
                     <span class="fa fa-map-marker"></span> <%= job.company.city.name %> / <%= job.company.city.state.iso %>
                   </p>
                 <% end %>
-
                 <a class="vacancies-social" href="#">
                   <span class="fa fa-facebook-square"></span> Recomende esta Vaga
                 </a>
@@ -25,8 +24,7 @@
             </li>
             <% end %>
           </ul>
-
-          <a class="btn btn-bright-green btn-block btn-extra" href="#">Ver mais vagas</a>
+          <a id="loadMore" class="btn btn-bright-green btn-block btn-extra" href="#">Ver mais vagas</a>
         </div>
       </div>
 
