@@ -36,7 +36,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Mail
-  config.action_mailer.default_url_options = { host: "novacurriculos.com.br" }
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -48,5 +48,8 @@ Rails.application.configure do
     :authentication => 'plain',
     :enable_starttls_auto => true
   }
+
+  # Send email in development mode.
+  config.action_mailer.perform_deliveries = true
 
 end
