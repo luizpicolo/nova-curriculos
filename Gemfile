@@ -26,6 +26,7 @@ gem 'sunspot_rails'
 gem 'figaro'
 gem "fog"
 gem "pagseguro", "~> 0.1.13"
+gem 'font-awesome-sass', '~> 4.2.0'
 
 # JS
 gem 'jscrollpane-rails'
