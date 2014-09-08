@@ -23,7 +23,7 @@ set :term_mode, nil
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'log']
+set :shared_paths, ['config/database.yml', 'log', 'config/application.yml']
 
 # Optional settings:
 set :user, 'production'    # Username in the server to SSH to.
