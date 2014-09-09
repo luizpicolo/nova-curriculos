@@ -72,9 +72,6 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      queue %[echo -n "-----> Creating pid directory: "]
-      queue "mkdir #{deploy_to}/tmp/pids"
-
       queue %[echo -n "-----> Creating new restart.txt: "]
       queue "touch #{deploy_to}/tmp/restart.txt"
 
