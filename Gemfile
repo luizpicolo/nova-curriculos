@@ -13,6 +13,7 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'rails_admin'
 gem 'bootstrap-wysihtml5-rails', '0.3.1.24'
 gem 'carrierwave'
+gem 'carrierwave_backgrounder'
 gem 'mini_magick'
 gem 'rails-i18n'
 gem 'devise'
@@ -27,6 +28,7 @@ gem 'figaro'
 gem "fog"
 gem "pagseguro", "~> 0.1.13"
 gem 'font-awesome-sass', '~> 4.2.0'
+gem 'sidekiq'
 
 # JS
 gem 'jscrollpane-rails'
@@ -44,6 +46,7 @@ group :development, :test do
   gem 'spring'
   gem 'faker'
   gem 'mina'
+  gem 'mina-sidekiq'
   gem "better_errors"
   gem "binding_of_caller"
   gem 'sunspot_solr'
@@ -52,6 +55,10 @@ group :development, :test do
   gem 'database_rewinder'
   gem "rubycritic", :require => false
   gem 'mailcatcher'
+
+  # Gem to view queues sidekiq
+  gem 'slim', '>= 1.1.0'
+  gem 'sinatra', '>= 1.3.0', :require => nil
 end
 
 group :production do

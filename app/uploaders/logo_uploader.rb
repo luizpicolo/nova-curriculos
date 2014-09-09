@@ -2,6 +2,8 @@
 
 class LogoUploader < CarrierWave::Uploader::Base
 
+  include ::CarrierWave::Backgrounder::Delay
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
@@ -39,7 +41,7 @@ class LogoUploader < CarrierWave::Uploader::Base
   version :thumb_min do
     process :resize_to_limit => [40, 40]
   end
-  
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list

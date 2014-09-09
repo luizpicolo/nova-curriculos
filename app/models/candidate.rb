@@ -4,7 +4,7 @@ class Candidate < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  #process_in_background :image
+  process_in_background :image
 
   validates :full_name, :presence => true
   validates :is_male, :inclusion => { :in => [true, false] }

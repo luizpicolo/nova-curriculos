@@ -4,7 +4,7 @@ class Company < ActiveRecord::Base
 
   mount_uploader :logo, LogoUploader
 
-  #process_in_background :logo
+  process_in_background :logo
 
   validates :fancy_name, :corporate_name, :phone,
 			      :type_company, :cnpj, :description, #:branch_operations,

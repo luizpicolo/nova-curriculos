@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905121322) do
+ActiveRecord::Schema.define(version: 20140909013654) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling_id",   null: false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20140905121322) do
     t.boolean  "this_active",          default: false, null: false
     t.boolean  "is_public",            default: true,  null: false
     t.boolean  "term",                 default: false, null: false
+    t.boolean  "avatar_processing",    default: false, null: false
   end
 
   add_index "candidates", ["city_id"], name: "index_candidates_on_city_id", using: :btree
@@ -117,9 +118,9 @@ ActiveRecord::Schema.define(version: 20140905121322) do
     t.integer  "number"
     t.string   "facebook"
     t.string   "website"
-    t.integer  "type_company_id", null: false
+    t.integer  "type_company_id",                   null: false
     t.string   "cnpj"
-    t.integer  "city_id",         null: false
+    t.integer  "city_id",                           null: false
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -129,6 +130,7 @@ ActiveRecord::Schema.define(version: 20140905121322) do
     t.string   "twitter"
     t.integer  "lg"
     t.integer  "lt"
+    t.boolean  "avatar_processing", default: false, null: false
   end
 
   add_index "companies", ["city_id"], name: "index_companies_on_city_id", using: :btree

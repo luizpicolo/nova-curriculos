@@ -1,3 +1,4 @@
+require 'mina_sidekiq/tasks'
 require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
@@ -13,7 +14,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 # Rails Enviroment
 # set :rails_env, 'production'
 
-set :domain, '104.131.207.186'
+set :domain, 'novacurriculos.com.br'
 set :deploy_to, '/home/production/railsapp'
 set :repository, 'git@bitbucket.org:luizpicolo_/nova-curriculos.git'
 set :branch, 'master'
@@ -52,6 +53,10 @@ task :setup => :environment do
 
   queue! %[touch "#{deploy_to}/shared/config/database.yml"]
   queue  %[echo "-----> Be sure to edit 'shared/config/database.yml'."]
+
+  # sidekiq needs a place to store its pid file and log file
+  queue! %[mkdir -p "#{deploy_to}/shared/pids/"]
+  queue! %[mkdir -p "#{deploy_to}/shared/log/"]
 end
 
 desc "Deploys the current version to the server."
@@ -59,6 +64,7 @@ task :deploy => :environment do
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
+    invoke :'sidekiq:quiet'
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
@@ -66,6 +72,8 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
+      invoke :'sidekiq:restart'
+
       queue %[echo -n "-----> Creating new restart.txt: "]
       queue "touch #{deploy_to}/tmp/restart.txt"
 

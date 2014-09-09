@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  # Route to SideKiq
+  require 'sidekiq/web'
+  mount Sidekiq::Web, at: '/sidekiq'
+
   # Devise Routes
   devise_for :user, path: 'auth', path_names: {
       sign_in: 'login',
