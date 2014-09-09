@@ -72,9 +72,8 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      #invoke :'sidekiq:restart'
-
-      
+      queue %[echo -n "-----> Creating pid directory: "]
+      queue "mkdir #{deploy_to}/tmp/pids"
 
       queue %[echo -n "-----> Creating new restart.txt: "]
       queue "touch #{deploy_to}/tmp/restart.txt"
@@ -84,6 +83,13 @@ task :deploy => :environment do
 
       queue %[echo -n "-----> Restart Apache tomcat: "]
       queue 'sudo service tomcat6 restart'
+
+      queue %[echo -n "-----> Restart Redis Serer: "]
+      queue 'sudo service redis-server restart'
+
+      queue %[echo -n "-----> Init sidekiq: "]
+      #invoke :'sidekiq:restart'
+      queue "bundle exec sidekiq -d -C config/sidekiq.yml -e production"
     end
   end
 end
