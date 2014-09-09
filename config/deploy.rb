@@ -72,7 +72,9 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      invoke :'sidekiq:restart'
+      #invoke :'sidekiq:restart'
+
+      
 
       queue %[echo -n "-----> Creating new restart.txt: "]
       queue "touch #{deploy_to}/tmp/restart.txt"

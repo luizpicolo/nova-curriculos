@@ -1,7 +1,8 @@
 class HardWorker
   include Sidekiq::Worker
-  
+  sidekiq_options :queue => :carrierwave
+
   def perform(name, count)
-    # do something
+    puts "Doing carrierwave work"
   end
 end
