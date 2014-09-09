@@ -10,4 +10,5 @@
 :timeout: 30
 :queues:
   - [carrierwave, 7]
-  - [default, 5]
+  - [mailer, 5]
+  - [default, 3]

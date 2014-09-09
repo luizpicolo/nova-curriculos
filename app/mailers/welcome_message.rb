@@ -1,4 +1,5 @@
 class WelcomeMailer < ActionMailer::Base
+  include Sidekiq::Mailer
   default from: "noreply@novacurriculos.com.br"
 
   def welcome_message_candidate(contact)

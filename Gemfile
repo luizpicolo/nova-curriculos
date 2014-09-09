@@ -29,6 +29,7 @@ gem "fog"
 gem "pagseguro", "~> 0.1.13"
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'sidekiq'
+gem 'sidekiq_mailer'
 
 # Gem to view queues sidekiq
 gem 'slim', '>= 1.1.0'
