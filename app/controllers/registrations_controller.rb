@@ -14,10 +14,10 @@ class RegistrationsController < Devise::RegistrationsController
         set_flash_message :notice, :signed_up if is_flashing_format?
         sign_up(resource_name, resource)
         if resource.is_candidate
-          #WelcomeMailer.welcome_message_candidate(resource).deliver
+          WelcomeMailer.welcome_message_candidate(resource).deliver
           respond_with resource, location: show_curriculum_candidate_path
         else
-          #WelcomeMailer.welcome_message_company(resource).deliver
+          WelcomeMailer.welcome_message_company(resource).deliver
           respond_with resource, location: company_path
         end
       else
