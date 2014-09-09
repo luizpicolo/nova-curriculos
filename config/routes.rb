@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   # Route to SideKiq
   require 'sidekiq/web'
-  mount Sidekiq::Web, at: '/sidekiq'
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   # Devise Routes
   devise_for :user, path: 'auth', path_names: {
