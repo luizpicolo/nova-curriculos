@@ -30,6 +30,11 @@ gem "pagseguro", "~> 0.1.13"
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'sidekiq'
 
+# Gem to view queues sidekiq
+gem 'slim', '>= 1.1.0'
+gem 'sinatra', '>= 1.3.0', :require => nil
+gem 'sinatra-session'
+
 # JS
 gem 'jscrollpane-rails'
 gem 'jquery-placeholder-rails'
@@ -55,10 +60,6 @@ group :development, :test do
   gem 'database_rewinder'
   gem "rubycritic", :require => false
   gem 'mailcatcher'
-
-  # Gem to view queues sidekiq
-  gem 'slim', '>= 1.1.0'
-  gem 'sinatra', '>= 1.3.0', :require => nil
 end
 
 group :production do
