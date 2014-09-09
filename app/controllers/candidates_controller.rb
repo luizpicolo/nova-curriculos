@@ -1,6 +1,7 @@
 class CandidatesController < ApplicationController
   before_filter :authenticate_user!, except: [:new]
   before_action :set_candidate, only: [:update, :apply_for_job, :show_vacancies]
+  skip_before_filter  :verify_authenticity_token
 
   def new
     unless current_user.nil?
