@@ -19,7 +19,7 @@
       <ul>
         <% if current_user.admin? %>
         <li><%= link_to "Admin", rails_admin_path, :class => "btn btn-link" %></li>
-        <li><%= link_to "SideKiq", sidekiq_web+path, :class => "btn btn-link" %></li>
+        <li><%= link_to "SideKiq", sidekiq_web_path, :class => "btn btn-link" %></li>
         <% end %>
         <% if current_user.is_company? %>
         <li><%= link_to "Perfil empresa", company_path, :class => "btn btn-link"%></li>
