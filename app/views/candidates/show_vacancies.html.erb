@@ -11,9 +11,11 @@
       <section class="profile-nav-container">
         <h2 class="profile-nav-title">Meu Perfil</h2>
         <ul class="profile-nav">
-          <li><a class="btn btn-link" href="#">Minhas Vagas</a></li>
-          <li><a class="btn btn-link" href="#">Editar Currículo</a></li>
-          <li><a class="btn btn-link" href="#">Gerar pdf do currículo</a></li>
+          <% if current_user.candidate == @candidate %>
+          <li><%= link_to "Minhas Vagas", show_vacancies_path, :class => "btn btn-link"%></li>
+          <li><%= link_to "Currículo", show_curriculum_candidate_path, :class => "btn btn-link" %></li>
+          <% end %>
+          <li><a class="btn btn-link" href="#">Salvar este currículo em PDF</a></li>
         </ul>
       </section>
     </div>
