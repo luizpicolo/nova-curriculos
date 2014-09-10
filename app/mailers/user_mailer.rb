@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  include Sidekiq::Mailer
+  include Sidekiq::Worker
   default from: "luizpicolo@gmail.com"
 
   def welcome_email(user)

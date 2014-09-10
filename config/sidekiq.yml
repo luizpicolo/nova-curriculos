@@ -2,13 +2,26 @@
 # Options here can still be overridden by cmd line args.
 #   sidekiq -C config.yml
 ---
-:verbose: false
-:logfile: /home/production/railsapp/shared/log/sidekiq.log
-:pidfile: /home/production/railsapp/shared/pids/sidekiq.pid
-:concurrency: 25
-# Set timeout to 8 on Heroku, longer if you manage your own systems.
-:timeout: 30
-:queues:
-  - [carrierwave, 7]
-  - [mailer, 5]
-  - [default, 3]
+production:
+  :verbose: false
+  :logfile: /home/production/railsapp/shared/log/sidekiq.log
+  :pidfile: /home/production/railsapp/shared/pids/sidekiq.pid
+  :concurrency: 25
+  # Set timeout to 8 on Heroku, longer if you manage your own systems.
+  :timeout: 30
+  :queues:
+    - [carrierwave, 7]
+    - [mailer, 5]
+    - [default, 3]
+
+development:
+  :verbose: false
+  :logfile: ./log/sidekiq.log
+  :pidfile: ./tmp/pids/sidekiq.pid
+  :concurrency: 25
+  # Set timeout to 8 on Heroku, longer if you manage your own systems.
+  :timeout: 30
+  :queues:
+    - [carrierwave, 7]
+    - [mailer, 5]
+    - [default, 3]
