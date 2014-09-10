@@ -22,7 +22,10 @@
 
     <div class="col-8 col-right padding-left">
       <h1 class="profile-caption">Minhas Vagas</h1>
-
+      <div class="summary">
+        <i class="f1 fa fa-circle active_job"></i> Vagas aprovadas
+        <i class="f1 fa fa-circle inactive_job"></i> Vagas em aprovação
+      </div>
       <ul class="profile-vacancies">
         <% @jobs.each do |job| %>
         <li class="profile-vacancies-item">
