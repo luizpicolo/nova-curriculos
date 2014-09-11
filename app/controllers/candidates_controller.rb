@@ -1,6 +1,6 @@
 class CandidatesController < ApplicationController
   before_filter :authenticate_user!, except: [:new]
-  before_action :set_candidate, only: [:update, :apply_for_job, :show_vacancies, :generate_curriculo_in_pdf]
+  before_action :set_candidate, only: [:update, :apply_for_job, :show_vacancies]
 
   def new
     unless current_user.nil?
@@ -78,7 +78,7 @@ class CandidatesController < ApplicationController
 
   def generate_curriculo_in_pdf
     render layout: false
-    @candidate
+    @candidate = Candidate.find(params[:id])
   end
 
   def show_vacancies

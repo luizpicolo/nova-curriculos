@@ -1,8 +1,10 @@
+<% @candidate = Candidate.find(params[:id]) %>
 <html>
   <head>
     <title>teste</title>
   </head>
   <body>
       <%= @candidate.full_name %>
+      <%= @candidate.birth_date %>
   </body>
 </html>
