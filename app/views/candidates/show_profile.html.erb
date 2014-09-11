@@ -15,7 +15,7 @@
           <li><%= link_to "Minhas Vagas", show_vacancies_path, :class => "btn btn-link"%></li>
           <li><%= link_to "Currículo", show_curriculum_candidate_path, :class => "btn btn-link" %></li>
           <% end %>
-          <li><%= link_to "Salvar este currículo em PDF", generate_pdf_path, :class => "btn btn-link" %></li>
+          <li><%= link_to "Salvar este currículo em PDF", generate_curriculo_in_pdf_path(@candidate.user.slug), :class => "btn btn-link" %></li>
         </ul>
       </section>
     </div>

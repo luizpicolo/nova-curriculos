@@ -1,6 +1,9 @@
 require 'carrierwave/orm/activerecord'
 
 class Candidate < ActiveRecord::Base
+  extend FriendlyId
+
+  friendly_id :full_name, use: :slugged
 
   mount_uploader :image, ImageUploader
 

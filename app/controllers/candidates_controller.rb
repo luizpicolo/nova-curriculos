@@ -1,6 +1,6 @@
 class CandidatesController < ApplicationController
   before_filter :authenticate_user!, except: [:new]
-  before_action :set_candidate, only: [:update, :apply_for_job, :show_vacancies]
+  before_action :set_candidate, only: [:update, :apply_for_job, :show_vacancies, :generate_curriculo_in_pdf]
 
   def new
     unless current_user.nil?
@@ -76,15 +76,9 @@ class CandidatesController < ApplicationController
     end
   end
 
-  def generate_pdf
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render :pdf => "my_pdf", # pdf will download as my_pdf.pdf
-        :layout => 'pdf', # uses views/layouts/pdf.haml
-        :show_as_html => params[:debug].present? # renders html version if you set debug=true in URL
-      end
-    end
+  def generate_curriculo_in_pdf
+    render layout: false
+    @candidate
   end
 
   def show_vacancies

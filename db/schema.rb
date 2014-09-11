@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909013654) do
+ActiveRecord::Schema.define(version: 20140911192241) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling_id",   null: false
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140909013654) do
     t.boolean  "is_public",            default: true,  null: false
     t.boolean  "term",                 default: false, null: false
     t.boolean  "avatar_processing",    default: false, null: false
+    t.string   "slug",                                 null: false
   end
 
   add_index "candidates", ["city_id"], name: "index_candidates_on_city_id", using: :btree

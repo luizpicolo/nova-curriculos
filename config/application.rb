@@ -7,6 +7,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
+require 'pdfkit'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -43,5 +44,8 @@ module NovaCurriculos
 
     # Custom Fail Devise
     config.autoload_paths += %W(#{config.root}/lib)
+
+    # PDFKIT
+    config.middleware.use PDFKit::Middleware, :print_media_type => true
   end
 end
