@@ -29,6 +29,8 @@ gem "fog"
 gem "pagseguro", "~> 0.1.13"
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'sidekiq'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 # Gem to view queues sidekiq
 gem 'slim', '>= 1.1.0'

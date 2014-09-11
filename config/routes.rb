@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get "/candidato/curriculo" => "candidates#show", :as => :candidate
   get "/candidato/vagas" => "candidates#show_vacancies", :as => :show_vacancies
   get "/curriculo/:slug" => "candidates#show_profile", :as => :show_candidate_profile
+  get "/candidate/salvar-curriculo" => "candidates#generate_pdf", :as => :generate_pdf
   post "/candidato/curriculo" => "candidates#create"
   patch "/candidato/curriculo" => "candidates#update"
 

@@ -76,6 +76,17 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def generate_pdf
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "my_pdf", # pdf will download as my_pdf.pdf
+        :layout => 'pdf', # uses views/layouts/pdf.haml
+        :show_as_html => params[:debug].present? # renders html version if you set debug=true in URL
+      end
+    end
+  end
+
   def show_vacancies
     @jobs = @candidate.jobs.order(start_date: :desc).page(params[:page]).per(15)
   end
