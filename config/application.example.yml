@@ -7,7 +7,7 @@ production:
 
   # Configuration mail
   ADDRESS:    "smtp.gmail.com"
-  POST:       "587"
+  PORT:       "587"
   DOMAIN:     'gmail.com'
   USER_NAME:  ''
   PASSWORD:   ''
