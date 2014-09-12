@@ -1,0 +1,41 @@
+<main id="main">
+  <div class="grid padding-large-top">
+    <div class="col-4 col-center text-center">
+      <div class="page-slogan">
+        <div class="page-slogan-text">
+          <p>
+            Escolha abaixo uma das opções de cadastro
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="featured">
+    <div class="grid">
+      <div class="col-6 col-left">
+        <section class="featured-item">
+          <%= link_to new_contractor_path, :class => "featured-link" do %>
+            <span class="nc-icon nc-recruiters"></span>
+            <h2 class="featured-title">
+              Cadastro de <br>
+              <strong>Recrutadores</strong>
+            </h2>
+          <% end %>
+        </section>
+      </div>
+
+      <div class="col-6 col-right last">
+        <section class="featured-item">
+          <%= link_to new_candidate_path, :class => "featured-link" do %>
+            <span class="nc-icon nc-candidate"></span>
+            <h2 class="featured-title">
+              Cadastro de <br>
+              <strong>Candidatos</strong>
+            </h2>
+          <% end %>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

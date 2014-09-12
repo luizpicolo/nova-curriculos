@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/not_registered'
+
   # Route to SideKiq
   require 'sidekiq/web'
   authenticate :user, lambda { |u| u.admin? } do
@@ -22,6 +24,9 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resource :candidates
+
+  # Statci pages
+  get "/cadastrar" => "static_pages#not_registered", :as => :static_page_not_registered
 
   # candidate
   get "/candidato/cadastro" => "candidates#new", :as => :new_candidate
