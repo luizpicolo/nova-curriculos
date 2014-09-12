@@ -94,6 +94,7 @@ GEM
     eventmachine (1.0.3)
     excon (0.39.5)
     execjs (2.2.1)
+    facebook_share (0.0.6)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.4.1)
@@ -442,6 +443,7 @@ DEPENDENCIES
   database_rewinder
   devise
   email_spec
+  facebook_share
   factory_girl_rails
   faker
   figaro

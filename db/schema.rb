@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140912031857) do
+ActiveRecord::Schema.define(version: 20140912040825) do
 
   create_table "academic_trainings", force: true do |t|
     t.string   "schooling_id",   null: false
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20140912031857) do
     t.boolean  "term",                 default: false, null: false
     t.boolean  "avatar_processing",    default: false, null: false
     t.string   "slug",                                 null: false
+    t.boolean  "share_facebook",       default: false
   end
 
   add_index "candidates", ["city_id"], name: "index_candidates_on_city_id", using: :btree

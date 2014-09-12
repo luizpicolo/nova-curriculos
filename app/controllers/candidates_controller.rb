@@ -69,8 +69,8 @@ class CandidatesController < ApplicationController
   def apply_for_job
     # Verifica se o usuário possui um currículo cadastrado.
     # Caso não exista o direciona para a página de atualização do currículo
-    if  @candidate.nil?
-      redirect_to show_curriculum_candidate_path, :flash => { :error => "Antes de se candidatar a uma vaga, por favor, atualize seu currículo" }
+    if  @candidate.nil? || @candidate.share_facebook == false
+      redirect_to show_curriculum_candidate_path, :flash => { :error => "Antes de se candidatar a uma vaga, por favor, atualize seu currículo e pague com um post no facebook =)" }
     else
       begin
         @job = Job.find(params[:job])
@@ -91,8 +91,8 @@ class CandidatesController < ApplicationController
   end
 
   def show_vacancies
-    if  @candidate.nil?
-      redirect_to show_curriculum_candidate_path, :flash => { :error => "Por favor, atualize seu currículo" }
+    if  @candidate.nil? || @candidate.share_facebook == false
+      redirect_to show_curriculum_candidate_path, :flash => { :error => "Por favor, atualize seu currículo e pague com um post no facebook =)" }
     else
       @jobs = @candidate.jobs.order(start_date: :desc).page(params[:page]).per(15)
     end
@@ -112,7 +112,7 @@ class CandidatesController < ApplicationController
       :message_phone, {:professional_area_ids => []},
       {:hierarchical_level_ids => []}, :position_of_interest,
       :last_salary, :salary_pretension, :salary_to_be_agreed,
-      :mini_curriculum, :is_public, :term, :jobs
+      :mini_curriculum, :is_public, :term, :jobs, :share_facebook
     )
   end
 end

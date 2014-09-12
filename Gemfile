@@ -31,6 +31,7 @@ gem 'font-awesome-sass', '~> 4.2.0'
 gem 'sidekiq'
 gem "pdfkit"
 gem "wkhtmltopdf-binary"
+gem "facebook_share"
 
 # Gem to view queues sidekiq
 gem 'slim', '>= 1.1.0'
