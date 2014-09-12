@@ -551,7 +551,7 @@
 
         <div class="form-radio">
           <div class="form-radio-item form-inline">
-            <label for="termos_de_uso">*li e concordo com os <a href="#">termos de uso.</a></label>
+            <label for="termos_de_uso">*li e concordo com os <%= link_to "Termos de uso", terms_path %></label>
             <%= f.check_box :term, {:required => true}, "true", "false" %>
           </div>
         </div>

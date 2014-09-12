@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   # Statci pages
   get "/cadastrar" => "static_pages#not_registered", :as => :static_page_not_registered
+  get "/termos-de-uso" => "static_pages#terms", :as => :terms
 
   # candidate
   get "/candidato/cadastro" => "candidates#new", :as => :new_candidate
