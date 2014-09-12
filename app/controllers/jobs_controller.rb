@@ -26,8 +26,8 @@ class JobsController < ApplicationController
     company = Company.find_by_user_id(current_user)
     @job = Job.new(job_params)
     @job.company = company
-    @job.start_date = Time.zone.now
-    @job.finish_date = Time.zone.now + 30.days
+    @job.start_date = Time.now
+    @job.finish_date = Time.now + 30.days
     if @job.save
       if job_params[:is_premium]  == "false"
         redirect_to jobs_path, :flash => { :notice => "Vaga cadastrada com sucesso." }
