@@ -19,7 +19,7 @@ class Candidate < ActiveRecord::Base
 
   has_and_belongs_to_many :professional_areas, dependent: :destroy
   has_and_belongs_to_many :hierarchical_levels, dependent: :destroy
-  has_and_belongs_to_many :jobs, dependent: :destroy
+  has_and_belongs_to_many :jobs, dependent: :destroy, :uniq => true
   has_many :professional_experiences, dependent: :destroy
   has_many :academic_trainings, dependent: :destroy
   has_many :languages, dependent: :destroy

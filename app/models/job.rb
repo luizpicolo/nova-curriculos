@@ -21,7 +21,7 @@ class Job < ActiveRecord::Base
   has_one :invoice, dependent: :destroy
   has_one :job_premiun, dependent: :destroy
 
-  has_and_belongs_to_many :candidates, dependent: :destroy
+  has_and_belongs_to_many :candidates, dependent: :destroy, :uniq => true
 
   # GAMBIARRA QUE DEVE SER RESOLVIDA :(
   belongs_to :jobs_category

@@ -29,7 +29,7 @@ class JobsController < ApplicationController
     @job.start_date = Time.zone.now
     @job.finish_date = Time.zone.now + 30.days
     if @job.save
-      if job_params[:is_premium] == "0"
+      if job_params[:is_premium]  == "false"
         redirect_to jobs_path, :flash => { :notice => "Vaga cadastrada com sucesso." }
       else
         if create_invoice(company, @job)

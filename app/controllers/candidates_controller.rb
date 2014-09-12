@@ -67,12 +67,22 @@ class CandidatesController < ApplicationController
   end
 
   def apply_for_job
-    @job = Job.find(params[:job])
-    @job.candidates << @candidate
-    if @job.save
-      redirect_to show_vacancies_path, :flash => { :notice => " #{current_user.name}, nós do nova currículos desejamos à você boa sorte =)" }
+    # Verifica se o usuário possui um currículo cadastrado.
+    # Caso não exista o direciona para a página de atualização do currículo
+    if  @candidate.nil?
+      redirect_to show_curriculum_candidate_path, :flash => { :error => "Antes de se candidatar a uma vaga, por favor, atualize seu currículo" }
     else
-      redirect_to show_vacancies_path, :flash => { :error => " #{current_user.name}, infelizmente ocorreu um erro. Tente novmente =(" }
+      begin
+        @job = Job.find(params[:job])
+        @job.candidates << @candidate
+      rescue
+        puts "cadastro duplicado"
+      end
+      if @job.candidates.last == @candidate
+        redirect_to show_vacancies_path, :flash => { :notice => " #{current_user.name}, nós do nova currículos desejamos à você boa sorte =)" }
+      else
+        redirect_to show_vacancies_path, :flash => { :error => " #{current_user.name}, infelizmente ocorreu um erro. Tente novmente =(" }
+      end
     end
   end
 
@@ -81,13 +91,17 @@ class CandidatesController < ApplicationController
   end
 
   def show_vacancies
-    @jobs = @candidate.jobs.order(start_date: :desc).page(params[:page]).per(15)
+    if  @candidate.nil?
+      redirect_to show_curriculum_candidate_path, :flash => { :error => "Por favor, atualize seu currículo" }
+    else
+      @jobs = @candidate.jobs.order(start_date: :desc).page(params[:page]).per(15)
+    end
   end
 
   private
 
   def set_candidate
-    @candidate = Candidate.find_by_user_id(current_user)
+    @candidate ||= Candidate.find_by_user_id(current_user)
   end
 
   def candidate_params
