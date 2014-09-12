@@ -147,6 +147,7 @@ GEM
     haml (4.0.5)
       tilt
     hashie (3.2.0)
+    high_voltage (2.2.1)
     highline (1.6.21)
     hike (1.2.3)
     hitimes (1.2.2)
@@ -450,6 +451,7 @@ DEPENDENCIES
   fog
   font-awesome-sass (~> 4.2.0)
   friendly_id (~> 5.0.0)
+  high_voltage (~> 2.2.1)
   jbuilder (~> 2.0)
   jquery-placeholder-rails
   jquery-rails
