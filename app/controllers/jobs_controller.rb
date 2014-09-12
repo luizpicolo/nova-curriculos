@@ -66,7 +66,6 @@ class JobsController < ApplicationController
       with(:start_date).less_than_or_equal_to(Time.now.strftime("%Y-%m-%d").to_date)
       with(:finish_date).greater_than_or_equal_to(Time.now.strftime("%Y-%m-%d").to_date)
       with(:status, true)
-      paginate :page => 1, :per_page => 15
       fulltext params[:search] do
         fields(
           :job_title,
@@ -102,11 +101,6 @@ class JobsController < ApplicationController
         redirect_to jobs_path, :flash => { :error => error_msg }
       end
     end
-  end
-
-  def more
-    1
-    render layout: false
   end
 
   private

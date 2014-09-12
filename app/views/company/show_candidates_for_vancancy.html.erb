@@ -11,9 +11,9 @@
       <section class="profile-nav-container">
         <h2 class="profile-nav-title">Meu Perfil</h2>
         <ul class="profile-nav">
-          <li><a class="btn btn-link" href="recrutador-vagas.php">Minhas Vagas</a></li>
-          <li><a class="btn btn-link" href="#">Editar Dados do Recrutador</a></li>
-          <li><a class="btn btn-link" href="#">Vagas Desativadas</a></li>
+          <li><%= link_to "Cadastrar vaga", new_vacancy_path, :class => "btn btn-link" %></li>
+          <li><%= link_to "Minhas vagas", vacancies_path, :class => "btn btn-link" %></li>
+          <li><%= link_to "Perfil empresa", company_path, :class => "btn btn-link"%></li>
         </ul>
       </section>
     </div>

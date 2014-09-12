@@ -78,7 +78,6 @@ class CandidatesController < ApplicationController
 
   def generate_curriculo_in_pdf
     render layout: false
-    @candidate = Candidate.find(params[:id])
   end
 
   def show_vacancies
