@@ -4,34 +4,34 @@ ruby "2.1.2"
 
 gem 'bootstrap-wysihtml5-rails', '0.3.1.24'
 gem 'carrierwave'
-gem 'carrierwave_backgrounder'
-gem 'rails', '4.1.1'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'friendly_id', '~> 5.0.0'
-gem 'rails_admin'
-gem 'mini_magick'
-gem 'rails-i18n'
-gem 'devise'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'responders'
-gem 'kaminari'
 gem 'cancan'
-gem 'sanitize-rails', require: 'sanitize/rails'
-gem 'sunspot_rails'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'carrierwave_backgrounder'
+gem 'devise'
+gem "facebook_share"
 gem 'figaro'
 gem "fog"
-gem "pagseguro", "~> 0.1.13"
 gem 'font-awesome-sass', '~> 4.2.0'
-gem 'sidekiq'
+gem 'friendly_id', '~> 5.0.0'
+gem 'jbuilder', '~> 2.0'
+gem 'jquery-rails'
+gem 'mini_magick'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem "pagseguro", "~> 0.1.13"
 gem "pdfkit"
+gem 'sanitize-rails', require: 'sanitize/rails'
+gem 'sunspot_rails'
+gem 'sidekiq'
+gem 'sass-rails', '~> 4.0.3'
+gem 'rails', '4.1.1'
+gem 'rails_admin'
+gem 'rails-i18n'
+gem 'responders'
+gem 'turbolinks'
+gem 'uglifier', '>= 1.3.0'
 gem "wkhtmltopdf-binary"
-gem "facebook_share"
+gem 'kaminari'
 
 # Gem to view queues sidekiq
 gem 'slim', '>= 1.1.0'
@@ -67,7 +67,6 @@ end
 
 group :production do
   gem 'therubyracer'
-  #gem 'rails_12factor'
 	gem 'pg'
   gem 'passenger'
 end
