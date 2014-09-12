@@ -32,7 +32,7 @@
             <h1 class="profile-title"><%= @candidate.full_name %></h1>
 
             <div class="profile-text margin-small-bottom">
-              <p><a href="#"><%= @candidate.user.email %><</a></p>
+              <p><a href="#"><%= @candidate.user.email %></a></p>
               <p><span class="profile-item-caption">Sexo:</span> <%= @candidate.is_male ? "Masculino" : "Feminio" %> </p>
               <p><span class="profile-item-caption">Data de nascimento:</span> <%= @candidate.birth_date.strftime("%d/%m/%Y") %></p>
               <p><span class="profile-item-caption">Endereço:</span> <%= @candidate.street %></p>
