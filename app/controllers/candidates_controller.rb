@@ -75,6 +75,9 @@ class CandidatesController < ApplicationController
       begin
         @job = Job.find(params[:job])
         @job.candidates << @candidate
+
+        # Send mail
+        NotificationOfApplyForJobMailer.delay.message_for_company(@candidate, @job)
       rescue
         puts "cadastro duplicado"
       end

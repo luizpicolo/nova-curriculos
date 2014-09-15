@@ -9,6 +9,7 @@ module CandidateHelpers
     birth_date = options[:birth_date] || candidate.birth_date
     mobile_phone = options[:mobile_phone] || candidate.mobile_phone
     message_phone = options[:message_phone] || candidate.message_phone
+    share_facebook = options[:share_facebook] || candidate.share_facebook
 
     sign_in @user
   	city = create_city
@@ -33,7 +34,7 @@ module CandidateHelpers
 
     visit show_curriculum_candidate_path
 
-  	fill_in "candidate_position_of_interest", with: candidate.position_of_interest
+    fill_in "candidate_position_of_interest", with: candidate.position_of_interest
     check "candidate_professional_area_ids_#{professional_area.id}"
     check "candidate_hierarchical_level_ids_#{hierarchical_level.id}"
     fill_in "candidate_last_salary", with: candidate.last_salary

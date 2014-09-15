@@ -15,7 +15,8 @@ FactoryGirl.define do
     last_salary { Faker::Number.number(4) }
     salary_pretension { Faker::Number.number(4) }
     mini_curriculum { Faker::Lorem.paragraph }
-    
+    share_facebook true
+
     city factory: :city
     user factory: :user
 

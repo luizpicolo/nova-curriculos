@@ -68,6 +68,6 @@ end
 
 group :production do
   gem 'therubyracer'
-	gem 'pg'
+  gem 'pg'
   gem 'passenger'
 end
