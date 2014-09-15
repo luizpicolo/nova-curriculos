@@ -92,8 +92,7 @@ Rails.application.configure do
     :user_name => ENV['USER_NAME'],
     :password => ENV['PASSWORD'],
     :authentication => 'plain',
-    :enable_starttls_auto => true,
-    :ssl => true
+    :enable_starttls_auto => true
   }
   # Send email in development mode.
   #config.action_mailer.perform_deliveries = true
