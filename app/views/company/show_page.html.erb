@@ -1,0 +1,102 @@
+<main id="main">
+  <div class="grid padding-top">
+    <div class="page-title-container">
+      <h1 class="page-title">
+        <span class="nc-min-icon nc-min-recruiters"></span>
+        <span>Perfil Empresa</span>
+      </h1>
+    </div>
+
+    <div class="sidebar col-4 col-left">
+      <section class="profile-nav-container">
+        <% if current_user.is_company? %>
+        <h2 class="profile-nav-title">Menu</h2>
+        <% end %>
+        <ul class="profile-nav">
+          <% if current_user.is_company? %>
+          <li><%= link_to "Cadastrar vaga", new_vacancy_path, :class => "btn btn-link" %></li>
+          <li><%= link_to "Minhas vagas", vacancies_path, :class => "btn btn-link" %></li>
+          <li><%= link_to "Perfil empresa", company_path, :class => "btn btn-link"%></li>
+          <% end %>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col-8 col-right padding-left">
+      <article class="profile">
+        <div class="profile-header margin-bottom">
+          <div class="profile-avatar-container">
+            <figure class="profile-avatar">
+              <img src="img/avatar-two.jpg" alt="">
+            </figure>
+          </div>
+          <div class="profile-info">
+            <h1 class="profile-title">Grupo Concordia</h1>
+
+            <div class="profile-text margin-small-bottom">
+              <p><a href="#">loremipsum@dolor.com.br</a></p>
+              <p><span class="profile-item-caption">Website:</span> loremipsum.com.br</p>
+              <p><span class="profile-item-caption">CNPJ:</span> 00.000.000/0000-00</p>
+              <p><span class="profile-item-caption">Tempo de atividade:</span> 00/00/0000</p>
+              <p><span class="profile-item-caption">Rua:</span> Rua Lorem Ipsum Dolor</p>
+            </div>
+
+            <div class="row margin-small-bottom">
+              <div class="profile-text col-6 col-left">
+                <p><span class="profile-item-caption">Bairro:</span> 0000</p>
+              </div>
+
+              <div class="profile-text col-6 col-left">
+                <p><span class="profile-item-caption">Cidade/Estado:</span> Nova Andradina/MS</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="profile-text col-6 col-left">
+                <p><span class="profile-item-caption">Telefone:</span> (00) 0000-0000</p>
+                <p><span class="profile-item-caption">Telefone:</span> (00) 0000-0000</p>
+              </div>
+
+              <div class="profile-text col-6 col-right">
+                <p><span class="profile-item-caption">Telefone:</span> (00) 0000-0000</p>
+                <p><span class="profile-item-caption">Telefone:</span> (00) 0000-0000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-item margin-large-bottom">
+          <div class="margin-bottom">
+            <h2 class="profile-caption">Ramo de Atividade</h2>
+            <ul class="profile-list">
+              <li>
+                <h3 class="profile-list-title">Material de construção</h3>
+                <p>
+                  <span class="profile-list-caption">Descrição:</span>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Necessitatibus debitis cupiditate nisi dolore aut dolor quae
+                  officia vitae ad accusamus tempora fugiat ullam molestias eius
+                  laborum hic similique beatae, officiis.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="profile-item margin-large-bottom">
+          <div class="margin-bottom">
+            <h2 class="profile-caption">Histórico da Empresa</h2>
+            <div class="profile-text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi risus, pharetra
+                in dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi risus,
+                pharetra in dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi
+                risus, pharetra in dolor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>

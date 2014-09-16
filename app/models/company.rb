@@ -1,6 +1,9 @@
 require 'carrierwave/orm/activerecord'
 
 class Company < ActiveRecord::Base
+  extend FriendlyId
+
+  friendly_id :fancy_name, use: :slugged
 
   mount_uploader :logo, LogoUploader
 

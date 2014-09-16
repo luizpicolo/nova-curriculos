@@ -332,7 +332,9 @@ RailsAdmin.config do |config|
       field :id
       field :job_title
       field :company
-      field :jobs_category
+      field :start_date do
+        date_format :default
+      end
       field :status
     end
     edit do

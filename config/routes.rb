@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   get "/contratante/vaga/:id/candidatos" => "company#show_candidates_for_vancancy", :as => :candidate_for_vacancies
   post "contratante/empresa" => "company#create"
   patch "contratante/empresa" => "company#update"
+  #get "empresa/:slug" =>  "company#show_page", :as => :show_page_company
 
   # jobs
   get "/oportunidades" => "jobs#index", :as => :jobs

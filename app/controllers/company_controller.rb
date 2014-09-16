@@ -7,6 +7,10 @@ class CompanyController < ApplicationController
    company.nil? ? @company = Company.new : @company = company
  end
 
+ def show_page
+   @company =  Company.find_by_slug(params[:slug])
+ end
+
  def create
    @company = Company.new(company_params)
    @company.user = current_user

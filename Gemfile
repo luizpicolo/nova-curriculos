@@ -12,6 +12,7 @@ gem "facebook_share"
 gem 'figaro'
 gem "fog"
 gem 'friendly_id', '~> 5.0.0'
+gem 'gmaps4rails'
 gem 'high_voltage', '~> 2.2.1'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
