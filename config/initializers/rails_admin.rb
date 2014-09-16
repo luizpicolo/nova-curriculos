@@ -22,7 +22,7 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
   config.actions do
-    dashboard                     # mandatory
+    dashboard                  # mandatory
     index                         # mandatory
     new
     export
@@ -333,6 +333,7 @@ RailsAdmin.config do |config|
       field :job_title
       field :company
       field :jobs_category
+      field :status
     end
     edit do
       field :job_title
@@ -349,7 +350,9 @@ RailsAdmin.config do |config|
       field :requirements, :wysihtml5 do
         config_options :html => false
       end
-      field :period_of_work
+      field :period_of_work, :wysihtml5 do
+        config_options :html => false
+      end
       field :other_information, :wysihtml5 do
         config_options :html => false
       end

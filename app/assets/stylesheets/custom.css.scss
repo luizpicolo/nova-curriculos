@@ -130,3 +130,24 @@
 		margin-left: 10px;
 	}
 }
+
+#logo {
+	span {
+		color: $text-2;
+		font-size: 1.4em;
+		position: relative;
+		font-style: italic;
+		top: -5px;
+		left: 93px;
+	}
+
+	h1 {
+		position: relative;
+		top: -12px;
+	}
+}
+
+#nav,  .nav-social{
+	position: relative;
+	top: 10px;
+}

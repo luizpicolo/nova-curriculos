@@ -139,8 +139,6 @@ GEM
       fog-json
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
-    font-awesome-sass (4.2.0)
-      sass (~> 3.2)
     formatador (0.2.5)
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
@@ -449,7 +447,6 @@ DEPENDENCIES
   faker
   figaro
   fog
-  font-awesome-sass (~> 4.2.0)
   friendly_id (~> 5.0.0)
   high_voltage (~> 2.2.1)
   jbuilder (~> 2.0)
