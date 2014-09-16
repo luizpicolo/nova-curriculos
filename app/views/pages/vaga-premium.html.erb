@@ -3,7 +3,7 @@
     <section>
       <div class="page-title-container">
         <h1 class="page-title">
-          <span class="nc-min-icon nc-min-recruiters"></span>
+          <span class="nc-min-icon nc-min-recruiters"></span> 
           <span>Vaga Premium</span>
         </h1>
       </div>
@@ -12,21 +12,24 @@
         <div class="page-slogan">
           <div class="page-slogan-text">
             <p>
-              Escolha qual plano se adequa melhor <br>
-              a sua necessidade.
+              Deixe sua vaga em evidência entre as
+              primeiras vagas do site. Contrate agora
+              a nossa Vaga Premium
             </p>
           </div>
         </div>
 
         <div class="page-text margin-large-bottom">
           <p>
-            A vaga selecionada ficará em evidência no site pelo período contratado.
-            Assim que o pagamento for confirmado pelo <a href="#">PagSeguro</a>
-            sua vaga será automaticamente promovida.
+            Contratanto nosso serviço premium sua vaga
+            ficará em destaque com a "estrelinha" no topo
+            entre as primeiras vagas anúnciadas em nossa
+            home, alcançando muito mais candidatos.
           </p>
         </div>
       </div>
-
+      
+      <form class="margin-large-bottom" action="">
         <div class="col-8 col-center">
           <div class="row margin-large-bottom">
             <% PremiumPlan.all.each_with_index do |premium_plan, i|%>
@@ -43,30 +46,17 @@
                     <span class="plan-price">R$ <%= premium_plan.price %></span>
                   </div>
                 </div>
-
-                <div class="plan-radio">
-                  <% if i == 0 %>
-                  <%= pagseguro_form @order_one, :submit => "Desejo este plano!" %>
-                  <% elsif i == 1 %>
-                  <%= pagseguro_form @order_two, :submit => "Desejo este plano!" %>
-                  <% else %>
-                  <%= pagseguro_form @order_three, :submit => "Desejo este plano!" %>
-                  <% end %>
-                </div>
               </div>
             </div>
             <% end %>
           </div>
+
         </div>
+      </form>
 
       <div class="row text-center">
-        <div class="margin-small-bottom">
-          <%= link_to "http://www.pagseguro.com.br" do %>
-          <%= image_tag "pagseguro.png" %>
-          <% end %>
-        </div>
-
         <div class="page-text">
+          <p>*Ao cadastrar sua vaga, selecione vaga premium para que sua vaga possa ser destacada.</p>
           <p>*Enquanto o pagamento não for concluído sua vaga ficará disponível normalmente, sem destaque.</p>
         </div>
       </div>

@@ -64,7 +64,7 @@ task :deploy => :environment do
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
-    invoke :'sidekiq:quiet'
+    #invoke :'sidekiq:quiet'
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
@@ -86,7 +86,7 @@ task :deploy => :environment do
 
       #queue %[echo -n "-----> Init sidekiq: "]
       #invoke :'sidekiq:restart'
-      queue "bundle exec sidekiq -d -C config/sidekiq.yml -e production"
+      #queue "bundle exec sidekiq -d -C config/sidekiq.yml -e production"
     end
   end
 end
