@@ -12,8 +12,7 @@
         <ul>
           <li><%= link_to "Vaga Premium", page_path("vaga-premium") %></li>
           <% if current_user.nil? %>
-          <li><%= link_to "Candidatos", new_candidate_path %></li>
-          <li><%= link_to "Contratantes", new_contractor_path %></li>
+          <li><%= link_to "NÃO É CADASTRADO?", page_path('cadastrar'), :class => "btn btn-link"%></li>
           <% end %>
           <li><a href="contato">Contato</a></li>
         </ul>
