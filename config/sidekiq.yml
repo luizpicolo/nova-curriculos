@@ -2,7 +2,7 @@
 # Options here can still be overridden by cmd line args.
 #   sidekiq -C config.yml
 ---
-production:
+production: &production
   :verbose: false
   :logfile: /home/production/railsapp/shared/log/sidekiq.log
   :pidfile: /home/production/railsapp/shared/pids/sidekiq.pid
@@ -25,3 +25,6 @@ development:
     - [carrierwave, 7]
     - [mailer, 5]
     - [default, 3]
+
+staging:
+   <<: *production

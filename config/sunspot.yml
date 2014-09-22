@@ -1,4 +1,4 @@
-production:
+production: &production
   solr:
     hostname: 127.0.0.1
     port: 8080
@@ -20,3 +20,6 @@ test:
     port: 8983
     log_level: WARNING
     path: /solr/test
+
+staging:
+   <<: *production

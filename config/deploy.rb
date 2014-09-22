@@ -2,22 +2,37 @@ require 'mina_sidekiq/tasks'
 require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
-# require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
-# Basic settings:
-#   domain       - The hostname to SSH to.
-#   deploy_to    - Path to deploy into.
-#   repository   - Git repo to clone from. (needed by mina/git)
-#   branch       - Branch name to deploy. (needed by mina/git)
-
-# Rails Enviroment
-# set :rails_env, 'production'
-
-set :domain, 'novacurriculos.com.br'
-set :deploy_to, '/home/production/railsapp'
+# Repository project
 set :repository, 'git@bitbucket.org:luizpicolo_/nova-curriculos.git'
-set :branch, 'master'
+
+# Server Production
+task :production do
+  set :rails_env, 'production'
+  set :user, 'production'
+  set :domain, 'novacurriculos.com.br'
+  set :deploy_to, '/home/production/railsapp'
+  set :branch, 'master'
+end
+
+# Server Staging
+task :staging do
+  set :rails_env, 'staging'
+  set :user, 'picolo'
+  set :domain, '127.0.0.1'
+  set :deploy_to, '/home/picolo/ruby/nova_curriculos_staging'
+  set :branch, 'master'
+end
+
+# Server Staging
+# task :development do
+#   set :rails_env, 'development'
+#   set :user, 'picolo'
+#   set :domain, '127.0.0.1'
+#   set :deploy_to, '/home/picolo/ruby/nova_curriculos_staging'
+#   set :branch, 'master'
+# end
 
 # Fix
 set :term_mode, nil
@@ -25,10 +40,6 @@ set :term_mode, nil
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
 set :shared_paths, ['config/database.yml', 'log', 'config/application.yml']
-
-# Optional settings:
-set :user, 'production'    # Username in the server to SSH to.
-#   set :port, '30000'     # SSH port number.
 
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
@@ -57,6 +68,12 @@ task :setup => :environment do
   # sidekiq needs a place to store its pid file and log file
   queue! %[mkdir -p "#{deploy_to}/shared/pids/"]
   queue! %[mkdir -p "#{deploy_to}/shared/log/"]
+end
+
+desc "Show logs rails."
+task :logs => :environment do
+  queue 'echo "Contents of the log file are as follows:"'
+  queue "tail -f #{deploy_to}/current/log/production.log"
 end
 
 desc "Deploys the current version to the server."
@@ -109,25 +126,3 @@ task :rollback => :environment do
   queue %[echo -n "-----> Restart Apache Service: "]
   #queue 'sudo service httpd restart'
 end
-
-# task :down do
-#   invoke :maintenance_on
-#   invoke :restart
-# end
-
-# # Manutenance
-# task :maintenance_on
-#   queue 'touch maintenance.txt'
-# end
-
-# # Restart Apache
-# task :restart
-#   queue 'sudo service restart apache'
-# end
-
-# For help in making your deploy script, see the Mina documentation:
-#
-#  - http://nadarei.co/mina
-#  - http://nadarei.co/mina/tasks
-#  - http://nadarei.co/mina/settings
-#  - http://nadarei.co/mina/helpers
