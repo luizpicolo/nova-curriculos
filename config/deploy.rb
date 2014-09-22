@@ -71,9 +71,15 @@ task :setup => :environment do
 end
 
 desc "Show logs rails."
-task :logs => :environment do
+task :logs_rails => :environment do
   queue 'echo "Contents of the log file are as follows:"'
   queue "tail -f #{deploy_to}/current/log/production.log"
+end
+
+desc "Show logs rails."
+task :logs_nginx => :environment do
+  queue 'echo "Contents of the log file are as follows:"'
+  queue "tail -f /opt/nginx/logs/error.log"
 end
 
 desc "Deploys the current version to the server."
