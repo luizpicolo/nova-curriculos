@@ -3,6 +3,7 @@
       <div class="sidebar col-4 col-left">
         <div class="vacancies vacancies-sidebar scroll nav-active">
           <ul data-value="3" class="vacancies-list">
+            <% cache do %>
             <% @jobs.each do |job|%>
                 <% if job.job_premiun.try(:validate_date) && job.slug != params[:slug] %>
                     <li class="vacancies-sidebar-item vacancies-premium">
@@ -45,6 +46,7 @@
                       </section>
                     </li>
                 <% end %>
+            <% end %>
             <% end %>
           </ul>
           <a id="loadMore" class="btn btn-bright-green btn-block btn-extra" href="#">Ver mais vagas</a>
