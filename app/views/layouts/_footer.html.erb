@@ -5,38 +5,38 @@
     <div class="col-2 col-left">
       <h2 class="footer-title">Candidatos</h2>
       <ul class="footer-list">
-        <li><a href="#">Cadastro</a></li>
-        <li><a href="#">Currículo</a></li>
+        <li><%= link_to "Cadastrar", new_candidates_path %></li>
+        <li><%= link_to "Currículo", show_curriculum_candidate_path %></li>
       </ul>
     </div>
 
     <div class="col-2 col-left">
-      <h2 class="footer-title">Recrutadores</h2>
+      <h2 class="footer-title">Contratantes</h2>
       <ul class="footer-list">
-        <li><a href="#">Cadastro</a></li>
-        <li><a href="#">Cadastrar vaga</a></li>
-        <li><a href="#">Vaga Premium</a></li>
+        <li><%= link_to "Cadastrar", new_contractor_path %></li>
+        <li><%= link_to "Cadastrar Vaga", vacancies_path %></li>
+        <li><%= link_to "Vaga Premium", page_path("vaga-premium") %></li>
       </ul>
     </div>
 
     <div class="col-2 col-left">
       <h2 class="footer-title">Busca</h2>
       <ul class="footer-list">
-        <li><a href="#">Buscar vaga</a></li>
+        <li><a href="/">Buscar vaga</a></li>
       </ul>
     </div>
 
     <div class="col-2 col-left">
       <h2 class="footer-title">Termos</h2>
       <ul class="footer-list">
-        <li><a href="#">Termos de uso</a></li>
+        <li><%= link_to "Termos de uso", page_path("termos-de-uso") %></li>
       </ul>
     </div>
 
     <div class="col-2 col-left">
       <h2 class="footer-title">Contato</h2>
       <ul class="footer-list-inline">
-        <li><a href="#"><span class="fa fa-facebook-square"></span></a></li>
+        <li><a href="http://www.fb.com.br/novacurriculos"><span class="fa fa-facebook-square"></span></a></li>
         <li><a href="#"><span class="fa fa-envelope"></span></a></li>
       </ul>
     </div>
