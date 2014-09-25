@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ruby mine
+.idea/*
+
 # Ignore the default SQLite database.
 /db/*.sqlite3P
 /db/*.sqlite3-journal

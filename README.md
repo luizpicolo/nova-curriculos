@@ -19,6 +19,11 @@ execute local server
     bundle exec rake sunspot:solr:reindex (development)
     rails s
     open http://localhost:3000
+    
+## Deploy
+
+    mina staging deploy // Server staging
+    mina production deploy // Server production
 
 ## Dependencies
 
