@@ -9,13 +9,13 @@
       </div>
       <p class="text-center information">
         <strong>Atenção</strong> : Somente é possível trocar senha de contas cadastradas diretamente no site. <br> Caso tenha criado sua
-        conta utilizando o Facebook, ela não poderá ser trocada pelo sistema.
+        conta utilizando o Facebook, a senha não poderá ser trocada pelo sistema.
       </p>
       <div class="col-5 col-center text-center">
         <div class="margin-large-bottom">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :class => 'form-curriculo', html: { method: :put }) do |f| %>
             <div class="form-input">
-              <%= f.label :name %>
+              <%= f.label :name, "Nome" %>
               <%= f.text_field :name, autofocus: true, :required => true %>
             </div>
 
@@ -25,17 +25,17 @@
             </div>
 
             <div class="form-input">
-              <%= f.label :current_password %>
+              <%= f.label :current_password, "Senha atual" %>
               <%= f.password_field :current_password, autocomplete: "off" %>
             </div>
 
             <div class="form-input">
-              <%= f.label :password %>
+              <%= f.label :password, "Nova senha"%>
               <%= f.password_field :password, autocomplete: "off" %>
             </div>
 
             <div class="form-input">
-              <%= f.label :password_confirmation %>
+              <%= f.label :password_confirmation, "Confirme sua senha" %>
               <%= f.password_field :password_confirmation, autocomplete: "off" %>
             </div>
 
@@ -44,17 +44,20 @@
             </div>
           <% end %>
         </div>
+        <p class="text-center information">
+          Ficaremos muito tristes se você decidir excluir sua conta.<strong> =(</strong>
+          Por este motivo lembrando que todos os dados relacionadas a sua conta serão deletados.
+        </p>
         <div class="margin-bottom">
           <div class="page-title-container">
             <h1 class="page-title">
-              <span class="nc-min-icon nc-min-candidates"></span>
               <span>Deseja cancelar sua conta?</span>
             </h1>
           </div>
 
           <div class="page-title-container">
             <%= button_to "Excluir minha conta", registration_path(resource_name),
-            data: { confirm: "Ops... Tem certeza que deseja excluir sua conta? Todos os seus dados serão perdidos. Essa é uma açào irreversível?" },
+            data: { confirm: "Ops... Tem certeza que deseja excluir sua conta? Todos os seus dados serão perdidos. Essa é uma ação irreversível! = (" },
             method: :delete, :class => "btn btn-red" %>
           </div>
         </div>
