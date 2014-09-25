@@ -61,11 +61,12 @@ class JobsController < ApplicationController
   end
 
   def show
+    @job = Job.find_by_slug(params[:slug])
+
   	# Search Solr
     @search = Job.search do
       with(:start_date).less_than_or_equal_to(Time.now.strftime("%Y-%m-%d").to_date)
       with(:finish_date).greater_than_or_equal_to(Time.now.strftime("%Y-%m-%d").to_date)
-      with(:status, true)
       fulltext params[:search] do
         fields(
           :job_title,
@@ -85,7 +86,7 @@ class JobsController < ApplicationController
     end
 
     @jobs = @search.results
-  	@job = Job.find_by_slug(params[:slug])
+
   end
 
   def destroy

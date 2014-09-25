@@ -48,6 +48,7 @@ class Job < ActiveRecord::Base
     text :city do
       city.name
     end
+    text :slug
     text :state do
       city.state.name
     end

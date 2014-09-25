@@ -4,24 +4,47 @@
         <div class="vacancies vacancies-sidebar scroll nav-active">
           <ul data-value="3" class="vacancies-list">
             <% @jobs.each do |job|%>
-            <% premiun = job.job_premiun.try(:validate_date) ? "vacancies-premium" : "" %>
-            <li class="vacancies-sidebar-item <%= premiun %>">
-              <section>
-                <%= link_to show_job_path(job.slug), :class => "vacancies-link" do %>
-                  <h2 class="vacancies-category"><%= job.job_category.name %></h2>
-                  <h1 class="vacancies-title"><%= job.job_title %></h1>
-                  <p class="vacancies-enterprise">
-                    <span class="fa fa-briefcase"></span> <%= job.company.corporate_name %>
-                  </p>
-                  <p class="vacancies-location">
-                    <span class="fa fa-map-marker"></span> <%= job.company.city.name %> / <%= job.company.city.state.iso %>
-                  </p>
+                <% if job.job_premiun.try(:validate_date) && job.slug != params[:slug] %>
+                    <li class="vacancies-sidebar-item vacancies-premium">
+                      <section>
+                        <%= link_to show_job_path(job.slug), :class => "vacancies-link" do %>
+                          <h2 class="vacancies-category"><%= job.job_category.name %></h2>
+                          <h1 class="vacancies-title"><%= job.job_title %></h1>
+                          <p class="vacancies-enterprise">
+                            <span class="fa fa-briefcase"></span> <%= job.company.corporate_name %>
+                          </p>
+                          <p class="vacancies-location">
+                            <span class="fa fa-map-marker"></span> <%= job.company.city.name %> / <%= job.company.city.state.iso %>
+                          </p>
+                        <% end %>
+                        <a class="vacancies-social" href="#">
+                          <span class="fa fa-facebook-square"></span> Recomende esta Vaga
+                        </a>
+                      </section>
+                    </li>
                 <% end %>
-                <a class="vacancies-social" href="#">
-                  <span class="fa fa-facebook-square"></span> Recomende esta Vaga
-                </a>
-              </section>
-            </li>
+            <% end %>
+
+            <% @jobs.each do |job|%>
+                <% if !job.job_premiun.try(:validate_date) && job.slug != params[:slug] %>
+                    <li class="vacancies-sidebar-item vacancies-premium">
+                      <section>
+                        <%= link_to show_job_path(job.slug), :class => "vacancies-link" do %>
+                            <h2 class="vacancies-category"><%= job.job_category.name %></h2>
+                            <h1 class="vacancies-title"><%= job.job_title %></h1>
+                            <p class="vacancies-enterprise">
+                              <span class="fa fa-briefcase"></span> <%= job.company.corporate_name %>
+                            </p>
+                            <p class="vacancies-location">
+                              <span class="fa fa-map-marker"></span> <%= job.company.city.name %> / <%= job.company.city.state.iso %>
+                            </p>
+                        <% end %>
+                        <a class="vacancies-social" href="#">
+                          <span class="fa fa-facebook-square"></span> Recomende esta Vaga
+                        </a>
+                      </section>
+                    </li>
+                <% end %>
             <% end %>
           </ul>
           <a id="loadMore" class="btn btn-bright-green btn-block btn-extra" href="#">Ver mais vagas</a>
