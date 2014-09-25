@@ -8,8 +8,8 @@
 /.bundle
 
 # RubyMine project files
-.idea
-.idea/workspace.xml
+/.idea
+/.idea/workspace.xml
 
 # Ignore the default SQLite database.
 /db/*.sqlite3P
