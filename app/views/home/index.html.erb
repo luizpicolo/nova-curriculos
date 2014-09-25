@@ -35,8 +35,8 @@
 
         <div class="form-select form-select-green">
           <label class="hidden" for="area-atuacao">Área de atuação</label>
-          <% jobs_categories_array = JobCategory.all.map { |job_category| [job_category.name, job_category.name.downcase] } %>
-          <%= select_tag(:category, options_for_select(jobs_categories_array, params[:category]), :include_blank => true) %>
+          <% jobs_categories_array = JobCategory.all.map { |job_category| [job_category.name, job_category.name.downcase] }%>
+          <%= select_tag(:category, options_for_select(jobs_categories_array, params[:category]), prompt: "Área de atuação" ) %>
         </div>
 
         <div class="search-submit">
