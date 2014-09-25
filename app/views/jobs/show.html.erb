@@ -27,7 +27,7 @@
 
             <% @jobs.each do |job|%>
                 <% if !job.job_premiun.try(:validate_date) && job.slug != params[:slug] %>
-                    <li class="vacancies-sidebar-item vacancies-premium">
+                    <li class="vacancies-sidebar-item">
                       <section>
                         <%= link_to show_job_path(job.slug), :class => "vacancies-link" do %>
                             <h2 class="vacancies-category"><%= job.job_category.name %></h2>
