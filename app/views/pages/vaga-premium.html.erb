@@ -32,7 +32,7 @@
       <form class="margin-large-bottom" action="">
         <div class="col-8 col-center">
           <div class="row margin-large-bottom">
-            <% PremiumPlan.all.each_with_index do |premium_plan, i|%>
+            <% PremiumPlan.order(id: :asc).all.each_with_index do |premium_plan, i|%>
             <div class="col-4 col-left padding-right">
               <div class="plan-container">
                 <div class="plan">
