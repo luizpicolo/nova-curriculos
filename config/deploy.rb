@@ -14,6 +14,7 @@ task :production do
   set :domain, 'novacurriculos.com.br'
   set :deploy_to, '/home/production/railsapp'
   set :branch, 'master'
+  set :identity_file, '/home/picolo/.ssh/'
 end
 
 # Server Staging
