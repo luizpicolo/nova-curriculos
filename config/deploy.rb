@@ -62,6 +62,9 @@ task :setup => :environment do
   queue! %[mkdir -p "#{deploy_to}/shared/config"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/config"]
 
+  queue! %[mkdir -p "#{deploy_to}/storage"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/storage"]
+
   queue! %[touch "#{deploy_to}/shared/config/database.yml"]
   queue  %[echo "-----> Be sure to edit 'shared/config/database.yml'."]
 
@@ -131,4 +134,25 @@ task :rollback => :environment do
 
   queue %[echo -n "-----> Restart Apache Service: "]
   #queue 'sudo service httpd restart'
+end
+
+# Restart Nginx
+desc "Restart Server"
+task :restart_server => :environment do
+  queue %[echo -n "-----> Restart nginx Service: "]
+  queue 'sudo service nginx restart'
+end
+
+# Start Nginx
+desc "Start Server"
+task :start_server => :environment do
+  queue %[echo -n "-----> Start nginx Service: "]
+  queue 'sudo service nginx start'
+end
+
+# Stop Nginx
+desc "Stop Server"
+task :stop_server => :environment do
+  queue %[echo -n "-----> Stop nginx Service: "]
+  queue 'sudo service nginx stop'
 end
