@@ -65,6 +65,8 @@ task :setup => :environment do
   queue! %[mkdir -p "#{deploy_to}/storage"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/storage"]
 
+  queue! %[touch "#{deploy_to}/storage/index.html"]
+
   queue! %[touch "#{deploy_to}/shared/config/database.yml"]
   queue  %[echo "-----> Be sure to edit 'shared/config/database.yml'."]
 
@@ -74,13 +76,13 @@ task :setup => :environment do
 end
 
 desc "Show logs rails."
-task :logs_rails => :environment do
+task :'logs:rails' => :environment do
   queue 'echo "Contents of the log file are as follows:"'
   queue "tail -f #{deploy_to}/current/log/production.log"
 end
 
-desc "Show logs rails."
-task :logs_nginx => :environment do
+desc "Show logs Nginx."
+task :'logs:nginx' => :environment do
   queue 'echo "Contents of the log file are as follows:"'
   queue "tail -f /opt/nginx/logs/error.log"
 end
@@ -138,21 +140,21 @@ end
 
 # Restart Nginx
 desc "Restart Server"
-task :restart_server => :environment do
+task :'server:restart' => :environment do
   queue %[echo -n "-----> Restart nginx Service: "]
   queue 'sudo service nginx restart'
 end
 
 # Start Nginx
 desc "Start Server"
-task :start_server => :environment do
+task :'server:start' => :environment do
   queue %[echo -n "-----> Start nginx Service: "]
   queue 'sudo service nginx start'
 end
 
 # Stop Nginx
 desc "Stop Server"
-task :stop_server => :environment do
+task :'server:stop' => :environment do
   queue %[echo -n "-----> Stop nginx Service: "]
   queue 'sudo service nginx stop'
 end
