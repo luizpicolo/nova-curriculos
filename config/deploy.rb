@@ -75,6 +75,21 @@ task :setup => :environment do
   queue! %[mkdir -p "#{deploy_to}/shared/log/"]
 end
 
+# TornOff ( Necessary gem https://github.com/biola/turnout ) 
+desc "TurnOff"
+task :'system:turnoff' => :environment do
+  queue %[echo -n "-----> Turn Off System: "]
+  queue! %[cd "#{deploy_to}/current"]
+  queue "RAILS_ENV=production bundle exec rake maintenance:start"
+end
+
+desc "TurnOn"
+task :'system:turnon' => :environment do
+  queue %[echo -n "-----> Turn Off System: "]
+  queue! %[cd "#{deploy_to}/current"]
+  queue "RAILS_ENV=production bundle exec rake maintenance:end"
+end
+
 desc "Show logs rails."
 task :'logs:rails' => :environment do
   queue 'echo "Contents of the log file are as follows:"'
