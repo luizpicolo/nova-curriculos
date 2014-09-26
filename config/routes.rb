@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get "/candidate/salvar-curriculo/:id/:slug.pdf" => "candidates#generate_curriculo_in_pdf", :as => :generate_curriculo_in_pdf
   post "/candidato/curriculo" => "candidates#create"
   patch "/candidato/curriculo" => "candidates#update"
+  get "/pay_with_a_post" => "candidates#verify_pay_with_a_post"
 
   # Company
   get "contratante/empresa" => "company#show", :as => :companies

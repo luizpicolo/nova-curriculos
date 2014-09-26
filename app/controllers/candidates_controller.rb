@@ -1,6 +1,6 @@
 class CandidatesController < ApplicationController
   before_filter :authenticate_user!, except: [:new]
-  before_action :set_candidate, only: [:update, :apply_for_job, :show_vacancies]
+  before_action :set_candidate, only: [:update, :apply_for_job, :show_vacancies, :verify_pay_with_a_post]
 
   def new
     unless current_user.nil?
@@ -84,7 +84,7 @@ class CandidatesController < ApplicationController
       if @job.candidates.last == @candidate
         redirect_to show_vacancies_path, :flash => { :notice => " #{current_user.name}, nós do nova currículos desejamos à você boa sorte =)" }
       else
-        redirect_to show_vacancies_path, :flash => { :error => " #{current_user.name}, infelizmente ocorreu um erro. Tente novmente =(" }
+        redirect_to show_vacancies_path, :flash => { :error => " #{current_user.name}, infelizmente ocorreu um erro. Tente novamente =(" }
       end
     end
   end
@@ -98,6 +98,15 @@ class CandidatesController < ApplicationController
       redirect_to show_curriculum_candidate_path, :flash => { :error => "Por favor, atualize seu currículo e pague com um post no facebook =)" }
     else
       @jobs = @candidate.jobs.order(start_date: :desc).page(params[:page]).per(15)
+    end
+  end
+
+  def verify_pay_with_a_post
+    @candidate.share_facebook = 1
+    if @candidate.save
+      redirect_to show_curriculum_candidate_path, :flash => { :notice => "Parabéns seu currículo foi ativado. Agora você pode usar nossos serviçis" }
+    else
+      redirect_to show_vacancies_path, :flash => { :error => " #{current_user.name}, infelizmente ocorreu um erro. Tente novamente =(" }
     end
   end
 

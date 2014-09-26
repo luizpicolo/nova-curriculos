@@ -533,8 +533,23 @@
         </div>
       </fieldset>
 
+
       <div class="form-submit-container">
-        <div class="page-slogan margin-bottom">
+        
+        <% if !@candidate.term %>
+        <div class="form-radio">
+          <div class="form-radio-item form-inline">
+            <label for="termos_de_uso">*li e concordo com os <%= link_to "Termos de uso", page_path('termos-de-uso') %></label>
+            <%= f.check_box :term, {:required => true}, "true", "false" %>
+          </div>
+        </div>
+        <% end %>
+
+        <%= f.hidden_field :id %>
+        <%= f.submit "Salvar Mini Currículo e dados de Confidencialidade", :class => "btn btn-blue" %>
+
+        <div class="page-slogan margin-bottom margin-top">
+          <% if !@candidate.share_facebook %>
           <div class="page-slogan-text">
             <p>
               Muito bem, seu currículo esta quase pronto! <br>
@@ -547,29 +562,13 @@
               gratuitos. =)
             </p>
           </div>
-        </div>
-
-        <div class="form-radio">
-          <div class="form-radio-item form-inline">
-            <label for="termos_de_uso">*li e concordo com os <%= link_to "Termos de uso", page_path('termos-de-uso') %></label>
-            <%= f.check_box :term, {:required => true}, "true", "false" %>
-          </div>
+          <% end %>
         </div>
 
         <% if !@candidate.share_facebook %>
-        <div class="form-radio">
-          <div class="form-radio-item form-inline">
-            <label for="termos_de_uso">*Pagar com um post no facebook <a href="#">Saiba mais.</a></label>
-            <%= f.check_box :share_facebook, {:required => true}, "true", "false" %>
-          </div>
-        </div>
+        <iframe src="http://www.paywithapost.de/dlbutton02.php?id=2fdf2fe8-0403-4554-8c85-a3e7bea5614d" class="spaced-right" name="paytweet_button" scrolling="no" frameborder="no" height="24px" width="240px"></iframe>
         <% end %>
-
-        <%= link_to 'Share on Facebook', '#', :class => "fb_share"  %>
-        <%= facebook_share_once %>
-
-        <%= f.hidden_field :id %>
-        <%= f.submit "Concluir currículo e pagar com um post", :class => "btn btn-facebook" %>
+        
       </div>
     <% end %>
   </div>
