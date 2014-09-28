@@ -75,7 +75,7 @@ task :setup => :environment do
   queue! %[mkdir -p "#{deploy_to}/shared/log/"]
 end
 
-# TornOff ( Necessary gem https://github.com/biola/turnout ) 
+# TornOff ( Necessary gem https://github.com/biola/turnout )
 desc "TurnOff"
 task :'system:turnoff' => :environment do
   queue %[echo -n "-----> Turn Off System: "]
@@ -127,9 +127,9 @@ task :deploy => :environment do
       queue %[echo -n "-----> Restart Redis Serer: "]
       queue 'sudo service redis-server restart'
 
-      #queue %[echo -n "-----> Init sidekiq: "]
+      queue %[echo -n "-----> Init sidekiq: "]
       #invoke :'sidekiq:restart'
-      #queue "bundle exec sidekiq -d -C config/sidekiq.yml -e production"
+      queue "bundle exec sidekiq -d -C config/sidekiq.yml -e production"
     end
   end
 end

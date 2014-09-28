@@ -97,7 +97,7 @@ class CandidatesController < ApplicationController
     if  @candidate.nil? || @candidate.share_facebook == false
       redirect_to show_curriculum_candidate_path, :flash => { :error => "Por favor, atualize seu currículo e pague com um post no facebook =)" }
     else
-      @jobs = @candidate.jobs.order(start_date: :desc).page(params[:page]).per(15)
+      @jobs = @candidate.jobs.order(start_date: :desc).page(params[:page]).per(10)
     end
   end
 
