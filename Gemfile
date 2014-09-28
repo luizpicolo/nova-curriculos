@@ -66,6 +66,7 @@ group :development, :test do
   gem 'database_rewinder'
   gem "rubycritic", :require => false
   gem 'mailcatcher'
+  gem 'xray-rails'
 end
 
 group :production do
