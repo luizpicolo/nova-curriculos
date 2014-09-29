@@ -124,7 +124,7 @@
             <div class="row">
               <div class="col-6 col-left padding-small-right">
                 <div class="form-file">
-                  <%= f.label :image, "Imagens" %>
+                  <%= f.label :image, "Foto (Preferencia 3 x 4)" %>
                   <%= f.file_field :image %>
                 </div>
               </div>
@@ -214,19 +214,19 @@
             </div>
 
             <div class="form-input">
-              <%= f.label :name_of_course, "Nome do curso" %>
+              <%= f.label :name_of_course, "*Nome do curso" %>
               <%= f.text_field :name_of_course, :required => true %>
             </div>
 
             <div class="form-input">
-              <%= f.label :institution, "Instituição" %>
+              <%= f.label :institution, "*Instituição" %>
               <%= f.text_field :institution, :required => true %>
             </div>
 
             <div class="row">
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
-                  <%= f.label :birth_date, "Data início" %>
+                  <%= f.label :birth_date, "*Data início" %>
                   <%= f.text_field :start_date, :class => "date", :value => @academic_training.start_date.try(:strftime,("%d/%m/%Y")), :required => true %>
                 </div>
               </div>
@@ -291,21 +291,21 @@
             <div class="row">
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
-                  <%= f.label :name, "Nome do curso" %>
+                  <%= f.label :name, "*Nome do curso" %>
                   <%= f.text_field :name, :required => true %>
                 </div>
               </div>
 
               <div class="col-6 col-right padding-small-left">
                 <div class="form-input">
-                  <%= f.label :local, "Local" %>
+                  <%= f.label :local, "*Local" %>
                   <%= f.text_field :local, :required => true %>
                 </div>
               </div>
             </div>
 
             <div class="form-textarea">
-              <%= f.label :description, "Descrição" %>
+              <%= f.label :description, "*Descrição" %>
               <%= f.text_area :description, :required => true %>
             </div>
 
@@ -363,14 +363,14 @@
             <div class="row">
               <div class="col-7 col-left padding-small-right">
                 <div class="form-input">
-                  <%= f.label :speech, "Idioma" %>
+                  <%= f.label :speech, "*Idioma" %>
                   <%= f.text_field :speech, :required => true %>
                 </div>
               </div>
 
               <div class="col-5 col-right padding-small-left">
                 <div class="form-select">
-                  <label for="nivel">Nível*</label>
+                  <label for="nivel">*Nível</label>
                   <% options = options_for_select([['Básico', 1], ['Intermediário', 2], ['Avançado', 3]], @language.level)%>
                   <%= f.select(:level, options) %>
                 </div>
@@ -391,7 +391,7 @@
 
           <div class="display-small-scroll scroll">
             <ul class="display-list">
-              <% if @candidate.languages.empty?  %>
+              <% if !@candidate.languages.empty?  %>
               <% @candidate.languages.each do |language| %>
               <li class="display-item">
                 <section>
@@ -423,19 +423,19 @@
             <legend class="page-caption">Experiência Profissional</legend>
 
             <div class="form-input">
-              <%= f.label :name_company, "Empresa" %>
+              <%= f.label :name_company, "*Empresa" %>
               <%= f.text_field :name_company, :required => true %>
             </div>
 
             <div class="form-input">
-              <%= f.label :last_post, "Último cargo" %>
+              <%= f.label :last_post, "*Último cargo" %>
               <%= f.text_field :last_post, :required => true %>
             </div>
 
             <div class="row">
               <div class="col-6 col-left padding-small-right">
                 <div class="form-input">
-                  <%= f.label :start_date, "Data início" %>
+                  <%= f.label :start_date, "*Data início" %>
                   <%= f.text_field :start_date, :class => "date", :value => @professional_experience.start_date.try(:strftime,("%d/%m/%Y")), :required => true%>
                 </div>
               </div>

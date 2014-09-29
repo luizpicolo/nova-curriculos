@@ -13,19 +13,19 @@
           <span class="page-caption">Dados da Empresa</span>
 
           <div class="form-input">
-            <%= f.label :fancy_name, "Nome fantasia" %>
+            <%= f.label :fancy_name, "*Nome fantasia" %>
             <%= f.text_field :fancy_name, :required => true %>
           </div>
 
           <div class="form-input">
-            <%= f.label :corporate_name, "Nome da empresa" %>
+            <%= f.label :corporate_name, "*Nome da empresa" %>
             <%= f.text_field :corporate_name, :required => true %>
           </div>
 
           <div class="row">
             <div class="col-6 col-left padding-small-right">
               <div class="form-input">
-                <%= f.label :cnpj, "CNPJ" %>
+                <%= f.label :cnpj, "*CNPJ / CPF" %>
                 <%= f.number_field :cnpj, :required => true, :maxlength => 11 %>
               </div>
             </div>
@@ -64,7 +64,7 @@
 
             <div class="col-6 col-right padding-small-left">
               <div class="form-input">
-                <%= f.label :phone, "Telefone" %>
+                <%= f.label :phone, "*Telefone" %>
                 <%= f.text_field :phone, :required => true, :class => "tel" %>
               </div>
             </div>
@@ -134,7 +134,7 @@
             </div>
           </div>
 
-          <span class="page-caption">Histórico da Empresa</span>
+          <span class="page-caption">*Histórico da Empresa</span>
 
           <div class="form-textarea">
             <%= f.label :description, "Histórico da empresa" %>
