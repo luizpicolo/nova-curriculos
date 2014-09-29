@@ -105,7 +105,7 @@
                   <div class="page-slogan-text">
                     <p>
                       Deixe sua vaga em evidência entre as primeiras vagas do site,
-                      contrate agora a nossa <a href="#">vaga premium</a>.
+                      contrate agora a nossa <%= link_to "Vaga Premium", page_path("vaga-premium") %>.
                     </p>
                   </div>
                 </div>
@@ -129,7 +129,7 @@
 
               <div class="form-radio">
                 <div class="form-radio-item form-inline">
-                  <label for="termos_de_uso">Deseja tornar esta vaga Premim <a href="#">Saiba mais</a></label>
+                  <label for="termos_de_uso">Deseja tornar esta vaga Premium? <%= link_to "Saiba Mais", page_path("vaga-premium") %></label>
                   <%= f.check_box :is_premium, {}, "true", "false" %>
                 </div>
               </div>
