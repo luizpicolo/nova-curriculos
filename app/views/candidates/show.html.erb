@@ -253,6 +253,7 @@
 
           <div class="display-scroll scroll">
             <ul class="display-list">
+              <% if !@candidate.academic_trainings.empty? %>
               <% @candidate.academic_trainings.each do |academic_training| %>
               <li class="display-item">
                 <section>
@@ -268,6 +269,11 @@
                     <%= link_to "Excluir", destroy_academic_trainings_path(academic_training.id), :method => :delete, data: {confirm: "Deseja realmente deletar esta informação?"}, :class => "btn btn-red"%>
                   </div>
                 </section>
+              </li>
+              <% end %>
+              <% else %>
+              <li class="display-item text-center">
+                <p>Todas as informações cadastradas ao lado aparecerão aqui</p>
               </li>
               <% end %>
             </ul>
@@ -317,6 +323,7 @@
 
           <div class="display-scroll scroll">
             <ul class="display-list">
+              <% if !@candidate.extra_courses.empty? %>
               <% @candidate.extra_courses.each do |extra_course| %>
               <li class="display-item">
                 <section>
@@ -334,6 +341,11 @@
                     <%= link_to "Excluir", destroy_extra_courses_path(extra_course.id), :method => :delete, data: {confirm: "Deseja realmente deletar esta informação?"}, :class => "btn btn-red"%>
                   </div>
                 </section>
+              </li>
+              <% end %>
+              <% else %>
+              <li class="display-item text-center">
+                <p>Todas as informações cadastradas ao lado aparecerão aqui</p>
               </li>
               <% end %>
             </ul>
@@ -379,6 +391,7 @@
 
           <div class="display-small-scroll scroll">
             <ul class="display-list">
+              <% if @candidate.languages.empty?  %>
               <% @candidate.languages.each do |language| %>
               <li class="display-item">
                 <section>
@@ -390,6 +403,11 @@
                     <%= link_to "Excluir", destroy_languages_path(language.id), :method => :delete, data: {confirm: "Deseja realmente deletar esta informação?"}, :class => "btn btn-red"%>
                   </div>
                 </section>
+              </li>
+              <% end %>
+              <% else %>
+              <li class="display-item text-center">
+                <p>Todas as informações cadastradas ao lado aparecerão aqui</p>
               </li>
               <% end %>
             </ul>
@@ -458,6 +476,7 @@
 
           <div class="display-large-scroll scroll">
             <ul class="display-list">
+              <% if !@candidate.professional_experiences.empty? %>
               <% @candidate.professional_experiences.each do |professional_experience| %>
               <li class="display-item">
                 <section>
@@ -482,6 +501,11 @@
                 </section>
               </li>
               <% end %>
+              <% else %>
+              <li class="display-item text-center">
+                <p>Todas as informações cadastradas ao lado aparecerão aqui</p>
+              </li>
+              <% end %>
             </ul>
           </div>
         </div>
@@ -499,6 +523,16 @@
                           :placeholder => "Descreva aqui, de forma resumida, seu perfil, experiências e habilidades profissionais."
           %>
         </div>
+        <div class="form-radio-item padding_none">
+          <p>
+            <strong>Exemplo</strong>: Engenheiro Civil. Cursando MBA em Gestão da Tecnologia Ambiental pela USP e
+            Graduado em Engenharia Civil pela PUC. Inglês Fluente. Atuação no gerenciamento de
+             obras envolvendo compatibilização de projeto,coordenação de mão-de-obra, fiscalização,
+             controle de qualidade, suprimentos e controle de orçamento. Realização de controle dos
+             processos produtivos, fiscalização de serviços terceirizados, medições e check list de entrega
+             das obras. Disponibilidade para viagens.
+          </p>
+        </div>
       </fieldset>
 
       <fieldset class="margin-bottom">
@@ -509,10 +543,10 @@
             <div class="form-radio-item">
               <label for="publico">público</label>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Sapiente cumque, in laboriosam. Blanditiis, excepturi at,
-                officia cumque laborum eligendi cupiditate, eaque, similique
-                voluptate facilis quos alias ut esse repellat sit!
+                Ao selecionar está opção você permitirá que o contratante tenha acesso
+                completo a informações como seu nome, empresas em que trabalhou e dados
+                para contato. E, desta forma, as empresas que se interessarem pelo
+                perfil entrarão em contato diretamente com você por e-mail ou telefone.
               </p>
               <%= f.radio_button :is_public, true, :required => true %>
             </div>
@@ -522,10 +556,11 @@
             <div class="form-radio-item">
               <label for="confidencial">confidencial</label>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Sapiente cumque, in laboriosam. Blanditiis, excepturi at,
-                officia cumque laborum eligendi cupiditate, eaque, similique
-                voluptate facilis quos alias ut esse repellat sit!
+                Ao selecionar esta opção você permitirá a exibição parcial de seu currículo,
+                de maneira que o contratante terá acesso às seguintes informações: minicurrículo,
+                cidade e estado de residência, objetivo profissional e idiomas. Neste formato de
+                divulgação do currículo as empresas entrarão em contato com você somente
+                por e-mail.
               </p>
               <%= f.radio_button :is_public, false, :required => true %>
             </div>
@@ -535,7 +570,7 @@
 
 
       <div class="form-submit-container">
-        
+
         <% if !@candidate.term %>
         <div class="form-radio">
           <div class="form-radio-item form-inline">
@@ -568,7 +603,7 @@
         <% if !@candidate.share_facebook %>
         <iframe src="http://www.paywithapost.de/dlbutton02.php?id=2fdf2fe8-0403-4554-8c85-a3e7bea5614d" class="spaced-right" name="paytweet_button" scrolling="no" frameborder="no" height="24px" width="240px"></iframe>
         <% end %>
-        
+
       </div>
     <% end %>
   </div>
