@@ -36,7 +36,7 @@ class CandidatesController < ApplicationController
     if !candidate.nil?
       @candidate = candidate
     else
-      redirect_to request.referer, :flash => { :error => "Este candidado não atualizou seu currículo. Por favor, atualize e pague com um post = )" }
+      redirect_to show_curriculum_candidate_path, :flash => { :error => "Este candidado não atualizou seu currículo. Por favor, atualize e pague com um post = )" }
     end
   end
 
