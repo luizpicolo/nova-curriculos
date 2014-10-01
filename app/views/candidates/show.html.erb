@@ -251,7 +251,7 @@
         <div class="display">
           <h2 class="page-caption">Formações acadêmicas salvas</h2>
 
-          <div class="display-scroll scroll">
+          <div class="formacoes-academicas-scroll scroll">
             <ul class="display-list">
               <% if !@candidate.academic_trainings.empty? %>
               <% @candidate.academic_trainings.each do |academic_training| %>
@@ -321,7 +321,7 @@
         <div class="display">
           <h2 class="page-caption">Cursos ou Eventos salvos</h2>
 
-          <div class="display-scroll scroll">
+          <div class="cursos-e-eventos-scroll scroll">
             <ul class="display-list">
               <% if !@candidate.extra_courses.empty? %>
               <% @candidate.extra_courses.each do |extra_course| %>
@@ -389,7 +389,7 @@
         <div class="display">
           <h2 class="page-caption">Idiomas Salvos</h2>
 
-          <div class="display-small-scroll scroll">
+          <div class="idiomas-scroll scroll">
             <ul class="display-list">
               <% if !@candidate.languages.empty?  %>
               <% @candidate.languages.each do |language| %>
@@ -474,7 +474,7 @@
         <div class="display">
           <h2 class="page-caption">Experiências profissionais Salvos</h2>
 
-          <div class="display-large-scroll scroll">
+          <div class="experiencias-profissionais-scroll scroll">
             <ul class="display-list">
               <% if !@candidate.professional_experiences.empty? %>
               <% @candidate.professional_experiences.each do |professional_experience| %>
@@ -599,11 +599,15 @@
           </div>
           <% end %>
         </div>
-
-        <% if !@candidate.share_facebook %>
-        <iframe src="http://www.paywithapost.de/dlbutton02.php?id=2fdf2fe8-0403-4554-8c85-a3e7bea5614d" class="spaced-right" name="paytweet_button" scrolling="no" frameborder="no" height="24px" width="240px"></iframe>
-        <% end %>
-
+        
+        <div class="btn-paypost">
+          <div class="btn-paypost-content">
+            <span class="btn btn-facebook"><span class="fa fa-facebook"></span> Pagar com um post no facebook</span>
+            <% if !@candidate.share_facebook %>
+            <iframe src="http://www.paywithapost.de/dlbutton02.php?id=2fdf2fe8-0403-4554-8c85-a3e7bea5614d" class="spaced-right" name="paytweet_button" scrolling="no" frameborder="no" height="24px" width="240px"></iframe>
+            <% end %>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
