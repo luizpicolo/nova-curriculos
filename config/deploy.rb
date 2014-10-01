@@ -39,7 +39,7 @@ set :term_mode, nil
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'log', 'config/application.yml']
+set :shared_paths, ['config/database.yml', 'log', 'config/application.yml', 'config/sunspot.yml']
 
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
@@ -69,6 +69,9 @@ task :setup => :environment do
 
   queue! %[touch "#{deploy_to}/shared/config/database.yml"]
   queue  %[echo "-----> Be sure to edit 'shared/config/database.yml'."]
+
+  queue! %[touch "#{deploy_to}/shared/config/sunspot.yml"]
+  queue  %[echo "-----> Be sure to edit 'shared/config/sunspot.yml'."]
 
   # sidekiq needs a place to store its pid file and log file
   queue! %[mkdir -p "#{deploy_to}/shared/pids/"]
