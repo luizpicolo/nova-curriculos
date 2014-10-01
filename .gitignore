@@ -36,6 +36,7 @@
 /solr/development/data/*
 /solr/test/*
 /sunspot-solr.pid
+/config/sunspot.yml
 
 # Ignore application configuration
 /config/application.yml
