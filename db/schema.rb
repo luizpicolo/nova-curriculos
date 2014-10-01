@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20140916005223) do
     t.boolean  "is_public",            default: true,  null: false
     t.boolean  "term",                 default: false, null: false
     t.boolean  "avatar_processing",    default: false, null: false
-    t.string   "slug",                                 null: false
     t.boolean  "share_facebook",       default: false
   end
 
