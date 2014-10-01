@@ -1,10 +1,37 @@
-<h2>Forgot your password?</h2>
+<main id="main">
+  <div class="grid padding-large-top">
+    <div class="page-title-container">
+      <h1 class="page-title">
+        <span class="nc-min-icon nc-min-recruiters"></span>
+        <span>Esqueceu sua senha?</span>
+      </h1>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+    <div class="col-4 col-center text-center">
+      <div class="page-slogan">
+        <div class="page-slogan-text">
+          <p>
+            Vamos resolver isso.
+          </p>
+        </div>
+      </div>
+    </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+		  <%= devise_error_messages! %>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+		  <div class="row">
+				<div class="col-6 col-center text-center">
+				  <div class="form-input form-input-green">
+				  	<%= f.label :email, :class => "hidden" %>
+				  	<%= f.email_field :email, autofocus: true, :placeholder => "*e-mail" %>
+				  </div>
+
+				  <div class="form-submit">
+				  	<%= f.submit "Enviar instruções para recuperar senha", :class => "btn btn-blue" %>
+				  </div>
+				</div>
+		  </div>
+		<% end %>
+	</div>
+</main>
