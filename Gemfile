@@ -28,6 +28,7 @@ gem 'sunspot_rails'
 gem 'sidekiq'
 gem 'sass-rails', '~> 4.0.3'
 gem 'rails', '4.1.1'
+gem 'rails_admin_flatly_theme', :git => 'git://github.com/konjoot/rails_admin_flatly_theme.git'
 gem 'rails_admin'
 gem 'rails-i18n'
 gem 'responders'
@@ -35,6 +36,9 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem "wkhtmltopdf-binary"
 gem 'kaminari'
+
+gem 'rails_admin_glyph_theme', git: 'git://github.com/vala/rails_admin_glyph_theme.git'
+gem 'compass-rails'
 
 # Gem to view queues sidekiq
 gem 'slim', '>= 1.1.0'

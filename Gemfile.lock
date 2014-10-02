@@ -1,3 +1,16 @@
+GIT
+  remote: git://github.com/konjoot/rails_admin_flatly_theme.git
+  revision: d142841e7f56bf200efd3b717d6eb7e8526dd8ca
+  specs:
+    rails_admin_flatly_theme (1.1.0)
+      rails (> 3.1.3)
+
+GIT
+  remote: git://github.com/vala/rails_admin_glyph_theme.git
+  revision: a941b75ad56bd06592ae6abc4bb1e7ca17de5d6c
+  specs:
+    rails_admin_glyph_theme (0.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -61,6 +74,7 @@ GEM
       timers (~> 4.0.0)
     childprocess (0.5.3)
       ffi (~> 1.0, >= 1.0.11)
+    chunky_png (1.3.1)
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -71,6 +85,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.1)
+    compass (0.12.7)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.2.19)
+    compass-rails (2.0.0)
+      compass (>= 0.12.2)
     connection_pool (2.0.0)
     daemon_controller (1.2.0)
     daemons (1.1.9)
@@ -142,6 +162,7 @@ GEM
     formatador (0.2.5)
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
+    fssm (0.2.10)
     gmaps4rails (2.1.2)
     haml (4.0.5)
       tilt
@@ -443,6 +464,7 @@ DEPENDENCIES
   carrierwave
   carrierwave_backgrounder
   coffee-rails (~> 4.0.0)
+  compass-rails
   database_rewinder
   devise
   email_spec
@@ -474,6 +496,8 @@ DEPENDENCIES
   rails (= 4.1.1)
   rails-i18n
   rails_admin
+  rails_admin_flatly_theme!
+  rails_admin_glyph_theme!
   responders
   rspec-rails (~> 3.0.0)
   rubycritic

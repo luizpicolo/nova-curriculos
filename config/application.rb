@@ -14,6 +14,10 @@ require 'pdfkit'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Theme to Rails Admin
+#ENV['RAILS_ADMIN_THEME'] = 'flatly_theme'
+ENV['RAILS_ADMIN_THEME'] = 'glyph''
+
 module NovaCurriculos
   class Application < Rails::Application
 
