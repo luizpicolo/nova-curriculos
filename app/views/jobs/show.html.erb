@@ -54,7 +54,7 @@
       </div>
 
       <div class="col-8 col-right padding-left">
-        <% if !current_user.candidate.share_facebook %>
+        <% if !current_user.try(:candidate).try(:share_facebook) %>
         <p class="text-center information">
           <strong>Atenção</strong>: Para se candidatar a esta vaga você deve, obrigatoriamente, compartilhar o post no facebook. Clique no botão abaixo e pague com um post.<br/><br/>
           <div class="btn-paypost">
@@ -161,7 +161,7 @@
             <% end %>
           </div>
 
-          <% if current_user.candidate.share_facebook %>
+          <% if current_user.try(:candidate).try(:share_facebook) %>
           <div class="vacancy-options">
             <% if current_user.is_candidate && @job.finish_date >= Time.now %>
               <% if @job.candidate_to_job?(current_user) %>
