@@ -94,7 +94,11 @@
               <div class="col-3 col-left">
                 <h3 class="vacancy-caption">Faixa salarial</h3>
                 <div class="vacancy-text">
+                  <% if @job.salary_range %>
                   <p><%= @job.salary_range %></p>
+                  <% else %>
+                  <p>A combinar</p>
+                  <% end %>
                 </div>
               </div>
 
