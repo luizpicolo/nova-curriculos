@@ -16,7 +16,7 @@
           <% if current_user.nil? %>
           <li><%= link_to "NÃO É CADASTRADO?", page_path('cadastrar'), :class => "btn btn-link"%></li>
           <% end %>
-          <li><a href="contato">Contato</a></li>
+          <li><%= link_to "Contato", page_path('contato') %></li>
         </ul>
       </nav>
       <div class="nav-social">

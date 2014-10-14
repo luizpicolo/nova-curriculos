@@ -132,7 +132,7 @@ task :deploy => :environment do
 
       #queue %[echo -n "-----> Init sidekiq: "]
       #invoke :'sidekiq:restart'
-      queue "bundle exec sidekiq -d -C config/sidekiq.yml -e production"
+      #queue "bundle exec sidekiq -d -C config/sidekiq.yml -e production"
     end
   end
 end
